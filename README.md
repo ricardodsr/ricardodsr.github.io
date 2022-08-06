@@ -1,2 +1,1 @@
 # ricardodsr.github.io
-githubPages
