@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: ricardodsr.github.io
+Token: 080766f3ba0c1904783f40e87f4000c72a614c867dbef8be457ac91fb87fc071
