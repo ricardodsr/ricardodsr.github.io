@@ -22,12 +22,13 @@
 					
 					
 					
-				<!--	
+					
 				</header>
 				<footer>
-					<a href="#banner" class="button style2 scrolly-middle">Prossiga</a>
+					<a href="#banner" id="en" class="button style2 scrolly-middle translate">En</a>
+					<a href="#banner" id="pt" class="button style2 scrolly-middle translate">Pt</a>
 				</footer>
-					-->
+					
 			</section>
 
 		<!-- Banner -->
@@ -35,7 +36,7 @@
 				<header>
 					<h2>Ricardodsr</h2>
 				</header>
-				<p>Programador,come espírito criativo,empreendedor
+				<p class="lang" key="intro">Programador,com  espírito criativo,empreendedor
 					com sentido social e capacidade de auto-gestão.
 					Conhecimentos em vários paradigmas de programação
 					bem como em desing e sistemaso perativos.
@@ -43,7 +44,7 @@
 					aprender de forma autodidata,respeiituoso e paciente
 					com capacidade de dialogo e de resolver problemas.</p>
 				<footer>
-					<a href="#first" class="button style2 scrolly">Informações!</a>
+					<a href="#first" class="button style2 scrolly lang" key = "info">Informações!</a>
 				</footer>
 			</section>
 
@@ -52,15 +53,15 @@
 				<a href="#port" class="image fit"><img src="images/Capturar.PNG" alt="" /></a>
 				<div class="inner">
 					<header>
-						<h2>Informações</h2>
+						<h2 class="lang" key="info">Informações</h2>
 					</header>
 					<div>
-					<h6>Sobre mim:</h6>
+					<h6 class="lang" key="about">Sobre mim:</h6>
 					<a href="mailto:ricardo.rouco@digitalwish.pt" target="_blank"> (Email) </a> <br>
 					<a href="https://www.linkedin.com/in/ricardo-rouco-57420b37/" target="_blank"> (Linkedin) </a> <br>	
 					<a href="https://digitalwish.pt/CVRicardo" target="_blank"> (Curriculum Vitae) </a> <br>
-					<h4>Para os meus livos :</h4>
-					<a href="https://linktr.ee/livrosrdsr" target="_blank"> (Livros na Google Store) </a> <br>
+					<h4 class="lang" key="google">Para os meus livos :</h4>
+					<a href="https://linktr.ee/livrosrdsr" target="_blank"> (Livros/Books @ Google Store) </a> <br>
 						
 				</div>
 				</div>
@@ -71,7 +72,7 @@
 				<a href="https://linktr.ee/digitalwish" class="image fit"><img src="images/DW.png" alt="" /></a>
 				<div class="inner">
 					<header>
-					<h6>Fundador e Desenvolvedor na Digitalwish.pt</h6>
+					<h6 class="lang" key="DW" >Fundador e Desenvolvedor @ Digitalwish.pt</h6>
 					<a href="https://digitalwish.pt" target="_blank"> (Digitalwish) </a> <br>
 					<a href="https://www.linkedin.com/company/digitalwish/" target="_blank"> (Linkedin) </a> <br>
 					<a href="https://github.com/digitalwish" target="_blank"> (Github) </a> <br>
@@ -146,6 +147,46 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery.min.js"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+			<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+			
+
+
+
+
+			<!--Translations made by Ricardo Rouco -->
+			<script type="text/javascript">
+				var arrLang = new Array();
+				arrLang['en'] = new Array();
+				arrLang['pt'] = new Array();
+		
+				// English content
+		
+				arrLang['en']['intro'] = 'Programmer, with creative spirit, entrepreneur with social sense and self-management capacity. Knowledge in various programming paradigms as well as in design and operating systems. Willingness to work in a team, as well as to learn in a self-taught, respectful and patient way and with the ability to dialogue and solve problems.';
+				arrLang['en'] ['info'] = 'Information'
+				arrLang['en'] ['about'] = 'About me'
+				arrLang['en'] ['google'] = 'My Publications'
+				arrLang['en'] ['DW'] = 'Founder and Senior Developer @ Digitalwish.pt'
+				// PT content (PT Language) 
+		
+				arrLang['pt']['intro'] = 'Programador,com espírito criativo,empreendedor com sentido social e capacidade de auto-gestão. Conhecimentos em vários paradigmas de programação bem como em desing e sistemaso perativos. Disposição para trabalhoemequipe,assim como de aprender de forma autodidata,respeiituoso e paciente e com capacidade de dialogo e de resolver problemas.';
+				arrLang['pt'] ['info'] = 'Informação'
+				arrLang['pt'] ['about'] = 'Sobre mim'
+				arrLang['pt'] ['google'] = 'As minhas publicações'
+				arrLang['pt'] ['DW'] = 'Fundador e Desenvolvedor @ Digitalwish.pt'
+
+				// Process translation
+				$(function() {
+					$('.translate').click(function() {
+						var lang = $(this).attr('id');
+		
+						$('.lang').each(function(index, item) {
+							$(this).text(arrLang[lang][$(this).attr('key')]);
+						});
+					});
+				});
+			</script>
 
 	</body>
 </html>
