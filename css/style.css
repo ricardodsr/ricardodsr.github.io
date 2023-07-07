@@ -960,3 +960,16 @@ h1, h2, h3, h4, h5, h6 {
   background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0));
   box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6), inset -2px -2px 3px rgba(0, 0, 0, 0.6);
 }
+
+.lines{
+  display: flex;
+  flex-direction: row;
+  /* Below sets up your display method: flex-start|flex-end|space-between|space-around */
+  justify-content: flex-start; 
+  /* Below removes bullets and cleans white-space */
+  list-style: none;
+  padding: 5;
+  /* Bonus: forces no word-wrap */
+  white-space: nowrap;
+  gap: 15px;
+}
