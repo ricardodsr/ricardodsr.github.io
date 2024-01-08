@@ -1,0 +1,4 @@
+This is a Brave Creators publisher verification file.
+
+Domain: ricardodsr.github.io
+Token: 9f572f4fcb4f6cb4a06229c31aaddec752230cc84f361e99622c517d0bb84a20
