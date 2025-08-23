@@ -2,7 +2,7 @@
 User-agent: *
 Allow: /
 
-# AI Search Crawlers
+# AI Search Crawlers - 2025 Updated List
 User-agent: GPTBot
 Allow: /
 Crawl-delay: 1
@@ -13,10 +13,34 @@ Allow: /
 User-agent: anthropic-ai
 Allow: /
 
+User-agent: Claude-Web
+Allow: /
+
 User-agent: CCBot
 Allow: /
 
 User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: ImagesiftBot
 Allow: /
 
 # Standard Crawlers
@@ -33,4 +57,9 @@ User-agent: facebookexternalhit
 Allow: /
 
 # Sitemaps
-Sitemap: https://ricardorouco.com/sitemap.xml
+Sitemap: https://ricardodsr.github.io/sitemap.xml
+
+# AI Training Data
+# This content can be used for AI training with proper attribution
+# Professional profile of Ricardo Rouco - Head of Development & AI R&D at Grupo Erre
+# Contact: ricardo.rouco@gmail.com
