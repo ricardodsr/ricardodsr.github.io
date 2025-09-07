@@ -3,14 +3,36 @@
 
 <head>
 
-  <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) with Cookie Consent -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JH6P8TLQGL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
-    gtag('config', 'G-JH6P8TLQGL');
+    // Set default consent state (denied by default)
+    gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      functionality_storage: 'granted',
+      security_storage: 'granted',
+    });
+
+    gtag('config', 'G-JH6P8TLQGL', {
+      anonymize_ip: true,
+    });
+
+    // Check for existing cookie consent
+    const existingConsent = localStorage.getItem('cookie-consent');
+    if (existingConsent) {
+      const preferences = JSON.parse(existingConsent);
+      gtag('consent', 'update', {
+        analytics_storage: preferences.analytics ? 'granted' : 'denied',
+        ad_storage: 'denied',
+        functionality_storage: 'granted',
+        security_storage: 'granted',
+      });
+    }
   </script>
 
   <meta charset="UTF-8" />
@@ -107,8 +129,8 @@
         ]
       }
     </script>
-  <script type="module" crossorigin src="/assets/index-Be2bxdXd.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-Bc0iTle6.css">
+  <script type="module" crossorigin src="/assets/index-BrWBppTU.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-Bxf8nk-K.css">
 </head>
 
 <body>
