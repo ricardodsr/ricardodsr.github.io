@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 3 - Gemini do Google</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .section h2 {
+            color: #2a5298;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            font-size: 1.8em;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #667eea;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-box::before {
+            content: "💡";
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 2em;
+            opacity: 0.3;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102,126,234,0.4);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            margin-top: 10px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .concept-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .concept-list li {
+            background: #f8f9fa;
+            margin: 10px 0;
+            padding: 20px;
+            border-radius: 10px;
+            position: relative;
+            padding-left: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .concept-list li:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .concept-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 20px;
+            color: #28a745;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            position: relative;
+            animation: pulse 2s infinite;
+        }
+
+        .warning-box::before {
+            content: "⚠️";
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+
+        .interactive-demo {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .demo-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+
+        .demo-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(102,126,234,0.4);
+        }
+
+        .progress-indicator {
+            background: #e9ecef;
+            height: 10px;
+            border-radius: 5px;
+            margin: 30px 0;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            height: 100%;
+            width: 37.5%;
+            border-radius: 5px;
+            animation: progressAnimation 2s ease;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 15px;
+            border-top: 4px solid #667eea;
+        }
+
+        .feature-card h4 {
+            color: #2a5298;
+            margin-bottom: 10px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        .comparison-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.02);
+            }
+        }
+
+        @keyframes progressAnimation {
+            from {
+                width: 0;
+            }
+            to {
+                width: 37.5%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌟 Módulo 3</h1>
+            <p>Gemini do Google - O Gigante Multimodal</p>
+        </div>
+
+        <div class="content">
+            <div class="progress-indicator">
+                <div class="progress-bar"></div>
+            </div>
+
+            <div class="section">
+                <h2>A Evolução: Do Bard ao Gemini</h2>
+
+                <div class="info-box">
+                    <h3>A Jornada do Google em IA Conversacional</h3>
+                    <p>O Google lançou o Bard em 2023 como resposta ao ChatGPT, mas rapidamente evoluiu para Gemini - uma família de modelos multimodais que representa o estado da arte em IA. Gemini não é apenas um chatbot, mas um ecossistema completo de IA integrado aos produtos Google.</p>
+                </div>
+
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">2023</div>
+                        <div class="stat-label">Lançamento do Bard</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">2024</div>
+                        <div class="stat-label">Rebrand para Gemini</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">1M</div>
+                        <div class="stat-label">Tokens de Contexto</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">180+</div>
+                        <div class="stat-label">Países Disponível</div>
+                    </div>
+                </div>
+
+                <h3>Por que Gemini?</h3>
+                <ul class="concept-list">
+                    <li><strong>Multimodal Nativo:</strong> Projetado desde o início para processar texto, imagem, áudio, vídeo e código</li>
+                    <li><strong>Integração Google:</strong> Acesso direto a Gmail, Docs, Drive, YouTube, Maps e Search</li>
+                    <li><strong>Contexto Massivo:</strong> Até 1 milhão de tokens - o maior contexto disponível comercialmente</li>
+                    <li><strong>Eficiência:</strong> Modelos otimizados para diferentes dispositivos, do servidor ao smartphone</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>A Família Gemini</h2>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>🚀 Gemini Ultra</h4>
+                        <p><strong>O Mais Poderoso</strong></p>
+                        <ul>
+                            <li>Tarefas altamente complexas</li>
+                            <li>Raciocínio multimodal avançado</li>
+                            <li>Pesquisa científica</li>
+                            <li>Análise de vídeo longo</li>
+                            <li>1M tokens de contexto</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>⚡ Gemini Pro</h4>
+                        <p><strong>O Equilibrado</strong></p>
+                        <ul>
+                            <li>Melhor custo-benefício</li>
+                            <li>Tarefas do dia-a-dia</li>
+                            <li>Integração com Google Workspace</li>
+                            <li>Resposta rápida</li>
+                            <li>128K tokens de contexto</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>📱 Gemini Nano</h4>
+                        <p><strong>On-Device</strong></p>
+                        <ul>
+                            <li>Roda em smartphones</li>
+                            <li>Sem latência de rede</li>
+                            <li>Privacidade total</li>
+                            <li>Pixel 8 Pro e superiores</li>
+                            <li>Eficiência energética</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <h3>Gemini Advanced</h3>
+                    <p>Assinatura premium que dá acesso ao Gemini Ultra 1.0, o modelo mais poderoso do Google. Inclui 2TB de armazenamento no Google One e acesso prioritário a novos recursos.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Capacidades Multimodais</h2>
+
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <h3>📝 Texto</h3>
+                        <p>Geração, análise, tradução, resumo em 40+ idiomas</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>🖼️ Imagem</h3>
+                        <p>Análise, descrição, OCR, geração com Imagen 2</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>🎥 Vídeo</h3>
+                        <p>Compreensão de vídeos longos, análise frame a frame</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>🎵 Áudio</h3>
+                        <p>Transcrição, análise de música, compreensão de fala</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>💻 Código</h3>
+                        <p>Geração, debug, explicação em 20+ linguagens</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>📊 Dados</h3>
+                        <p>Análise de tabelas, gráficos, visualizações</p>
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <strong>Diferencial Único:</strong> Gemini pode analisar vídeos de até 1 hora diretamente, algo que nenhum outro modelo comercial consegue fazer atualmente.
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Integração com Ecossistema Google</h2>
+
+                <div class="info-box">
+                    <h3>Extensions - Superpoderes do Gemini</h3>
+                    <p>Gemini pode acessar e interagir diretamente com seus serviços Google, tornando-se um assistente verdadeiramente integrado ao seu workflow.</p>
+                </div>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>📧 Gmail</h4>
+                        <ul>
+                            <li>Resumir emails importantes</li>
+                            <li>Escrever respostas</li>
+                            <li>Buscar informações específicas</li>
+                            <li>Organizar inbox</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>📄 Google Docs</h4>
+                        <ul>
+                            <li>Criar documentos</li>
+                            <li>Editar e formatar</li>
+                            <li>Resumir documentos longos</li>
+                            <li>Gerar conteúdo</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>💾 Google Drive</h4>
+                        <ul>
+                            <li>Buscar arquivos</li>
+                            <li>Analisar PDFs</li>
+                            <li>Organizar pastas</li>
+                            <li>Resumir conteúdo</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🎬 YouTube</h4>
+                        <ul>
+                            <li>Resumir vídeos</li>
+                            <li>Extrair informações</li>
+                            <li>Encontrar momentos específicos</li>
+                            <li>Transcrever conteúdo</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🗺️ Google Maps</h4>
+                        <ul>
+                            <li>Planejar rotas</li>
+                            <li>Encontrar lugares</li>
+                            <li>Informações de trânsito</li>
+                            <li>Sugestões locais</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🔍 Google Search</h4>
+                        <ul>
+                            <li>Pesquisas em tempo real</li>
+                            <li>Verificação de fatos</li>
+                            <li>Informações atualizadas</li>
+                            <li>Comparações</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Google AI Studio</h2>
+
+                <div class="info-box">
+                    <h3>Playground para Desenvolvedores</h3>
+                    <p>Google AI Studio é a plataforma de desenvolvimento que permite criar aplicações com Gemini API. Interface visual intuitiva para testar prompts, ajustar parâmetros e gerar código.</p>
+                </div>
+
+                <h3>Recursos do AI Studio</h3>
+                <ul class="concept-list">
+                    <li><strong>Prompt Gallery:</strong> Biblioteca de prompts testados e otimizados</li>
+                    <li><strong>System Instructions:</strong> Configure comportamento personalizado</li>
+                    <li><strong>Function Calling:</strong> Integre APIs externas</li>
+                    <li><strong>Grounding:</strong> Conecte a bases de conhecimento</li>
+                    <li><strong>Fine-tuning:</strong> Ajuste fino para casos específicos</li>
+                </ul>
+
+                <div class="interactive-demo">
+                    <h3>Exemplos de Uso</h3>
+                    <button class="demo-button" onclick="alert('Exemplo: Análise de Vídeo\n\nPrompt: Analise este vídeo de apresentação:\n- Identifique os pontos principais\n- Transcreva falas importantes\n- Sugira melhorias na apresentação\n- Crie um resumo executivo\n\nGemini processará o vídeo completo!')">Demo: Vídeo</button>
+                    <button class="demo-button" onclick="alert('Exemplo: Google Workspace\n\nPrompt: \n- Verifique meus emails de hoje\n- Resuma os mais importantes\n- Crie respostas para os urgentes\n- Agende reuniões necessárias\n\nGemini acessará Gmail e Calendar!')">Demo: Workspace</button>
+                    <button class="demo-button" onclick="alert('Exemplo: Pesquisa Avançada\n\nPrompt: Pesquise sobre [tópico]:\n- Informações mais recentes\n- Compare diferentes fontes\n- Verifique fatos\n- Crie relatório estruturado\n\nGemini usará Google Search em tempo real!')">Demo: Search</button>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Gemini Code Assist</h2>
+
+                <div class="info-box">
+                    <h3>IA para Desenvolvimento</h3>
+                    <p>Gemini Code Assist (anteriormente Duet AI) é a solução enterprise do Google para desenvolvimento assistido por IA, competindo diretamente com GitHub Copilot.</p>
+                </div>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>💻 Recursos</h4>
+                        <ul>
+                            <li>Autocompletar código</li>
+                            <li>Geração de funções</li>
+                            <li>Explicação de código</li>
+                            <li>Refatoração inteligente</li>
+                            <li>Detecção de bugs</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🔧 Integrações</h4>
+                        <ul>
+                            <li>VS Code</li>
+                            <li>IntelliJ IDEA</li>
+                            <li>Cloud Shell Editor</li>
+                            <li>Cloud Workstations</li>
+                            <li>20+ IDEs suportados</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Comparação com Claude e ChatGPT</h2>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Característica</th>
+                            <th>Gemini Ultra</th>
+                            <th>Claude 3.5</th>
+                            <th>GPT-4</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Contexto</strong></td>
+                            <td>1M tokens</td>
+                            <td>200K tokens</td>
+                            <td>128K tokens</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Multimodal</strong></td>
+                            <td>Nativo (texto, imagem, vídeo, áudio)</td>
+                            <td>Texto e imagem</td>
+                            <td>Texto e imagem</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vídeo</strong></td>
+                            <td>Até 1 hora</td>
+                            <td>Não suporta</td>
+                            <td>Não suporta</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Integração</strong></td>
+                            <td>Ecossistema Google completo</td>
+                            <td>Projects e Artifacts</td>
+                            <td>Plugins e GPTs</td>
+                        </tr>
+                        <tr>
+                            <td><strong>On-device</strong></td>
+                            <td>Gemini Nano</td>
+                            <td>Não</td>
+                            <td>Não</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Preço</strong></td>
+                            <td>$20/mês (Advanced)</td>
+                            <td>$20/mês (Pro)</td>
+                            <td>$20/mês (Plus)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>Casos de Uso Empresariais</h2>
+
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <h3>📊 Análise de Dados</h3>
+                        <p>BigQuery + Gemini para insights automáticos</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>🏥 Saúde</h3>
+                        <p>Med-PaLM 2 para diagnósticos e pesquisa médica</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>🏭 Manufatura</h3>
+                        <p>Controle de qualidade visual com Gemini Vision</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>📚 Educação</h3>
+                        <p>Tutores personalizados e avaliação automática</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>💰 Finanças</h3>
+                        <p>Análise de documentos e detecção de fraudes</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>🛒 Varejo</h3>
+                        <p>Personalização e assistentes de compras</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Próximos Passos</h2>
+
+                <div class="info-box">
+                    <h3>O que você aprendeu</h3>
+                    <ul>
+                        <li>✅ Evolução do Bard para Gemini</li>
+                        <li>✅ Família de modelos (Ultra, Pro, Nano)</li>
+                        <li>✅ Capacidades multimodais únicas</li>
+                        <li>✅ Integração com ecossistema Google</li>
+                        <li>✅ Google AI Studio e desenvolvimento</li>
+                        <li>✅ Gemini Code Assist para programadores</li>
+                        <li>✅ Comparação com outros LLMs</li>
+                    </ul>
+                </div>
+
+                <div class="interactive-demo">
+                    <h3>Continue sua Jornada!</h3>
+                    <p>Explore o mundo da criação visual com IA</p>
+                    <button class="demo-button" onclick="window.location.href='modulo4_leonardo_ai.html'">Próximo: Leonardo AI →</button>
+                    <button class="demo-button" onclick="window.location.href='modulo2_claude_anthropic.html'">← Voltar ao Módulo 2</button>
+                    <button class="demo-button" onclick="window.location.href='index.html'">Página Inicial</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

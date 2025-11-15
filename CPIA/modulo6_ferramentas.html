@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 6 - Ferramentas Complementares de IA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .section h2 {
+            color: #f5576c;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f093fb;
+            font-size: 1.8em;
+        }
+
+        .section h3 {
+            color: #555;
+            margin: 20px 0 15px 0;
+            font-size: 1.3em;
+        }
+
+        .tool-card {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .tool-card h4 {
+            color: #d35400;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .feature-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .feature-list li::before {
+            content: "✨";
+            position: absolute;
+            left: 0;
+        }
+
+        .use-case {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #f5576c;
+        }
+
+        .use-case h5 {
+            color: #f5576c;
+            margin-bottom: 10px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            overflow-x: auto;
+            display: block;
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .comparison-table td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .comparison-table tr:hover {
+            background: #f5f5f5;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .tip-box h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .workflow-section {
+            background: #fff;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+
+        .workflow-section h4 {
+            color: #f5576c;
+            margin-bottom: 15px;
+        }
+
+        .workflow-steps {
+            counter-reset: step;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .workflow-steps li {
+            counter-increment: step;
+            padding: 15px 0;
+            padding-left: 50px;
+            position: relative;
+            border-bottom: 1px solid #eee;
+        }
+
+        .workflow-steps li::before {
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 15px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .btn-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: transform 0.3s ease;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🛠️ Módulo 6: Ferramentas Complementares de IA</h1>
+            <p>Ecossistema Completo de Ferramentas para Maximizar Produtividade</p>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2>Introdução ao Ecossistema de Ferramentas IA</h2>
+                <p>Neste módulo, exploraremos ferramentas complementares que ampliam as capacidades dos assistentes de IA principais. Cada ferramenta foi selecionada para resolver problemas específicos e integrar-se perfeitamente ao seu workflow.</p>
+            </div>
+
+            <div class="section">
+                <h2>1. Banana - Deploy Rápido de Modelos ML</h2>
+
+                <div class="tool-card">
+                    <h4>🍌 O que é o Banana?</h4>
+                    <p>Banana é uma plataforma de infraestrutura serverless otimizada para deploy de modelos de Machine Learning. Permite escalar modelos de IA de forma eficiente com latência ultra-baixa.</p>
+
+                    <h5>Características Principais:</h5>
+                    <ul class="feature-list">
+                        <li>Deploy em menos de 5 minutos</li>
+                        <li>Auto-scaling baseado em demanda</li>
+                        <li>Cold start otimizado (< 1 segundo)</li>
+                        <li>Suporte para PyTorch, TensorFlow, Hugging Face</li>
+                        <li>Preços pay-per-use competitivos</li>
+                        <li>GPU dedicadas para inferência</li>
+                    </ul>
+                </div>
+
+                <div class="workflow-section">
+                    <h4>Workflow de Deploy no Banana</h4>
+                    <ol class="workflow-steps">
+                        <li>Preparar o modelo (formato compatível)</li>
+                        <li>Criar arquivo de configuração banana.yaml</li>
+                        <li>Fazer upload via CLI ou interface web</li>
+                        <li>Testar endpoint gerado automaticamente</li>
+                        <li>Integrar API no seu aplicativo</li>
+                    </ol>
+                </div>
+
+                <div class="use-case">
+                    <h5>📌 Caso de Uso Prático</h5>
+                    <p><strong>Cenário:</strong> Startup de e-commerce precisa de recomendações personalizadas em tempo real.</p>
+                    <p><strong>Solução:</strong> Deploy de modelo de recomendação no Banana com auto-scaling para Black Friday, economizando 70% em infraestrutura comparado a soluções tradicionais.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>2. NotebookLM - Assistente de Pesquisa do Google</h2>
+
+                <div class="tool-card">
+                    <h4>📔 O que é o NotebookLM?</h4>
+                    <p>NotebookLM é um assistente de pesquisa experimental do Google que transforma documentos em uma base de conhecimento interativa, permitindo análise profunda e síntese de informações.</p>
+
+                    <h5>Funcionalidades Revolucionárias:</h5>
+                    <ul class="feature-list">
+                        <li>Upload de múltiplos documentos (PDF, Google Docs, texto)</li>
+                        <li>Geração automática de resumos e insights</li>
+                        <li>Criação de podcasts de áudio sobre o conteúdo</li>
+                        <li>Q&A contextual com citações precisas</li>
+                        <li>Notas colaborativas com IA</li>
+                        <li>Exportação em múltiplos formatos</li>
+                    </ul>
+                </div>
+
+                <div class="tip-box">
+                    <h4>💡 Dica Pro</h4>
+                    <p>Use o NotebookLM para preparar apresentações: faça upload de artigos relacionados e peça para gerar um roteiro de apresentação com pontos-chave e transições.</p>
+                </div>
+
+                <div class="use-case">
+                    <h5>📌 Caso de Uso Prático</h5>
+                    <p><strong>Cenário:</strong> Pesquisador acadêmico analisando 50 papers sobre IA.</p>
+                    <p><strong>Solução:</strong> Upload dos papers no NotebookLM, geração de síntese temática, identificação de gaps na literatura e criação de podcast resumo para compartilhar com a equipe.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>3. Perplexity AI - Motor de Busca com IA</h2>
+
+                <div class="tool-card">
+                    <h4>🔍 O que é o Perplexity AI?</h4>
+                    <p>Perplexity é um motor de busca conversacional que combina capacidades de LLM com acesso em tempo real à internet, fornecendo respostas precisas com fontes verificadas.</p>
+
+                    <h5>Diferenciais Competitivos:</h5>
+                    <ul class="feature-list">
+                        <li>Respostas com citações e fontes verificáveis</li>
+                        <li>Modo Focus para pesquisa acadêmica</li>
+                        <li>Copilot interativo para pesquisas complexas</li>
+                        <li>Threads de conversação com contexto</li>
+                        <li>Integração com Wolfram Alpha para cálculos</li>
+                        <li>API para desenvolvedores</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Característica</th>
+                                <th>Perplexity</th>
+                                <th>Google</th>
+                                <th>ChatGPT</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Informação em tempo real</td>
+                                <td>✅ Sempre</td>
+                                <td>✅ Sempre</td>
+                                <td>❌ Limitado</td>
+                            </tr>
+                            <tr>
+                                <td>Citação de fontes</td>
+                                <td>✅ Automática</td>
+                                <td>⚠️ Manual</td>
+                                <td>❌ Sem fontes</td>
+                            </tr>
+                            <tr>
+                                <td>Interface conversacional</td>
+                                <td>✅ Nativa</td>
+                                <td>⚠️ SGE Beta</td>
+                                <td>✅ Nativa</td>
+                            </tr>
+                            <tr>
+                                <td>Personalização</td>
+                                <td>✅ Profiles</td>
+                                <td>✅ Histórico</td>
+                                <td>✅ Custom GPTs</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>4. MidJourney - Arte Generativa Premium</h2>
+
+                <div class="tool-card">
+                    <h4>🎨 O que é o MidJourney?</h4>
+                    <p>MidJourney é um dos líderes em geração de arte com IA, conhecido pela qualidade artística excepcional e estética única das imagens geradas.</p>
+
+                    <h5>Capacidades Artísticas:</h5>
+                    <ul class="feature-list">
+                        <li>Estilos artísticos diversos e únicos</li>
+                        <li>Upscaling até 4K com detalhes preservados</li>
+                        <li>Variações e remixes infinitos</li>
+                        <li>Modo Niji para anime/manga</li>
+                        <li>Pan e Zoom para expansão de imagens</li>
+                        <li>Blend para misturar múltiplas imagens</li>
+                    </ul>
+                </div>
+
+                <div class="workflow-section">
+                    <h4>Prompt Engineering para MidJourney</h4>
+                    <ol class="workflow-steps">
+                        <li><strong>Estrutura básica:</strong> [Sujeito] + [Estilo] + [Iluminação] + [Cores] + [Mood]</li>
+                        <li><strong>Parâmetros essenciais:</strong> --ar (aspect ratio), --q (qualidade), --s (estilização)</li>
+                        <li><strong>Pesos negativos:</strong> --no [elemento] para excluir</li>
+                        <li><strong>Referências:</strong> Usar links de imagem como inspiração</li>
+                        <li><strong>Iteração:</strong> V1, V2, V3 para variações progressivas</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>5. ElevenLabs - Síntese de Voz Ultra-Realista</h2>
+
+                <div class="tool-card">
+                    <h4>🎤 O que é o ElevenLabs?</h4>
+                    <p>ElevenLabs é a plataforma líder em síntese de voz com IA, oferecendo vozes indistinguíveis de humanos reais com controle emocional preciso.</p>
+
+                    <h5>Tecnologias Disponíveis:</h5>
+                    <ul class="feature-list">
+                        <li>Clonagem de voz com 1 minuto de áudio</li>
+                        <li>29 idiomas com sotaques nativos</li>
+                        <li>Speech-to-Speech para dublagem</li>
+                        <li>Controle de emoção e entonação</li>
+                        <li>API para integração em tempo real</li>
+                        <li>Biblioteca de vozes profissionais</li>
+                    </ul>
+                </div>
+
+                <div class="use-case">
+                    <h5>📌 Caso de Uso Prático</h5>
+                    <p><strong>Cenário:</strong> Criador de conteúdo educacional em múltiplos idiomas.</p>
+                    <p><strong>Solução:</strong> Gravação em português, uso do ElevenLabs para dublar automaticamente em inglês, espanhol e mandarim mantendo a voz original e emoções.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>6. Outras Ferramentas Essenciais</h2>
+
+                <div class="tool-card">
+                    <h4>🚀 Runway ML</h4>
+                    <p><strong>Foco:</strong> Edição de vídeo com IA</p>
+                    <ul class="feature-list">
+                        <li>Gen-2: Texto para vídeo</li>
+                        <li>Remoção de fundo em vídeo</li>
+                        <li>Motion tracking avançado</li>
+                        <li>Inpainting de vídeo</li>
+                    </ul>
+                </div>
+
+                <div class="tool-card">
+                    <h4>🎵 Suno AI</h4>
+                    <p><strong>Foco:</strong> Criação musical com IA</p>
+                    <ul class="feature-list">
+                        <li>Composição completa com letra</li>
+                        <li>Múltiplos gêneros musicais</li>
+                        <li>Customização de instrumentos</li>
+                        <li>Export em alta qualidade</li>
+                    </ul>
+                </div>
+
+                <div class="tool-card">
+                    <h4>📊 Julius AI</h4>
+                    <p><strong>Foco:</strong> Análise de dados conversacional</p>
+                    <ul class="feature-list">
+                        <li>Upload de CSV/Excel</li>
+                        <li>Visualizações automáticas</li>
+                        <li>Análise estatística avançada</li>
+                        <li>Geração de relatórios</li>
+                    </ul>
+                </div>
+
+                <div class="tool-card">
+                    <h4>🔧 Cursor</h4>
+                    <p><strong>Foco:</strong> IDE com IA integrada</p>
+                    <ul class="feature-list">
+                        <li>Autocomplete contextual</li>
+                        <li>Chat com codebase</li>
+                        <li>Refactoring inteligente</li>
+                        <li>Debug assistido por IA</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Integração de Ferramentas - Workflow Completo</h2>
+
+                <div class="workflow-section">
+                    <h4>Exemplo: Criação de Curso Online</h4>
+                    <ol class="workflow-steps">
+                        <li><strong>Pesquisa:</strong> Perplexity AI para tendências e NotebookLM para sintetizar conteúdo</li>
+                        <li><strong>Roteiro:</strong> Claude para estruturar o curso e criar scripts</li>
+                        <li><strong>Visuais:</strong> MidJourney para capas e Leonardo AI para infográficos</li>
+                        <li><strong>Narração:</strong> ElevenLabs para voz profissional em múltiplos idiomas</li>
+                        <li><strong>Vídeo:</strong> Veo 3 para intros e Runway ML para edição</li>
+                        <li><strong>Música:</strong> Suno AI para trilha sonora original</li>
+                        <li><strong>Deploy:</strong> Banana para hospedar modelos de Q&A personalizados</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Melhores Práticas e Recomendações</h2>
+
+                <div class="tip-box">
+                    <h4>✅ Escolhendo a Ferramenta Certa</h4>
+                    <ul>
+                        <li><strong>Pesquisa:</strong> Perplexity para tempo real, NotebookLM para análise profunda</li>
+                        <li><strong>Imagens:</strong> MidJourney para arte, Leonardo AI para precisão técnica</li>
+                        <li><strong>Vídeo:</strong> Veo 3 para criação, Runway para edição</li>
+                        <li><strong>Áudio:</strong> ElevenLabs para voz, Suno para música</li>
+                        <li><strong>Deploy:</strong> Banana para modelos custom, APIs diretas para soluções prontas</li>
+                    </ul>
+                </div>
+
+                <div class="tip-box">
+                    <h4>⚠️ Considerações Importantes</h4>
+                    <ul>
+                        <li>Verifique sempre os termos de uso comercial</li>
+                        <li>Considere custos de escala antes de escolher</li>
+                        <li>Teste múltiplas ferramentas antes de comprometer</li>
+                        <li>Mantenha backups de prompts e configurações</li>
+                        <li>Documente workflows para replicação</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Exercícios Práticos</h2>
+
+                <div class="workflow-section">
+                    <h4>🎯 Projeto Integrado</h4>
+                    <p><strong>Desafio:</strong> Criar um assistente virtual para uma loja online</p>
+                    <ol class="workflow-steps">
+                        <li>Use NotebookLM para analisar FAQs e reviews de produtos</li>
+                        <li>Configure um chatbot com Claude via API</li>
+                        <li>Gere imagens de produtos com Leonardo AI</li>
+                        <li>Crie vídeos de demonstração com Veo 3</li>
+                        <li>Adicione narração com ElevenLabs</li>
+                        <li>Deploy o modelo personalizado com Banana</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="btn-container">
+                <a href="modulo7_aplicacoes.html" class="btn">Próximo Módulo →</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

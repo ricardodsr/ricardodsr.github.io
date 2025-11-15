@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 2 - Claude da Anthropic: Visão Aprofundada</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .section h2 {
+            color: #2a5298;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            font-size: 1.8em;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #667eea;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-box::before {
+            content: "💡";
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 2em;
+            opacity: 0.3;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102,126,234,0.4);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            margin-top: 10px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .concept-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .concept-list li {
+            background: #f8f9fa;
+            margin: 10px 0;
+            padding: 20px;
+            border-radius: 10px;
+            position: relative;
+            padding-left: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .concept-list li:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .concept-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 20px;
+            color: #28a745;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            position: relative;
+            animation: pulse 2s infinite;
+        }
+
+        .warning-box::before {
+            content: "⚠️";
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+
+        .interactive-demo {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .demo-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+
+        .demo-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(102,126,234,0.4);
+        }
+
+        .progress-indicator {
+            background: #e9ecef;
+            height: 10px;
+            border-radius: 5px;
+            margin: 30px 0;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            height: 100%;
+            width: 25%;
+            border-radius: 5px;
+            animation: progressAnimation 2s ease;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        .comparison-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .comparison-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 15px;
+            border-top: 4px solid #667eea;
+        }
+
+        .feature-card h4 {
+            color: #2a5298;
+            margin-bottom: 10px;
+        }
+
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.02);
+            }
+        }
+
+        @keyframes progressAnimation {
+            from {
+                width: 0;
+            }
+            to {
+                width: 25%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 Módulo 2</h1>
+            <p>Claude da Anthropic - Visão Aprofundada</p>
+        </div>
+
+        <div class="content">
+            <div class="progress-indicator">
+                <div class="progress-bar"></div>
+            </div>
+
+            <div class="section">
+                <h2>Anthropic: A Empresa por Trás do Claude</h2>
+
+                <div class="info-box">
+                    <h3>História e Missão</h3>
+                    <p>Fundada em 2021 por ex-membros da OpenAI, incluindo Dario Amodei e Daniela Amodei, a Anthropic é uma empresa de pesquisa em IA focada em segurança. Sua missão é desenvolver sistemas de IA que sejam úteis, inofensivos e honestos - os três H's: Helpful, Harmless, and Honest.</p>
+                </div>
+
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">2021</div>
+                        <div class="stat-label">Ano de Fundação</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">$7.3B</div>
+                        <div class="stat-label">Investimento Total</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">200K</div>
+                        <div class="stat-label">Tokens de Contexto</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">#2</div>
+                        <div class="stat-label">Posição Global em LLMs</div>
+                    </div>
+                </div>
+
+                <h3>Constitutional AI - A Abordagem Única</h3>
+                <ul class="concept-list">
+                    <li><strong>Princípios Constitucionais:</strong> Claude é treinado com um conjunto de princípios éticos que guiam suas respostas, tornando-o mais seguro e confiável</li>
+                    <li><strong>Auto-Correção:</strong> O modelo aprende a identificar e corrigir suas próprias respostas potencialmente problemáticas</li>
+                    <li><strong>Transparência:</strong> Claude explica seu raciocínio e admite limitações quando apropriado</li>
+                    <li><strong>Alinhamento Humano:</strong> Foco em ser verdadeiramente útil mantendo valores humanos fundamentais</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>A Família Claude 3</h2>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>🏆 Claude 3 Opus</h4>
+                        <p><strong>O Mais Poderoso</strong></p>
+                        <ul>
+                            <li>Melhor para tarefas complexas</li>
+                            <li>Análise profunda</li>
+                            <li>Pesquisa avançada</li>
+                            <li>Código complexo</li>
+                            <li>200K tokens de contexto</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>⚡ Claude 3.5 Sonnet</h4>
+                        <p><strong>O Mais Equilibrado</strong></p>
+                        <ul>
+                            <li>2x mais rápido que Claude 3 Opus</li>
+                            <li>Melhor custo-benefício</li>
+                            <li>Ideal para maioria das tarefas</li>
+                            <li>Excelente em código</li>
+                            <li>200K tokens de contexto</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🚀 Claude 3 Haiku</h4>
+                        <p><strong>O Mais Rápido</strong></p>
+                        <ul>
+                            <li>Respostas instantâneas</li>
+                            <li>Tarefas simples</li>
+                            <li>Alto volume</li>
+                            <li>Custo mínimo</li>
+                            <li>200K tokens de contexto</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <h3>Qual Modelo Escolher?</h3>
+                    <p><strong>Claude 3 Opus:</strong> Para dissertações, análises complexas, código avançado</p>
+                    <p><strong>Claude 3.5 Sonnet:</strong> Para uso diário, escrita criativa, programação geral</p>
+                    <p><strong>Claude 3 Haiku:</strong> Para chatbots, classificação, tarefas simples em massa</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Capacidades Principais do Claude</h2>
+
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <h3>💻 Código</h3>
+                        <p>Python, JavaScript, Java, C++, e mais de 20 linguagens</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>📝 Escrita</h3>
+                        <p>Artigos, histórias, scripts, relatórios profissionais</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>🔬 Análise</h3>
+                        <p>Dados, documentos, pesquisa, problemas complexos</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>🎨 Criatividade</h3>
+                        <p>Brainstorming, ideação, soluções inovadoras</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>📊 Matemática</h3>
+                        <p>Cálculos, estatística, álgebra, análise numérica</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>👁️ Visão</h3>
+                        <p>Análise de imagens, diagramas, gráficos, OCR</p>
+                    </div>
+                </div>
+
+                <h3>Funcionalidades Avançadas</h3>
+                <ul class="concept-list">
+                    <li><strong>Contexto Extenso:</strong> Capacidade de processar até 200.000 tokens (aproximadamente 150.000 palavras ou 500 páginas)</li>
+                    <li><strong>Visão Computacional:</strong> Análise de imagens, gráficos, diagramas, screenshots e documentos visuais</li>
+                    <li><strong>Multilíngue:</strong> Fluência em português, inglês, espanhol, francês, alemão, italiano, japonês, coreano e mais</li>
+                    <li><strong>Raciocínio Complexo:</strong> Resolução de problemas multi-etapas, análise lógica, pensamento crítico</li>
+                    <li><strong>Memória de Sessão:</strong> Mantém contexto durante toda a conversa, lembrando de detalhes anteriores</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Claude Artifacts - Criação Interativa</h2>
+
+                <div class="info-box">
+                    <h3>O que são Artifacts?</h3>
+                    <p>Artifacts são conteúdos substanciais e independentes que Claude cria durante as conversas. Eles aparecem numa janela separada, permitindo visualização e edição em tempo real de código, documentos, diagramas e muito mais.</p>
+                </div>
+
+                <h3>Tipos de Artifacts</h3>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>📄 Documentos</h4>
+                        <p>Markdown, relatórios, propostas, artigos formatados</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>💻 Código</h4>
+                        <p>Scripts, aplicações, HTML/CSS/JS interativo, snippets</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🎨 SVG</h4>
+                        <p>Diagramas, ilustrações, gráficos vetoriais, fluxogramas</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🌐 Websites</h4>
+                        <p>Páginas HTML completas, componentes React, interfaces</p>
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <strong>Dica Pro:</strong> Use Artifacts para criar conteúdo que você quer iterar e refinar. Claude pode atualizar o mesmo Artifact múltiplas vezes baseado no seu feedback!
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Claude Projects - Gestão de Conhecimento</h2>
+
+                <div class="info-box">
+                    <h3>Organize seu Trabalho com Projects</h3>
+                    <p>Projects permitem criar espaços de trabalho dedicados com conhecimento personalizado, instruções customizadas e contexto persistente para diferentes projetos ou áreas de trabalho.</p>
+                </div>
+
+                <h3>Recursos dos Projects</h3>
+                <ul class="concept-list">
+                    <li><strong>Knowledge Base:</strong> Adicione até 200K tokens de documentos, código, dados de referência</li>
+                    <li><strong>Custom Instructions:</strong> Defina comportamentos, estilos e preferências específicas do projeto</li>
+                    <li><strong>Conversas Organizadas:</strong> Todas as conversas do projeto ficam agrupadas e acessíveis</li>
+                    <li><strong>Colaboração:</strong> Compartilhe projects com equipa (recurso em desenvolvimento)</li>
+                </ul>
+
+                <div class="interactive-demo">
+                    <h3>Exemplos de Projects</h3>
+                    <button class="demo-button" onclick="alert('Project: Desenvolvimento Web\n\n• Knowledge: Framework docs, código base\n• Instructions: Use React, TypeScript, Tailwind\n• Objetivo: Criar aplicações web modernas')">Dev Project</button>
+                    <button class="demo-button" onclick="alert('Project: Escrita Criativa\n\n• Knowledge: Estilo guide, personagens, worldbuilding\n• Instructions: Tom narrativo, vocabulário específico\n• Objetivo: Escrever romance de ficção científica')">Writing Project</button>
+                    <button class="demo-button" onclick="alert('Project: Análise de Dados\n\n• Knowledge: Datasets, metodologias, relatórios anteriores\n• Instructions: Use pandas, visualizações com matplotlib\n• Objetivo: Insights de dados empresariais')">Data Project</button>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Comparação com Outros LLMs</h2>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Característica</th>
+                            <th>Claude 3.5</th>
+                            <th>GPT-4</th>
+                            <th>Gemini Ultra</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Contexto Máximo</strong></td>
+                            <td>200K tokens</td>
+                            <td>128K tokens</td>
+                            <td>1M tokens</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Velocidade</strong></td>
+                            <td>Muito Rápida</td>
+                            <td>Moderada</td>
+                            <td>Rápida</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Programação</strong></td>
+                            <td>Excelente</td>
+                            <td>Excelente</td>
+                            <td>Muito Boa</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Criatividade</strong></td>
+                            <td>Excelente</td>
+                            <td>Muito Boa</td>
+                            <td>Boa</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Análise de Imagem</strong></td>
+                            <td>Sim</td>
+                            <td>Sim</td>
+                            <td>Sim</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Artifacts</strong></td>
+                            <td>Sim</td>
+                            <td>Não</td>
+                            <td>Não</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Projects</strong></td>
+                            <td>Sim</td>
+                            <td>GPTs Custom</td>
+                            <td>Não</td>
+                        </tr>
+                        <tr>
+                            <td><strong>API Disponível</strong></td>
+                            <td>Sim</td>
+                            <td>Sim</td>
+                            <td>Sim</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Preço (1M tokens)</strong></td>
+                            <td>$3-15</td>
+                            <td>$10-30</td>
+                            <td>$7-35</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box">
+                    <h3>Pontos Fortes Únicos do Claude</h3>
+                    <ul>
+                        <li>✨ Constitutional AI para maior segurança e alinhamento</li>
+                        <li>✨ Artifacts para criação e edição visual em tempo real</li>
+                        <li>✨ Melhor em manter personalidade consistente</li>
+                        <li>✨ Excelente em tarefas criativas e acadêmicas</li>
+                        <li>✨ Mais cauteloso e ético nas respostas</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>API e Integrações</h2>
+
+                <div class="info-box">
+                    <h3>Acessando Claude via API</h3>
+                    <p>A API da Anthropic permite integrar Claude em aplicações, websites, e workflows automatizados. Disponível em Python, JavaScript/Node.js, e via REST API.</p>
+                </div>
+
+                <h3>Exemplo de Código - Python</h3>
+                <div class="code-block">
+                    <pre>import anthropic
+
+client = anthropic.Anthropic(api_key="sua-chave-api")
+
+message = client.messages.create(
+    model="claude-3-5-sonnet-20241022",
+    max_tokens=1000,
+    messages=[
+        {"role": "user", "content": "Olá Claude! Como posso usar IA no meu negócio?"}
+    ]
+)
+
+print(message.content)</pre>
+                </div>
+
+                <h3>Integrações Disponíveis</h3>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>🔧 Ferramentas Dev</h4>
+                        <p>Cursor, Continue, Codeium, GitHub Copilot alternative</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>📱 Aplicações</h4>
+                        <p>Slack, Discord, Telegram bots, WhatsApp Business</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🏢 Empresariais</h4>
+                        <p>Salesforce, Zapier, Make (Integromat), n8n</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🌐 Plataformas</h4>
+                        <p>Amazon Bedrock, Google Vertex AI, Perplexity</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Casos de Uso Práticos</h2>
+
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <h3>📚 Educação</h3>
+                        <ul style="text-align: left; font-size: 0.9em;">
+                            <li>Tutor personalizado</li>
+                            <li>Criação de exercícios</li>
+                            <li>Explicações adaptativas</li>
+                        </ul>
+                    </div>
+                    <div class="stat-card">
+                        <h3>💼 Negócios</h3>
+                        <ul style="text-align: left; font-size: 0.9em;">
+                            <li>Análise de documentos</li>
+                            <li>Geração de relatórios</li>
+                            <li>Suporte ao cliente</li>
+                        </ul>
+                    </div>
+                    <div class="stat-card">
+                        <h3>👨‍💻 Programação</h3>
+                        <ul style="text-align: left; font-size: 0.9em;">
+                            <li>Debug de código</li>
+                            <li>Refactoring</li>
+                            <li>Documentação</li>
+                        </ul>
+                    </div>
+                    <div class="stat-card">
+                        <h3>✍️ Conteúdo</h3>
+                        <ul style="text-align: left; font-size: 0.9em;">
+                            <li>Blog posts</li>
+                            <li>Scripts de vídeo</li>
+                            <li>Copy publicitário</li>
+                        </ul>
+                    </div>
+                    <div class="stat-card">
+                        <h3>🔬 Pesquisa</h3>
+                        <ul style="text-align: left; font-size: 0.9em;">
+                            <li>Revisão literatura</li>
+                            <li>Análise de dados</li>
+                            <li>Hipóteses</li>
+                        </ul>
+                    </div>
+                    <div class="stat-card">
+                        <h3>🎨 Criativo</h3>
+                        <ul style="text-align: left; font-size: 0.9em;">
+                            <li>Storytelling</li>
+                            <li>Worldbuilding</li>
+                            <li>Brainstorming</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <strong>Best Practices:</strong> Sempre revise o output do Claude, especialmente para conteúdo factual. Use Projects para manter contexto consistente. Seja específico nos prompts para melhores resultados.
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Demonstrações Práticas</h2>
+
+                <div class="interactive-demo">
+                    <h3>Experimente Diferentes Capacidades do Claude</h3>
+                    <button class="demo-button" onclick="alert('Exemplo de Prompt para Código:\n\nCrie uma aplicação React com TypeScript que:\n- Tenha um formulário de login\n- Use Tailwind CSS para estilização\n- Implemente validação de campos\n- Tenha animações suaves\n\nClaude criará o código completo com componentes, tipos e estilos!')">Demo: Código</button>
+                    <button class="demo-button" onclick="alert('Exemplo de Prompt para Análise:\n\nAnalise este relatório de vendas:\n[cole seus dados aqui]\n\n- Identifique tendências principais\n- Sugira melhorias\n- Crie visualizações em Python\n\nClaude fornecerá insights detalhados e código para gráficos!')">Demo: Análise</button>
+                    <button class="demo-button" onclick="alert('Exemplo de Prompt Criativo:\n\nEscreva o primeiro capítulo de um romance cyberpunk:\n- Protagonista: hacker adolescente\n- Cenário: Lisboa 2087\n- Tom: noir tecnológico\n- Inclua descrições vívidas\n\nClaude criará uma narrativa envolvente e original!')">Demo: Criativo</button>
+                    <button class="demo-button" onclick="alert('Exemplo de Project Setup:\n\n1. Crie novo Project: Meu App SaaS\n2. Adicione docs da sua stack técnica\n3. Defina instruções customizadas\n4. Comece a desenvolver com contexto completo\n\nClaude manterá consistência em todo o projeto!')">Demo: Projects</button>
+                </div>
+
+                <div class="info-box">
+                    <h3>Dicas para Prompts Eficazes</h3>
+                    <ul>
+                        <li>🎯 <strong>Seja Específico:</strong> Forneça contexto, requisitos e formato desejado</li>
+                        <li>📊 <strong>Use Exemplos:</strong> Mostre o que você quer com exemplos concretos</li>
+                        <li>🔄 <strong>Itere:</strong> Refine baseado nas respostas iniciais</li>
+                        <li>📝 <strong>Estruture:</strong> Use bullets, números, seções claras</li>
+                        <li>🎨 <strong>Persona:</strong> Defina tom e estilo quando relevante</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Próximos Passos</h2>
+
+                <div class="info-box">
+                    <h3>O que você aprendeu</h3>
+                    <ul>
+                        <li>✅ História e filosofia da Anthropic</li>
+                        <li>✅ Constitutional AI e sua importância</li>
+                        <li>✅ Diferenças entre Claude 3 Opus, Sonnet e Haiku</li>
+                        <li>✅ Artifacts e Projects para produtividade</li>
+                        <li>✅ Comparação com GPT-4 e Gemini</li>
+                        <li>✅ API e integrações disponíveis</li>
+                        <li>✅ Casos de uso práticos e demonstrações</li>
+                    </ul>
+                </div>
+
+                <div class="interactive-demo">
+                    <h3>Continue sua Jornada!</h3>
+                    <p>Explore o próximo gigante da IA</p>
+                    <button class="demo-button" onclick="window.location.href='modulo3_gemini.html'">Próximo: Gemini do Google →</button>
+                    <button class="demo-button" onclick="window.location.href='modulo1_introducao_ia.html'">← Voltar ao Módulo 1</button>
+                    <button class="demo-button" onclick="window.location.href='index.html'">Página Inicial</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

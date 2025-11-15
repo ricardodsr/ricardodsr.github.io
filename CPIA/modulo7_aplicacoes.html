@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 7 - Aplicações Práticas e Casos de Uso</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .section h2 {
+            color: #fa709a;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #fee140;
+            font-size: 1.8em;
+        }
+
+        .section h3 {
+            color: #555;
+            margin: 20px 0 15px 0;
+            font-size: 1.3em;
+        }
+
+        .application-card {
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .application-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .application-card h4 {
+            color: #d35400;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .project-box {
+            background: #fff;
+            border: 2px solid #fa709a;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-box::before {
+            content: "PROJETO";
+            position: absolute;
+            top: 10px;
+            right: -30px;
+            background: #fa709a;
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .project-box h4 {
+            color: #fa709a;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .workflow-container {
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .workflow-container h4 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .step-by-step {
+            counter-reset: step;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .step-by-step li {
+            counter-increment: step;
+            padding: 15px 0;
+            padding-left: 60px;
+            position: relative;
+            margin-bottom: 15px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 10px;
+            padding-right: 15px;
+        }
+
+        .step-by-step li::before {
+            content: "Passo " counter(step);
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .automation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .automation-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .automation-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .automation-item h5 {
+            color: #fa709a;
+            margin-bottom: 10px;
+        }
+
+        .metrics-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .metrics-table th {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        .metrics-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .metrics-table tr:hover {
+            background: #f9f9f9;
+        }
+
+        .code-example {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+        }
+
+        .code-example .comment {
+            color: #6a9955;
+        }
+
+        .code-example .keyword {
+            color: #c586c0;
+        }
+
+        .code-example .string {
+            color: #ce9178;
+        }
+
+        .integration-flow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 20px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 15px;
+            flex-wrap: wrap;
+        }
+
+        .flow-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px;
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .flow-arrow {
+            font-size: 2em;
+            color: #fa709a;
+            margin: 0 10px;
+        }
+
+        .tip-card {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #fa709a;
+        }
+
+        .tip-card h5 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .results-box {
+            background: #f0f9ff;
+            border: 2px solid #3b82f6;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .results-box h5 {
+            color: #3b82f6;
+            margin-bottom: 15px;
+        }
+
+        .results-box .metric {
+            display: inline-block;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .results-box .metric strong {
+            color: #3b82f6;
+        }
+
+        .btn-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: transform 0.3s ease;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .automation-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .integration-flow {
+                flex-direction: column;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💡 Módulo 7: Aplicações Práticas e Casos de Uso</h1>
+            <p>Transformando Teoria em Resultados Concretos com IA</p>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2>Introdução - IA na Prática</h2>
+                <p>Neste módulo, exploraremos aplicações práticas reais de IA, demonstrando como transformar conhecimento teórico em soluções concretas que geram valor imediato. Cada caso de uso inclui implementação passo a passo e métricas de sucesso.</p>
+            </div>
+
+            <div class="section">
+                <h2>1. Automação de Tarefas Repetitivas</h2>
+
+                <div class="application-card">
+                    <h4>📧 Automação de Email Marketing</h4>
+                    <p><strong>Problema:</strong> Empresa gasta 20 horas semanais criando emails personalizados.</p>
+                    <p><strong>Solução com IA:</strong> Sistema automatizado usando Claude API + templates dinâmicos.</p>
+
+                    <div class="workflow-container">
+                        <h4>Implementação Completa</h4>
+                        <ol class="step-by-step">
+                            <li>Configurar Claude API com prompts especializados para cada tipo de cliente</li>
+                            <li>Integrar com CRM para segmentação automática de audiência</li>
+                            <li>Criar templates base com variáveis dinâmicas</li>
+                            <li>Implementar A/B testing automático com análise de performance</li>
+                            <li>Configurar dashboard de métricas em tempo real</li>
+                        </ol>
+                    </div>
+
+                    <div class="results-box">
+                        <h5>📊 Resultados Obtidos</h5>
+                        <span class="metric"><strong>80%</strong> redução de tempo</span>
+                        <span class="metric"><strong>45%</strong> aumento em open rate</span>
+                        <span class="metric"><strong>3x</strong> mais conversões</span>
+                    </div>
+                </div>
+
+                <div class="application-card">
+                    <h4>📄 Processamento de Documentos</h4>
+                    <p><strong>Cenário:</strong> Escritório de advocacia processa 500+ contratos mensalmente.</p>
+
+                    <div class="code-example">
+                        <span class="comment"># Exemplo de automação com Claude</span><br>
+                        <span class="keyword">import</span> anthropic<br>
+                        <br>
+                        <span class="keyword">def</span> analyze_contract(document):<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;prompt = <span class="string">f"""
+                        Analise este contrato e extraia:
+                        1. Partes envolvidas
+                        2. Valor total
+                        3. Prazos importantes
+                        4. Cláusulas de risco
+
+                        Contrato: {document}
+                        """</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> claude.complete(prompt)
+                    </div>
+                </div>
+
+                <div class="automation-grid">
+                    <div class="automation-item">
+                        <h5>🔄 Processos RH</h5>
+                        <p>Triagem de CVs, onboarding automatizado, FAQ inteligente</p>
+                    </div>
+                    <div class="automation-item">
+                        <h5>📊 Relatórios</h5>
+                        <p>Geração automática de dashboards e insights semanais</p>
+                    </div>
+                    <div class="automation-item">
+                        <h5>🎯 Social Media</h5>
+                        <p>Posts programados, respostas automáticas, análise de sentimento</p>
+                    </div>
+                    <div class="automation-item">
+                        <h5>💬 Atendimento</h5>
+                        <p>Chatbot 24/7, escalação inteligente, base de conhecimento</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>2. Criação de Assistentes Personalizados</h2>
+
+                <div class="project-box">
+                    <h4>🏥 Assistente Médico Virtual</h4>
+                    <p><strong>Objetivo:</strong> Criar assistente para triagem inicial de pacientes.</p>
+
+                    <div class="integration-flow">
+                        <div class="flow-item">
+                            <strong>Input</strong><br>
+                            Sintomas do paciente
+                        </div>
+                        <span class="flow-arrow">→</span>
+                        <div class="flow-item">
+                            <strong>Claude API</strong><br>
+                            Análise contextual
+                        </div>
+                        <span class="flow-arrow">→</span>
+                        <div class="flow-item">
+                            <strong>Base Médica</strong><br>
+                            Validação dados
+                        </div>
+                        <span class="flow-arrow">→</span>
+                        <div class="flow-item">
+                            <strong>Output</strong><br>
+                            Recomendações
+                        </div>
+                    </div>
+
+                    <div class="workflow-container">
+                        <h4>Stack Técnica Completa</h4>
+                        <ul>
+                            <li><strong>Backend:</strong> Python Flask + Claude API</li>
+                            <li><strong>Frontend:</strong> React com interface conversacional</li>
+                            <li><strong>Database:</strong> PostgreSQL para histórico</li>
+                            <li><strong>Segurança:</strong> Encriptação end-to-end, HIPAA compliance</li>
+                            <li><strong>Deploy:</strong> Docker + Kubernetes para escalabilidade</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-box">
+                    <h4>📚 Tutor Educacional Adaptativo</h4>
+                    <p><strong>Objetivo:</strong> Sistema de ensino personalizado com IA.</p>
+
+                    <ol class="step-by-step">
+                        <li>Avaliação inicial do nível do aluno com quiz adaptativo</li>
+                        <li>Criação de plano de estudos personalizado via Claude</li>
+                        <li>Geração de exercícios dinâmicos com dificuldade progressiva</li>
+                        <li>Feedback em tempo real com explicações detalhadas</li>
+                        <li>Relatórios de progresso para pais/professores</li>
+                    </ol>
+
+                    <div class="tip-card">
+                        <h5>💡 Dica de Implementação</h5>
+                        <p>Use NotebookLM para criar base de conhecimento do currículo + Claude para personalização + ElevenLabs para narração de aulas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>3. Análise de Dados Avançada</h2>
+
+                <div class="application-card">
+                    <h4>📈 Previsão de Vendas com IA</h4>
+
+                    <div class="metrics-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Métrica</th>
+                                    <th>Antes da IA</th>
+                                    <th>Com IA</th>
+                                    <th>Melhoria</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Precisão de Previsão</td>
+                                    <td>65%</td>
+                                    <td>92%</td>
+                                    <td>+41%</td>
+                                </tr>
+                                <tr>
+                                    <td>Tempo de Análise</td>
+                                    <td>3 dias</td>
+                                    <td>30 minutos</td>
+                                    <td>-99%</td>
+                                </tr>
+                                <tr>
+                                    <td>Insights Acionáveis</td>
+                                    <td>5/mês</td>
+                                    <td>50+/mês</td>
+                                    <td>10x</td>
+                                </tr>
+                                <tr>
+                                    <td>ROI</td>
+                                    <td>-</td>
+                                    <td>320%</td>
+                                    <td>N/A</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="workflow-container">
+                        <h4>Pipeline de Análise</h4>
+                        <ol class="step-by-step">
+                            <li>Coleta de dados: APIs, CSVs, databases em tempo real</li>
+                            <li>Limpeza automática com pandas + validação com Claude</li>
+                            <li>Feature engineering usando prompts especializados</li>
+                            <li>Modelagem: Ensemble de ML tradicional + LLM insights</li>
+                            <li>Visualização interativa com Plotly + narrativa automática</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="application-card">
+                    <h4>🔍 Análise de Sentimento em Tempo Real</h4>
+                    <p><strong>Aplicação:</strong> Monitoramento de marca em redes sociais.</p>
+
+                    <div class="code-example">
+                        <span class="comment"># Pipeline de análise de sentimento</span><br>
+                        <span class="keyword">async def</span> analyze_social_sentiment():<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># 1. Coletar posts</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;posts = await fetch_social_media_posts()<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># 2. Análise com Claude</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;sentiments = await claude.analyze_batch(<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;posts,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prompt=<span class="string">"Classifique: positivo/neutro/negativo + motivo"</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># 3. Alertas automáticos</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> sentiment_score < threshold:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;trigger_crisis_management()
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>4. Geração de Conteúdo em Escala</h2>
+
+                <div class="project-box">
+                    <h4>📰 Sistema Editorial Automatizado</h4>
+                    <p><strong>Case Real:</strong> Portal de notícias aumenta produção de 10 para 100 artigos/dia.</p>
+
+                    <div class="integration-flow">
+                        <div class="flow-item">
+                            <strong>RSS Feeds</strong><br>
+                            Fontes de notícias
+                        </div>
+                        <span class="flow-arrow">→</span>
+                        <div class="flow-item">
+                            <strong>Perplexity</strong><br>
+                            Fact-checking
+                        </div>
+                        <span class="flow-arrow">→</span>
+                        <div class="flow-item">
+                            <strong>Claude</strong><br>
+                            Redação
+                        </div>
+                        <span class="flow-arrow">→</span>
+                        <div class="flow-item">
+                            <strong>MidJourney</strong><br>
+                            Imagens
+                        </div>
+                        <span class="flow-arrow">→</span>
+                        <div class="flow-item">
+                            <strong>WordPress</strong><br>
+                            Publicação
+                        </div>
+                    </div>
+
+                    <div class="tip-card">
+                        <h5>⚠️ Considerações Éticas</h5>
+                        <ul>
+                            <li>Sempre identificar conteúdo gerado por IA</li>
+                            <li>Manter revisão humana para tópicos sensíveis</li>
+                            <li>Verificar direitos autorais de imagens</li>
+                            <li>Implementar fact-checking rigoroso</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="automation-grid">
+                    <div class="automation-item">
+                        <h5>🎬 Vídeos YouTube</h5>
+                        <p>Script (Claude) + Narração (ElevenLabs) + Vídeo (Veo 3)</p>
+                    </div>
+                    <div class="automation-item">
+                        <h5>📱 Posts Instagram</h5>
+                        <p>Copy (Claude) + Design (Leonardo AI) + Hashtags otimizadas</p>
+                    </div>
+                    <div class="automation-item">
+                        <h5>📧 Newsletters</h5>
+                        <p>Curadoria (Perplexity) + Escrita (Claude) + Personalização</p>
+                    </div>
+                    <div class="automation-item">
+                        <h5>🎙️ Podcasts</h5>
+                        <p>Roteiro (Claude) + Voz (ElevenLabs) + Música (Suno)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>5. Workflows Integrados Complexos</h2>
+
+                <div class="project-box">
+                    <h4>🛍️ E-commerce Inteligente End-to-End</h4>
+
+                    <div class="workflow-container">
+                        <h4>Arquitetura Completa</h4>
+                        <ol class="step-by-step">
+                            <li><strong>Catálogo:</strong> Descrições de produtos geradas com Claude + SEO otimizado</li>
+                            <li><strong>Imagens:</strong> Leonardo AI para variações de produto + mockups</li>
+                            <li><strong>Atendimento:</strong> Chatbot Claude 24/7 com handoff humano inteligente</li>
+                            <li><strong>Recomendações:</strong> Sistema híbrido ML + análise comportamental</li>
+                            <li><strong>Marketing:</strong> Campanhas personalizadas com segmentação por IA</li>
+                            <li><strong>Logística:</strong> Previsão de demanda e otimização de estoque</li>
+                            <li><strong>Pós-venda:</strong> Análise de feedback e melhoria contínua</li>
+                        </ol>
+                    </div>
+
+                    <div class="results-box">
+                        <h5>🚀 Impacto no Negócio</h5>
+                        <span class="metric"><strong>35%</strong> aumento no ticket médio</span>
+                        <span class="metric"><strong>50%</strong> redução no abandono de carrinho</span>
+                        <span class="metric"><strong>90%</strong> satisfação do cliente</span>
+                        <span class="metric"><strong>25%</strong> redução custos operacionais</span>
+                    </div>
+                </div>
+
+                <div class="project-box">
+                    <h4>🏢 Transformação Digital Corporativa</h4>
+                    <p><strong>Empresa:</strong> Multinacional com 5000+ funcionários</p>
+
+                    <div class="metrics-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Departamento</th>
+                                    <th>Ferramenta IA</th>
+                                    <th>Resultado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Vendas</td>
+                                    <td>Claude + CRM</td>
+                                    <td>40% mais leads qualificados</td>
+                                </tr>
+                                <tr>
+                                    <td>Marketing</td>
+                                    <td>MidJourney + Veo 3</td>
+                                    <td>70% redução custo criativo</td>
+                                </tr>
+                                <tr>
+                                    <td>RH</td>
+                                    <td>Claude + NotebookLM</td>
+                                    <td>60% redução tempo contratação</td>
+                                </tr>
+                                <tr>
+                                    <td>Jurídico</td>
+                                    <td>Claude + Perplexity</td>
+                                    <td>80% mais rápido análise contratos</td>
+                                </tr>
+                                <tr>
+                                    <td>TI</td>
+                                    <td>Cursor + Banana</td>
+                                    <td>3x velocidade desenvolvimento</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>6. Projetos Práticos para Implementar</h2>
+
+                <div class="project-box">
+                    <h4>🎯 Projeto 1: Assistente Pessoal Inteligente</h4>
+                    <p><strong>Nível:</strong> Iniciante | <strong>Tempo:</strong> 1 semana</p>
+
+                    <div class="workflow-container">
+                        <h4>Requisitos</h4>
+                        <ul>
+                            <li>Integração com calendário (Google Calendar API)</li>
+                            <li>Resumo diário de notícias personalizadas (Perplexity)</li>
+                            <li>Gestão de tarefas com priorização inteligente (Claude)</li>
+                            <li>Lembretes contextuais baseados em localização</li>
+                            <li>Interface de voz (ElevenLabs)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-box">
+                    <h4>🎯 Projeto 2: Criador de Cursos Online</h4>
+                    <p><strong>Nível:</strong> Intermediário | <strong>Tempo:</strong> 2 semanas</p>
+
+                    <ol class="step-by-step">
+                        <li>Pesquisar tópico e audiência-alvo com Perplexity</li>
+                        <li>Estruturar currículo e módulos com Claude</li>
+                        <li>Gerar conteúdo escrito e exercícios</li>
+                        <li>Criar apresentações visuais com Leonardo AI</li>
+                        <li>Gravar narração profissional com ElevenLabs</li>
+                        <li>Produzir vídeos introdutórios com Veo 3</li>
+                        <li>Montar plataforma com quiz automático</li>
+                    </ol>
+                </div>
+
+                <div class="project-box">
+                    <h4>🎯 Projeto 3: Sistema de Análise de Mercado</h4>
+                    <p><strong>Nível:</strong> Avançado | <strong>Tempo:</strong> 3 semanas</p>
+
+                    <div class="code-example">
+                        <span class="comment"># Arquitetura do Sistema</span><br>
+                        system_components = {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">'data_collection'</span>: [<span class="string">'web_scraping'</span>, <span class="string">'api_integration'</span>],<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">'analysis'</span>: [<span class="string">'claude_insights'</span>, <span class="string">'ml_predictions'</span>],<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">'visualization'</span>: [<span class="string">'real_time_dashboard'</span>, <span class="string">'reports'</span>],<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">'alerts'</span>: [<span class="string">'anomaly_detection'</span>, <span class="string">'trend_notifications'</span>]<br>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Métricas de Sucesso e KPIs</h2>
+
+                <div class="tip-card">
+                    <h5>📊 Como Medir o Impacto da IA</h5>
+                    <ul>
+                        <li><strong>Eficiência:</strong> Redução de tempo em tarefas (horas economizadas)</li>
+                        <li><strong>Qualidade:</strong> Taxa de erro antes/depois, satisfação do usuário</li>
+                        <li><strong>Escalabilidade:</strong> Volume processado, capacidade de crescimento</li>
+                        <li><strong>ROI:</strong> Custo economizado vs investimento em IA</li>
+                        <li><strong>Inovação:</strong> Novos produtos/serviços habilitados</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="btn-container">
+                <a href="modulo6_ferramentas.html" class="btn">← Módulo Anterior</a>
+                <a href="modulo8_etica_futuro.html" class="btn">Próximo Módulo →</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

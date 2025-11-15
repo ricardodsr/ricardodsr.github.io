@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 5 - Veo 3: Geração de Vídeo com IA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .section h2 {
+            color: #2a5298;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            font-size: 1.8em;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #667eea;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-box::before {
+            content: "💡";
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 2em;
+            opacity: 0.3;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102,126,234,0.4);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            margin-top: 10px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .concept-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .concept-list li {
+            background: #f8f9fa;
+            margin: 10px 0;
+            padding: 20px;
+            border-radius: 10px;
+            position: relative;
+            padding-left: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .concept-list li:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .concept-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 20px;
+            color: #28a745;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            position: relative;
+            animation: pulse 2s infinite;
+        }
+
+        .warning-box::before {
+            content: "⚠️";
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+
+        .interactive-demo {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .demo-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+
+        .demo-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(102,126,234,0.4);
+        }
+
+        .progress-indicator {
+            background: #e9ecef;
+            height: 10px;
+            border-radius: 5px;
+            margin: 30px 0;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            height: 100%;
+            width: 62.5%;
+            border-radius: 5px;
+            animation: progressAnimation 2s ease;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 15px;
+            border-top: 4px solid #667eea;
+        }
+
+        .feature-card h4 {
+            color: #2a5298;
+            margin-bottom: 10px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        .comparison-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.02);
+            }
+        }
+
+        @keyframes progressAnimation {
+            from {
+                width: 0;
+            }
+            to {
+                width: 62.5%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎬 Módulo 5</h1>
+            <p>Veo 3 - Geração de Vídeo com Inteligência Artificial</p>
+        </div>
+
+        <div class="content">
+            <div class="progress-indicator">
+                <div class="progress-bar"></div>
+            </div>
+
+            <div class="section">
+                <h2>Introdução ao Veo 3</h2>
+
+                <div class="info-box">
+                    <h3>O Futuro da Criação de Vídeo</h3>
+                    <p>Veo 3 é o modelo de geração de vídeo mais avançado do Google DeepMind, capaz de criar vídeos de alta qualidade a partir de descrições textuais. Representa um salto quântico na criação de conteúdo audiovisual, democratizando a produção de vídeo profissional.</p>
+                </div>
+
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">1080p</div>
+                        <div class="stat-label">Resolução HD</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">60s</div>
+                        <div class="stat-label">Duração Máxima</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">24fps</div>
+                        <div class="stat-label">Taxa de Quadros</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">2024</div>
+                        <div class="stat-label">Ano de Lançamento</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Capacidades Técnicas</h2>
+
+                <h3>O que Veo 3 Pode Fazer</h3>
+                <ul class="concept-list">
+                    <li><strong>Geração Text-to-Video:</strong> Cria vídeos completos a partir de descrições textuais detalhadas</li>
+                    <li><strong>Consistência Temporal:</strong> Mantém objetos e personagens consistentes ao longo do vídeo</li>
+                    <li><strong>Física Realista:</strong> Simula movimento natural, gravidade e interações físicas</li>
+                    <li><strong>Controle de Câmera:</strong> Permite especificar movimentos de câmera como pan, zoom, tracking</li>
+                    <li><strong>Estilos Diversos:</strong> Desde fotorrealismo até animação, arte digital e estilos cinematográficos</li>
+                    <li><strong>Edição de Vídeo:</strong> Capacidade de editar vídeos existentes com prompts</li>
+                </ul>
+
+                <div class="warning-box">
+                    <strong>Importante:</strong> Veo 3 ainda está em acesso limitado através do VideoFX no AI Test Kitchen do Google. Acesso público completo previsto para 2025.
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Workflow de Produção</h2>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>📝 Pré-Produção</h4>
+                        <ul>
+                            <li>Roteirização detalhada</li>
+                            <li>Storyboard textual</li>
+                            <li>Definição de estilo visual</li>
+                            <li>Planejamento de cenas</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🎨 Geração</h4>
+                        <ul>
+                            <li>Prompt engineering</li>
+                            <li>Iteração e refinamento</li>
+                            <li>Geração de variações</li>
+                            <li>Seleção das melhores takes</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>✂️ Pós-Produção</h4>
+                        <ul>
+                            <li>Edição e montagem</li>
+                            <li>Correção de cor</li>
+                            <li>Adição de áudio/música</li>
+                            <li>Efeitos especiais</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Prompt Engineering para Vídeo</h2>
+
+                <div class="info-box">
+                    <h3>Estrutura de Prompt Eficaz</h3>
+                    <p>Prompts para vídeo devem incluir: ação principal, estilo visual, movimento de câmera, iluminação, duração e transições. Seja específico sobre mudanças temporais.</p>
+                </div>
+
+                <h3>Elementos Essenciais do Prompt</h3>
+                <ul class="concept-list">
+                    <li><strong>[Cena]:</strong> Descrição do ambiente e contexto</li>
+                    <li><strong>[Ação]:</strong> O que acontece no vídeo, movimento e progressão</li>
+                    <li><strong>[Estilo]:</strong> Cinematográfico, animação, documentário, etc.</li>
+                    <li><strong>[Câmera]:</strong> Ângulo, movimento (pan, zoom, tracking, dolly)</li>
+                    <li><strong>[Iluminação]:</strong> Natural, dramática, suave, neon</li>
+                    <li><strong>[Tempo]:</strong> Velocidade, slow motion, time-lapse</li>
+                </ul>
+
+                <div class="interactive-demo">
+                    <h3>Exemplos de Prompts</h3>
+                    <button class="demo-button" onclick="alert('Prompt Cinematográfico:\n\nA lone astronaut walks across a desert planet at sunset. Camera slowly dollies back revealing vast alien landscape. Cinematic style, dramatic lighting, lens flares, 35mm film look, slow motion, epic orchestral mood')">Cinema</button>
+                    <button class="demo-button" onclick="alert('Prompt Publicitário:\n\nClose-up of coffee being poured into a white cup, steam rising. Camera rotates 360 degrees. Product photography style, bright studio lighting, 4K quality, slow motion pour, minimalist aesthetic')">Publicidade</button>
+                    <button class="demo-button" onclick="alert('Prompt Animação:\n\nCartoon rabbit hops through enchanted forest, butterflies following. Camera tracks alongside. Pixar animation style, vibrant colors, smooth motion, magical particles, cheerful mood')">Animação</button>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Casos de Uso</h2>
+
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <h3>📱 Redes Sociais</h3>
+                        <p>Reels, TikToks, YouTube Shorts, Stories</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>🎯 Marketing</h3>
+                        <p>Ads, product demos, teasers, promos</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>🎓 Educação</h3>
+                        <p>Vídeo-aulas, tutoriais, demonstrações</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>🎬 Entretenimento</h3>
+                        <p>Curtas, música videos, VFX, previews</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>🏢 Corporativo</h3>
+                        <p>Apresentações, treinamentos, pitches</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>🎮 Gaming</h3>
+                        <p>Trailers, cutscenes, concept videos</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Comparação com Concorrentes</h2>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Ferramenta</th>
+                            <th>Resolução</th>
+                            <th>Duração</th>
+                            <th>Acesso</th>
+                            <th>Preço</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Veo 3</strong></td>
+                            <td>1080p</td>
+                            <td>60s</td>
+                            <td>Beta Limitado</td>
+                            <td>Gratuito (Beta)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Runway Gen-3</strong></td>
+                            <td>1280x768</td>
+                            <td>10s</td>
+                            <td>Público</td>
+                            <td>$15-95/mês</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pika Labs</strong></td>
+                            <td>1024x576</td>
+                            <td>3s</td>
+                            <td>Público</td>
+                            <td>$10-60/mês</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Stable Video</strong></td>
+                            <td>1024x576</td>
+                            <td>4s</td>
+                            <td>Open Source</td>
+                            <td>Gratuito</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sora (OpenAI)</strong></td>
+                            <td>1920x1080</td>
+                            <td>60s</td>
+                            <td>Não Lançado</td>
+                            <td>TBD</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>Integração com Outras Ferramentas</h2>
+
+                <div class="info-box">
+                    <h3>Pipeline Completo de Produção</h3>
+                    <p>Veo 3 funciona melhor quando integrado com outras ferramentas de IA e edição tradicional para criar um workflow completo de produção.</p>
+                </div>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>🎵 Áudio com IA</h4>
+                        <ul>
+                            <li>ElevenLabs - Narração</li>
+                            <li>Suno - Música original</li>
+                            <li>Adobe Podcast - Limpeza áudio</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>✂️ Edição</h4>
+                        <ul>
+                            <li>DaVinci Resolve</li>
+                            <li>Adobe Premiere</li>
+                            <li>CapCut</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🎨 Assets</h4>
+                        <ul>
+                            <li>Leonardo AI - Backgrounds</li>
+                            <li>Midjourney - Concepts</li>
+                            <li>DALL-E - Elements</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Considerações Éticas</h2>
+
+                <div class="warning-box">
+                    <strong>Responsabilidade:</strong> Com grande poder vem grande responsabilidade. Use Veo 3 eticamente, evite deepfakes maliciosos, respeite direitos autorais e sempre declare quando conteúdo foi gerado por IA.
+                </div>
+
+                <h3>Diretrizes Éticas</h3>
+                <ul class="concept-list">
+                    <li><strong>Transparência:</strong> Sempre indique que o vídeo foi gerado por IA</li>
+                    <li><strong>Consentimento:</strong> Não crie vídeos de pessoas reais sem permissão</li>
+                    <li><strong>Veracidade:</strong> Evite criar conteúdo enganoso ou fake news</li>
+                    <li><strong>Direitos:</strong> Respeite propriedade intelectual e marcas registradas</li>
+                    <li><strong>Segurança:</strong> Não crie conteúdo prejudicial ou perigoso</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Próximos Passos</h2>
+
+                <div class="info-box">
+                    <h3>O que você aprendeu</h3>
+                    <ul>
+                        <li>✅ Capacidades do Veo 3 para geração de vídeo</li>
+                        <li>✅ Workflow de produção com IA</li>
+                        <li>✅ Técnicas de prompt engineering para vídeo</li>
+                        <li>✅ Casos de uso práticos</li>
+                        <li>✅ Comparação com outras ferramentas</li>
+                        <li>✅ Integração em pipeline de produção</li>
+                        <li>✅ Considerações éticas importantes</li>
+                    </ul>
+                </div>
+
+                <div class="interactive-demo">
+                    <h3>Continue sua Jornada!</h3>
+                    <p>Explore o ecossistema completo de ferramentas IA</p>
+                    <button class="demo-button" onclick="window.location.href='modulo6_ferramentas.html'">Próximo: Ferramentas Complementares →</button>
+                    <button class="demo-button" onclick="window.location.href='modulo4_leonardo_ai.html'">← Voltar ao Módulo 4</button>
+                    <button class="demo-button" onclick="window.location.href='index.html'">Página Inicial</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

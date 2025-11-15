@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 1 - Introdução à Inteligência Artificial</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .section h2 {
+            color: #2a5298;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            font-size: 1.8em;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #667eea;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-box::before {
+            content: "💡";
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 2em;
+            opacity: 0.3;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102,126,234,0.4);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            margin-top: 10px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .concept-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .concept-list li {
+            background: #f8f9fa;
+            margin: 10px 0;
+            padding: 20px;
+            border-radius: 10px;
+            position: relative;
+            padding-left: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .concept-list li:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .concept-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 20px;
+            color: #28a745;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            position: relative;
+            animation: pulse 2s infinite;
+        }
+
+        .warning-box::before {
+            content: "⚠️";
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+
+        .interactive-demo {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .demo-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+
+        .demo-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(102,126,234,0.4);
+        }
+
+        .progress-indicator {
+            background: #e9ecef;
+            height: 10px;
+            border-radius: 5px;
+            margin: 30px 0;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            height: 100%;
+            width: 12.5%;
+            border-radius: 5px;
+            animation: progressAnimation 2s ease;
+        }
+
+        .claude-intro {
+            background: linear-gradient(135deg, #e8f4f8 0%, #d1e7f3 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #2a5298;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.02);
+            }
+        }
+
+        @keyframes progressAnimation {
+            from {
+                width: 0;
+            }
+            to {
+                width: 12.5%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 Módulo 1</h1>
+            <p>Introdução à Inteligência Artificial</p>
+        </div>
+
+        <div class="content">
+            <div class="progress-indicator">
+                <div class="progress-bar"></div>
+            </div>
+
+            <div class="section">
+                <h2>O que é Inteligência Artificial?</h2>
+
+                <div class="info-box">
+                    <h3>Definição Fundamental</h3>
+                    <p>Inteligência Artificial (IA) é a simulação de processos de inteligência humana por máquinas, especialmente sistemas computacionais. Estes processos incluem aprendizado (aquisição de informações e regras para usar as informações), raciocínio (usar as regras para chegar a conclusões aproximadas ou definitivas) e auto-correção.</p>
+                </div>
+
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">1956</div>
+                        <div class="stat-label">Nascimento da IA</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">85%</div>
+                        <div class="stat-label">Empresas usando IA</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">$15.7T</div>
+                        <div class="stat-label">Impacto econômico até 2030</div>
+                    </div>
+                </div>
+
+                <h3>Diferenças Fundamentais</h3>
+                <ul class="concept-list">
+                    <li><strong>IA (Inteligência Artificial):</strong> Campo amplo que abrange qualquer técnica que permita às máquinas imitar a inteligência humana</li>
+                    <li><strong>ML (Machine Learning):</strong> Subconjunto de IA que permite sistemas aprenderem e melhorarem com experiência sem programação explícita</li>
+                    <li><strong>Deep Learning:</strong> Subconjunto de ML que usa redes neurais com múltiplas camadas para análise de dados complexos</li>
+                    <li><strong>LLMs (Large Language Models):</strong> Modelos de linguagem como Claude e GPT que processam e geram texto natural</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>História e Evolução da IA</h2>
+
+                <div class="info-box">
+                    <h3>Marcos Históricos</h3>
+                    <p>A jornada da IA começou em 1956 na conferência de Dartmouth, onde o termo foi cunhado por John McCarthy. Desde então, passou por períodos de grande otimismo e "invernos" de desilusão, até chegar à era atual de avanços exponenciais.</p>
+                </div>
+
+                <h3>Linha do Tempo</h3>
+                <ul class="concept-list">
+                    <li><strong>1950:</strong> Alan Turing propõe o "Teste de Turing" para avaliar inteligência de máquinas</li>
+                    <li><strong>1956:</strong> Conferência de Dartmouth marca o nascimento oficial da IA</li>
+                    <li><strong>1966:</strong> ELIZA, primeiro chatbot, simula conversação humana</li>
+                    <li><strong>1997:</strong> Deep Blue da IBM derrota Garry Kasparov no xadrez</li>
+                    <li><strong>2011:</strong> Watson da IBM vence no Jeopardy!</li>
+                    <li><strong>2016:</strong> AlphaGo derrota campeão mundial de Go</li>
+                    <li><strong>2022:</strong> ChatGPT revoluciona a interação humano-máquina</li>
+                    <li><strong>2023:</strong> Claude e GPT-4 estabelecem novos padrões em IA conversacional</li>
+                    <li><strong>2024:</strong> IA multimodal se torna mainstream com Gemini, Claude 3 e GPT-4V</li>
+                </ul>
+
+                <div class="warning-box">
+                    <strong>Importante:</strong> Estamos vivendo a terceira onda da IA, impulsionada por Big Data, poder computacional acessível e algoritmos avançados de Deep Learning.
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Tipos de Inteligência Artificial</h2>
+
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <h3>ANI</h3>
+                        <p><strong>IA Estreita</strong></p>
+                        <p>Especializada em uma tarefa específica. Todos os sistemas atuais de IA, incluindo Claude.</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>AGI</h3>
+                        <p><strong>IA Geral</strong></p>
+                        <p>Capacidade humana de entender, aprender e aplicar conhecimento. Ainda não existe.</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>ASI</h3>
+                        <p><strong>Super IA</strong></p>
+                        <p>Supera a inteligência humana em todos os aspectos. Completamente teórica.</p>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <h3>Estado Atual</h3>
+                    <p>Atualmente, toda IA em produção é ANI (Narrow AI). Sistemas como Claude 3.5 Sonnet, GPT-4, e Gemini Ultra são extremamente poderosos em seus domínios, mas não possuem consciência ou compreensão geral como humanos. São ferramentas especializadas, não mentes conscientes.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Introdução ao Claude da Anthropic</h2>
+
+                <div class="claude-intro">
+                    <h3>🤖 Conheça o Claude</h3>
+                    <p>Claude é um assistente de IA desenvolvido pela Anthropic, empresa fundada por ex-membros da OpenAI. O que torna Claude especial é sua abordagem "Constitutional AI" - treinado para ser útil, inofensivo e honesto.</p>
+
+                    <h4>Por que Claude é Diferente?</h4>
+                    <ul style="list-style: none; padding: 15px 0;">
+                        <li>✨ <strong>Segurança First:</strong> Usa Constitutional AI para ser mais seguro e alinhado</li>
+                        <li>📚 <strong>Contexto Massivo:</strong> Pode processar até 200.000 tokens (≈150.000 palavras)</li>
+                        <li>🎨 <strong>Artifacts:</strong> Cria conteúdo visual editável em tempo real</li>
+                        <li>📁 <strong>Projects:</strong> Mantém conhecimento personalizado por projeto</li>
+                        <li>👁️ <strong>Visão:</strong> Analisa imagens, diagramas e documentos visuais</li>
+                        <li>💻 <strong>Código:</strong> Excelente em programação e debugging</li>
+                    </ul>
+                </div>
+
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <h3>Claude 3 Opus</h3>
+                        <p>Modelo mais poderoso para tarefas complexas</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Claude 3.5 Sonnet</h3>
+                        <p>Equilibrado e 2x mais rápido que Opus</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Claude 3 Haiku</h3>
+                        <p>Ultra-rápido para tarefas simples</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Aplicações Práticas da IA no Dia a Dia</h2>
+
+                <h3>IA Está em Todo Lugar</h3>
+                <ul class="concept-list">
+                    <li><strong>Assistentes Virtuais:</strong> Siri, Alexa, Google Assistant - processamento de linguagem natural</li>
+                    <li><strong>Sistemas de Recomendação:</strong> Netflix (75% do conteúdo assistido), Spotify, YouTube</li>
+                    <li><strong>Reconhecimento Facial:</strong> Desbloqueio de smartphones, segurança, marcação em fotos</li>
+                    <li><strong>Veículos Autônomos:</strong> Tesla Autopilot, Waymo - visão computacional em tempo real</li>
+                    <li><strong>Tradução Automática:</strong> Google Translate, DeepL - processamento multi-idiomas</li>
+                    <li><strong>Detecção de Fraudes:</strong> Bancos e cartões - análise de padrões anômalos</li>
+                    <li><strong>Criação de Conteúdo:</strong> Claude, ChatGPT, Midjourney - geração de texto e imagens</li>
+                    <li><strong>Medicina:</strong> Diagnóstico por imagem, descoberta de medicamentos, medicina personalizada</li>
+                </ul>
+
+                <div class="interactive-demo">
+                    <h3>Experimente a IA Agora!</h3>
+                    <p>Clique nos botões abaixo para explorar diferentes aplicações de IA:</p>
+                    <button class="demo-button" onclick="alert('Demo: Processamento de Linguagem Natural\n\nExemplo: Claude pode:\n• Gerar textos criativos\n• Responder perguntas complexas\n• Escrever e debugar código\n• Traduzir idiomas\n• Resumir documentos longos\n• Criar conteúdo personalizado')">NLP Demo</button>
+                    <button class="demo-button" onclick="alert('Demo: Visão Computacional\n\nExemplo: IA Visual pode:\n• Gerar imagens (DALL-E, Midjourney)\n• Reconhecer objetos e pessoas\n• Analisar documentos visuais\n• Criar arte e designs\n• Editar e melhorar fotos\n• Interpretar gráficos e diagramas')">Visão Demo</button>
+                    <button class="demo-button" onclick="alert('Demo: Machine Learning\n\nExemplo: ML pode:\n• Prever tendências de mercado\n• Diagnosticar doenças\n• Personalizar recomendações\n• Otimizar rotas de entrega\n• Detectar spam e fraudes\n• Automatizar processos')">ML Demo</button>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>O Teste de Turing</h2>
+
+                <div class="info-box">
+                    <h3>Conceito Fundamental</h3>
+                    <p>Proposto por Alan Turing em 1950, o teste avalia a capacidade de uma máquina exibir comportamento inteligente indistinguível de um humano. Se um interrogador não consegue distinguir entre respostas de uma máquina e de um humano, a máquina passa no teste.</p>
+                </div>
+
+                <h3>Componentes do Teste</h3>
+                <ul class="concept-list">
+                    <li><strong>Interrogador:</strong> Humano que faz perguntas para determinar quem é máquina</li>
+                    <li><strong>Respondente Humano:</strong> Pessoa que responde naturalmente</li>
+                    <li><strong>Respondente Máquina:</strong> Sistema de IA tentando parecer humano</li>
+                    <li><strong>Interface Neutra:</strong> Comunicação apenas por texto</li>
+                </ul>
+
+                <div class="claude-intro">
+                    <h3>Claude e o Teste de Turing</h3>
+                    <p>Sistemas modernos como Claude 3.5 Sonnet podem facilmente passar em versões do Teste de Turing. No entanto, Claude é transparente sobre ser uma IA - parte de sua abordagem Constitutional AI é ser honesto sobre suas capacidades e limitações.</p>
+                </div>
+
+                <div class="warning-box">
+                    <strong>Reflexão:</strong> Passar no Teste de Turing não significa consciência. Claude, GPT-4 e outros LLMs são muito bons em simular conversas humanas, mas não possuem consciência ou compreensão real no sentido humano.
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Por Que Aprender sobre IA Agora?</h2>
+
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <h3>🚀 Crescimento</h3>
+                        <p>IA cresce 38% ao ano e transformará todos os setores</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>💼 Oportunidades</h3>
+                        <p>97 milhões de novos empregos relacionados a IA até 2025</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>⚡ Produtividade</h3>
+                        <p>Aumento de 40% na produtividade com ferramentas IA</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>🎓 Alfabetização</h3>
+                        <p>IA será tão essencial quanto ler e escrever</p>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <h3>Habilidades do Futuro</h3>
+                    <ul>
+                        <li>🎯 <strong>Prompt Engineering:</strong> Saber comunicar efetivamente com IA</li>
+                        <li>🔄 <strong>Integração IA:</strong> Incorporar IA em workflows existentes</li>
+                        <li>⚖️ <strong>Ética em IA:</strong> Usar IA de forma responsável</li>
+                        <li>🧩 <strong>Pensamento Crítico:</strong> Validar e refinar outputs de IA</li>
+                        <li>🎨 <strong>Criatividade Aumentada:</strong> Usar IA como ferramenta criativa</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Próximos Passos</h2>
+
+                <div class="info-box">
+                    <h3>O que você aprendeu</h3>
+                    <ul>
+                        <li>✅ Definição e conceitos fundamentais de IA</li>
+                        <li>✅ História e evolução do campo</li>
+                        <li>✅ Diferença entre ANI, AGI e ASI</li>
+                        <li>✅ Introdução ao Claude da Anthropic</li>
+                        <li>✅ Aplicações práticas no mundo real</li>
+                        <li>✅ Teste de Turing e suas implicações</li>
+                        <li>✅ Por que IA é essencial para o futuro</li>
+                    </ul>
+                </div>
+
+                <div class="interactive-demo">
+                    <h3>Continue sua Jornada!</h3>
+                    <p>Pronto para mergulhar profundamente no Claude?</p>
+                    <button class="demo-button" onclick="window.location.href='modulo2_claude_anthropic.html'">Próximo: Claude da Anthropic →</button>
+                    <button class="demo-button" onclick="window.location.href='index.html'">Voltar ao Início</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

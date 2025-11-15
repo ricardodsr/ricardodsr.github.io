@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 4 - Leonardo AI: Criação Visual com IA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .section h2 {
+            color: #2a5298;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            font-size: 1.8em;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #667eea;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-box::before {
+            content: "💡";
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 2em;
+            opacity: 0.3;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102,126,234,0.4);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            margin-top: 10px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .concept-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .concept-list li {
+            background: #f8f9fa;
+            margin: 10px 0;
+            padding: 20px;
+            border-radius: 10px;
+            position: relative;
+            padding-left: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .concept-list li:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .concept-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 20px;
+            color: #28a745;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            position: relative;
+            animation: pulse 2s infinite;
+        }
+
+        .warning-box::before {
+            content: "⚠️";
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+
+        .interactive-demo {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .demo-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+
+        .demo-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(102,126,234,0.4);
+        }
+
+        .progress-indicator {
+            background: #e9ecef;
+            height: 10px;
+            border-radius: 5px;
+            margin: 30px 0;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            height: 100%;
+            width: 50%;
+            border-radius: 5px;
+            animation: progressAnimation 2s ease;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 15px;
+            border-top: 4px solid #667eea;
+        }
+
+        .feature-card h4 {
+            color: #2a5298;
+            margin-bottom: 10px;
+        }
+
+        .prompt-box {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.02);
+            }
+        }
+
+        @keyframes progressAnimation {
+            from {
+                width: 0;
+            }
+            to {
+                width: 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎨 Módulo 4</h1>
+            <p>Leonardo AI - Criação Visual com Inteligência Artificial</p>
+        </div>
+
+        <div class="content">
+            <div class="progress-indicator">
+                <div class="progress-bar"></div>
+            </div>
+
+            <div class="section">
+                <h2>O que é Leonardo AI?</h2>
+
+                <div class="info-box">
+                    <h3>A Revolução da Arte Digital</h3>
+                    <p>Leonardo AI é uma plataforma de geração de imagens por IA que combina poder criativo com controle preciso. Desenvolvida especificamente para artistas, designers e criadores de conteúdo, oferece ferramentas avançadas para criar arte digital de qualidade profissional.</p>
+                </div>
+
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">7M+</div>
+                        <div class="stat-label">Usuários Ativos</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">700M+</div>
+                        <div class="stat-label">Imagens Criadas</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">150</div>
+                        <div class="stat-label">Créditos Diários Grátis</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">1000+</div>
+                        <div class="stat-label">Modelos Comunitários</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Modelos e Tecnologias</h2>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>🚀 Leonardo Diffusion XL</h4>
+                        <p><strong>Modelo Principal</strong></p>
+                        <ul>
+                            <li>Alta qualidade fotorrealista</li>
+                            <li>Versatilidade de estilos</li>
+                            <li>Consistência superior</li>
+                            <li>Ideal para uso geral</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>⚡ Leonardo Vision XL</h4>
+                        <p><strong>Fotorrealismo</strong></p>
+                        <ul>
+                            <li>Hiper-realismo</li>
+                            <li>Retratos perfeitos</li>
+                            <li>Texturas detalhadas</li>
+                            <li>Iluminação natural</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🎮 Leonardo Anime XL</h4>
+                        <p><strong>Estilo Anime/Manga</strong></p>
+                        <ul>
+                            <li>Personagens anime</li>
+                            <li>Estilo mangá autêntico</li>
+                            <li>Backgrounds detalhados</li>
+                            <li>Expressões dinâmicas</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Modelos Comunitários Populares</h3>
+                <ul class="concept-list">
+                    <li><strong>DreamShaper:</strong> Versatilidade artística, excelente para fantasy e sci-fi</li>
+                    <li><strong>Absolute Reality:</strong> Ultra-fotorrealismo, perfeito para retratos</li>
+                    <li><strong>RPG v5:</strong> Especializado em personagens e cenários de RPG</li>
+                    <li><strong>3D Animation Style:</strong> Estilo Pixar/Disney em 3D</li>
+                    <li><strong>Vintage Style Photography:</strong> Fotografia vintage e retrô</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Recursos Principais</h2>
+
+                <div class="info-box">
+                    <h3>🎨 Canvas Editor</h3>
+                    <p>Editor visual avançado que permite edição em tempo real, inpainting, outpainting e composição de múltiplas imagens. Similar ao Photoshop mas potencializado por IA.</p>
+                </div>
+
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <h3>✨ Alchemy V2</h3>
+                        <p>Pipeline de refinamento que melhora drasticamente qualidade, coerência e detalhes</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>🔄 Realtime Generation</h3>
+                        <p>Veja sua imagem sendo criada em tempo real, ajuste on-the-fly</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>🎯 ControlNet</h3>
+                        <p>Controle preciso sobre pose, profundidade e estrutura</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>🖼️ Image Guidance</h3>
+                        <p>Use imagens de referência para guiar o estilo e composição</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>🎭 Elements</h3>
+                        <p>Adicione elementos específicos consistentemente em múltiplas imagens</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>🌐 Texture Generation</h3>
+                        <p>Crie texturas seamless para 3D e game development</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Prompt Engineering para Leonardo AI</h2>
+
+                <div class="info-box">
+                    <h3>A Arte do Prompt Perfeito</h3>
+                    <p>Leonardo AI responde excepcionalmente bem a prompts detalhados e estruturados. A chave está em ser específico sobre estilo, composição, iluminação e detalhes técnicos.</p>
+                </div>
+
+                <h3>Estrutura de Prompt Recomendada</h3>
+                <div class="prompt-box">
+                    <strong>Estrutura Ideal:</strong><br><br>
+                    [Sujeito Principal], [Ação/Pose], [Descrição Detalhada],<br>
+                    [Estilo Artístico], [Iluminação], [Composição/Ângulo],<br>
+                    [Qualidade], [Detalhes Técnicos]<br><br>
+
+                    <strong>Exemplo:</strong><br>
+                    "Beautiful warrior princess, standing heroically,<br>
+                    long flowing silver hair, ornate golden armor,<br>
+                    fantasy art style, dramatic sunset lighting,<br>
+                    wide angle shot, highly detailed, 8k resolution,<br>
+                    digital painting, artstation quality"
+                </div>
+
+                <h3>Negative Prompts - O que Evitar</h3>
+                <ul class="concept-list">
+                    <li><strong>Anatomia:</strong> bad anatomy, extra limbs, missing fingers, distorted face</li>
+                    <li><strong>Qualidade:</strong> low quality, blurry, pixelated, watermark, text</li>
+                    <li><strong>Estilo:</strong> cartoon (se quiser realismo), realistic (se quiser arte)</li>
+                    <li><strong>Composição:</strong> cropped, out of frame, duplicate</li>
+                </ul>
+
+                <div class="warning-box">
+                    <strong>Dica Pro:</strong> Use "Prompt Magic" do Leonardo para otimização automática. Ele analisa seu prompt e adiciona modificadores para melhor resultado!
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Aplicações Práticas</h2>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>🎮 Game Development</h4>
+                        <ul>
+                            <li>Concept art</li>
+                            <li>Assets 2D</li>
+                            <li>Texturas</li>
+                            <li>UI/UX elements</li>
+                            <li>Characters design</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>📱 Marketing Digital</h4>
+                        <ul>
+                            <li>Posts para redes sociais</li>
+                            <li>Banners publicitários</li>
+                            <li>Thumbnails YouTube</li>
+                            <li>Material promocional</li>
+                            <li>Product mockups</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>📚 Publishing</h4>
+                        <ul>
+                            <li>Capas de livros</li>
+                            <li>Ilustrações</li>
+                            <li>Comics/Mangá</li>
+                            <li>Revistas digitais</li>
+                            <li>Material educacional</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🏗️ Arquitetura</h4>
+                        <ul>
+                            <li>Visualização arquitetônica</li>
+                            <li>Interior design</li>
+                            <li>Concept de ambientes</li>
+                            <li>Landscaping</li>
+                            <li>Apresentações</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>👕 Fashion</h4>
+                        <ul>
+                            <li>Design de roupas</li>
+                            <li>Patterns</li>
+                            <li>Lookbooks</li>
+                            <li>Accessories</li>
+                            <li>Fashion photography</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🎬 Produção</h4>
+                        <ul>
+                            <li>Storyboards</li>
+                            <li>Concept art filme</li>
+                            <li>Matte painting</li>
+                            <li>VFX concepts</li>
+                            <li>Pre-visualização</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Canvas Editor - Poder do Photoshop com IA</h2>
+
+                <div class="info-box">
+                    <h3>Ferramentas do Canvas</h3>
+                    <p>O Canvas Editor é onde a mágica acontece. Combine múltiplas imagens, edite partes específicas, estenda imagens e crie composições complexas.</p>
+                </div>
+
+                <h3>Recursos do Canvas</h3>
+                <ul class="concept-list">
+                    <li><strong>Inpainting:</strong> Edite partes específicas mantendo o resto intacto</li>
+                    <li><strong>Outpainting:</strong> Estenda imagens além das bordas originais</li>
+                    <li><strong>Image2Image:</strong> Use uma imagem base para gerar variações</li>
+                    <li><strong>Sketch2Image:</strong> Transforme esboços em arte finalizada</li>
+                    <li><strong>Mask Editor:</strong> Controle preciso sobre áreas de edição</li>
+                    <li><strong>Multi-Generation:</strong> Gere múltiplas variações simultaneamente</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Planos e Preços</h2>
+
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <h3>🆓 Free</h3>
+                        <p><strong>$0/mês</strong></p>
+                        <ul style="text-align: left; font-size: 0.9em;">
+                            <li>150 tokens/dia</li>
+                            <li>Modelos básicos</li>
+                            <li>Comunidade</li>
+                        </ul>
+                    </div>
+                    <div class="stat-card">
+                        <h3>📱 Apprentice</h3>
+                        <p><strong>$12/mês</strong></p>
+                        <ul style="text-align: left; font-size: 0.9em;">
+                            <li>8,500 tokens/mês</li>
+                            <li>Alchemy V2</li>
+                            <li>Canvas Editor</li>
+                        </ul>
+                    </div>
+                    <div class="stat-card">
+                        <h3>⭐ Artisan</h3>
+                        <p><strong>$30/mês</strong></p>
+                        <ul style="text-align: left; font-size: 0.9em;">
+                            <li>25,000 tokens/mês</li>
+                            <li>Todos os modelos</li>
+                            <li>Prioridade</li>
+                        </ul>
+                    </div>
+                    <div class="stat-card">
+                        <h3>🏆 Maestro</h3>
+                        <p><strong>$60/mês</strong></p>
+                        <ul style="text-align: left; font-size: 0.9em;">
+                            <li>60,000 tokens/mês</li>
+                            <li>API access</li>
+                            <li>Suporte premium</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Demonstrações Práticas</h2>
+
+                <div class="interactive-demo">
+                    <h3>Experimente Diferentes Estilos</h3>
+                    <button class="demo-button" onclick="alert('Prompt para Fotorrealismo:\n\nPortrait of a young woman, natural lighting, golden hour, shallow depth of field, professional photography, 85mm lens, soft shadows, skin texture visible, high resolution, RAW photo\n\nNegative: cartoon, anime, painting, illustration')">Demo: Fotorrealismo</button>
+                    <button class="demo-button" onclick="alert('Prompt para Fantasy Art:\n\nMajestic dragon perched on mountain peak, fantasy art, epic composition, dramatic lighting, storm clouds, digital painting, highly detailed scales, glowing eyes, artstation trending, 8k\n\nNegative: photo, realistic, modern, simple')">Demo: Fantasy</button>
+                    <button class="demo-button" onclick="alert('Prompt para Sci-Fi:\n\nFuturistic cityscape, cyberpunk aesthetic, neon lights, flying vehicles, holographic advertisements, rain-slicked streets, blade runner style, atmospheric, moody lighting, 4k\n\nNegative: medieval, rustic, nature, daylight')">Demo: Sci-Fi</button>
+                    <button class="demo-button" onclick="alert('Prompt para Product Design:\n\nModern minimalist watch, product photography, white background, soft shadows, studio lighting, high-end luxury, stainless steel, clean composition, commercial quality\n\nNegative: busy background, people, text')">Demo: Produto</button>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Próximos Passos</h2>
+
+                <div class="info-box">
+                    <h3>O que você aprendeu</h3>
+                    <ul>
+                        <li>✅ O que é Leonardo AI e seus diferenciais</li>
+                        <li>✅ Modelos disponíveis e suas especializações</li>
+                        <li>✅ Canvas Editor e ferramentas avançadas</li>
+                        <li>✅ Técnicas de prompt engineering</li>
+                        <li>✅ Aplicações práticas em diferentes indústrias</li>
+                        <li>✅ Planos e recursos disponíveis</li>
+                    </ul>
+                </div>
+
+                <div class="interactive-demo">
+                    <h3>Continue sua Jornada!</h3>
+                    <p>Descubra o mundo da geração de vídeo com IA</p>
+                    <button class="demo-button" onclick="window.location.href='modulo5_veo3.html'">Próximo: Veo 3 →</button>
+                    <button class="demo-button" onclick="window.location.href='modulo3_gemini.html'">← Voltar ao Módulo 3</button>
+                    <button class="demo-button" onclick="window.location.href='index.html'">Página Inicial</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
