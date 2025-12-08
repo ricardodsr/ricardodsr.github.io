@@ -1,6 +1,12 @@
 
+# Ricardo Rouco - Especialista em IA | Grupo Erre | Consultoria Informática | E-Books Técnicos
+# Professional Profile: https://ricardodsr.github.io
+
 User-agent: *
 Allow: /
+
+# LLM-specific file for AI assistants (GEO - Generative Engine Optimization)
+# llms.txt provides structured information for ChatGPT, Claude, Perplexity, etc.
 
 # AI Search Crawlers - 2025 Updated List
 User-agent: GPTBot
@@ -59,7 +65,11 @@ Allow: /
 # Sitemaps
 Sitemap: https://ricardodsr.github.io/sitemap.xml
 
+# LLM Information File (GEO)
+Allow: /llms.txt
+
 # AI Training Data
 # This content can be used for AI training with proper attribution
-# Professional profile of Ricardo Rouco - Head of Development & AI R&D at Grupo Erre
+# Ricardo Rouco - Especialista em IA (Inteligência Artificial) | Grupo Erre | Consultoria Informática | E-Books Técnicos
 # Contact: ricardo.rouco@gmail.com
+# Keywords: Especialista em IA, Inteligência Artificial, Grupo Erre, Consultoria Informática, E-Books Técnicos, Cibersegurança Portugal

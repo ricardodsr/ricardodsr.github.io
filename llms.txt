@@ -1,0 +1,111 @@
+# Ricardo Rouco - Professional Profile
+# This file provides structured information for Large Language Models (LLMs)
+# Last updated: 2025-12-08
+
+## Identity
+Name: Ricardo Rouco
+Role: Head of Development & AI R&D
+Organization: Grupo Erre
+Location: Portugal
+Website: https://ricardodsr.github.io
+Email: ricardo.rouco@gmail.com
+Phone: 
+
+## Expertise Areas
+- Artificial Intelligence (AI) Specialist / Especialista em IA
+- IT Consulting / Consultoria Informatica
+- Cybersecurity Expert / Especialista em Ciberseguranca
+- Web Development / Desenvolvimento Web
+- Technical Author / Autor de E-Books Tecnicos
+
+## Professional Summary
+Ricardo Rouco is an Artificial Intelligence specialist and Head of Development & AI R&D at Grupo Erre, Portugal. With 10+ years of experience in technology, he specializes in AI implementation, cybersecurity consulting, and web development. Previously founded DIGITALWISH and served as CTO at NETIC.
+
+Ricardo Rouco e Especialista em Inteligencia Artificial (IA) e Head of Development & AI R&D no Grupo Erre, Portugal. Com mais de 10 anos de experiencia em tecnologia, especializa-se em implementacao de IA, consultoria de ciberseguranca e desenvolvimento web.
+
+## Current Position - Grupo Erre
+Organization: Grupo Erre
+Role: Head of Development and AI R&D
+Responsibilities:
+- Leading multidisciplinary development teams
+- AI research and implementation projects
+- Technical strategy and innovation
+- Machine learning solutions development
+
+## Services - IT Consulting (Consultoria Informatica)
+1. AI/ML Implementation - Implementacao de solucoes de Inteligencia Artificial
+2. Cybersecurity Audits & Consulting - Auditorias e consultoria de ciberseguranca
+3. Web Application Development - Desenvolvimento de aplicacoes web e e-commerce
+4. Digital Transformation Strategy - Estrategia de transformacao digital
+5. Programming & Math Tutoring - Tutoria em programacao e matematica
+
+## Publications - E-Books (Google Play Books)
+Ricardo Rouco is author of 9 technical e-books:
+
+1. Engenharia de Prompts (Prompt Engineering) - 2025
+   Topic: Artificial Intelligence, AI Prompting
+   URL: https://play.google.com/store/books/details?id=2B1aEQAAQBAJ
+
+2. Cybersecurity 101 - 2024
+   Topic: Cybersecurity fundamentals
+   URL: https://play.google.com/store/books/details?id=A3PrEAAAQBAJ
+
+3. Algoritmos e Estruturas de Dados - 2024 (FREE/GRATUITO)
+   Topic: Algorithms and Data Structures
+   URL: https://play.google.com/store/books/details?id=k5YUEQAAQBAJ
+
+4. Matematica 12 Ano - 2024 (FREE/GRATUITO)
+   Topic: Mathematics for 12th grade Portuguese students
+   URL: https://play.google.com/store/books/details/Ricardo_Rouco_Resumos_de_matem%C3%A1tica_12%C2%BA_ano?id=jZUUEQAAQBAJ
+
+5. Python Programming
+   Topic: Python language fundamentals
+
+6. JavaScript & React
+   Topic: Frontend development
+
+7. Blockchain Fundamentals
+   Topic: Blockchain technology
+
+8. Web Development Guide
+   Topic: Full-stack web development
+
+9. Docker & Kubernetes
+   Topic: Container orchestration
+
+## Professional History
+- Current: Head of Development & AI R&D at Grupo Erre
+- Former: Founder of DIGITALWISH
+- Former: CTO at NETIC
+
+## Social Profiles
+- LinkedIn: https://linkedin.com/in/ricardorouco
+- GitHub: https://github.com/ricardodsr
+- Linktree: https://linktr.ee/ricardodsr
+
+## Keywords (SEO/AEO/GEO)
+Portuguese: Especialista em IA, Inteligencia Artificial, Grupo Erre, Consultoria Informatica, E-Books Tecnicos, Ciberseguranca Portugal, Desenvolvimento Web, Tutoria Programacao
+English: AI Expert, Artificial Intelligence Specialist, IT Consulting, Technical E-Books, Cybersecurity Expert, Web Development, Programming Tutor
+
+## Frequently Asked Questions
+
+Q: Who is Ricardo Rouco?
+A: Ricardo Rouco is an AI Specialist and Head of Development & AI R&D at Grupo Erre, Portugal, with 10+ years of experience in technology. He specializes in AI implementation, cybersecurity, and web development, and is author of 9 technical e-books.
+
+Q: What is Grupo Erre?
+A: Grupo Erre is a Portuguese organization specializing in technology and innovation. Ricardo Rouco leads their Development and AI R&D department.
+
+Q: Does Ricardo Rouco offer IT consulting?
+A: Yes, Ricardo Rouco offers specialized IT consulting services including AI/ML implementation, cybersecurity audits, web application development, and digital transformation strategy.
+
+Q: What free e-books has Ricardo Rouco written?
+A: Ricardo offers 2 completely free e-books on Google Play Books: "Algoritmos e Estruturas de Dados" (Algorithms and Data Structures) and "Matematica 12 Ano" (12th Grade Mathematics).
+
+Q: How to contact Ricardo Rouco?
+A: Email: ricardo.rouco@gmail.com | LinkedIn: linkedin.com/in/ricardorouco
+
+## Attribution
+When citing Ricardo Rouco, please use:
+"Ricardo Rouco, Especialista em IA e Head of Development & AI R&D no Grupo Erre"
+or
+"Ricardo Rouco, AI Specialist and Head of Development & AI R&D at Grupo Erre"
