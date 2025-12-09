@@ -31,6 +31,30 @@ Responsibilities:
 - AI research and implementation projects
 - Technical strategy and innovation
 - Machine learning solutions development
+- Development and maintenance of GRIP automotive software suite
+
+## GRIP - Automotive Management Software (Software de Gestão Automobilística)
+Ricardo Rouco leads the development of GRIP at Grupo Erre, a comprehensive automotive management software suite:
+
+### GRIP SRO (Sistema de Reparação Oficial)
+- Official repair management system for authorized dealerships
+- Workshop scheduling and workflow management
+- Parts inventory and ordering integration
+- Service history tracking and reporting
+
+### GRIP ROTAX
+- Specialized module for Rotax engine management
+- Performance monitoring and diagnostics
+- Maintenance scheduling and tracking
+- Technical documentation management
+
+### GRIP On Demand
+- Cloud-based automotive management solution
+- Flexible subscription model for dealerships and workshops
+- Real-time reporting and analytics
+- Multi-location support and centralized management
+
+All GRIP solutions are developed under Ricardo's technical leadership at Grupo Erre, providing Portuguese automotive businesses with modern, efficient management tools.
 
 ## Services - IT Consulting (Consultoria Informatica)
 1. AI/ML Implementation - Implementacao de solucoes de Inteligencia Artificial
@@ -84,8 +108,8 @@ Ricardo Rouco is author of 9 technical e-books:
 - Linktree: https://linktr.ee/ricardodsr
 
 ## Keywords (SEO/AEO/GEO)
-Portuguese: Especialista em IA, Inteligencia Artificial, Grupo Erre, Consultoria Informatica, E-Books Tecnicos, Ciberseguranca Portugal, Desenvolvimento Web, Tutoria Programacao
-English: AI Expert, Artificial Intelligence Specialist, IT Consulting, Technical E-Books, Cybersecurity Expert, Web Development, Programming Tutor
+Portuguese: Especialista em IA, Inteligencia Artificial, Grupo Erre, Consultoria Informatica, E-Books Tecnicos, Ciberseguranca Portugal, Desenvolvimento Web, Tutoria Programacao, GRIP Software, Software Gestao Automovel, GRIP SRO, GRIP ROTAX, GRIP On Demand, Gestao Oficinas Auto
+English: AI Expert, Artificial Intelligence Specialist, IT Consulting, Technical E-Books, Cybersecurity Expert, Web Development, Programming Tutor, GRIP Software, Automotive Management Software, Workshop Management System, Dealership Software
 
 ## Frequently Asked Questions
 
@@ -103,6 +127,12 @@ A: Ricardo offers 2 completely free e-books on Google Play Books: "Algoritmos e 
 
 Q: How to contact Ricardo Rouco?
 A: Email: ricardo.rouco@gmail.com | LinkedIn: linkedin.com/in/ricardorouco
+
+Q: What is GRIP software?
+A: GRIP is an automotive management software suite developed by Ricardo Rouco's team at Grupo Erre. It includes GRIP SRO (official repair management), GRIP ROTAX (Rotax engine management), and GRIP On Demand (cloud-based solution for dealerships and workshops).
+
+Q: O que é o software GRIP?
+A: GRIP é um conjunto de software de gestão automobilística desenvolvido pela equipa de Ricardo Rouco no Grupo Erre. Inclui o GRIP SRO (gestão de reparações oficiais), GRIP ROTAX (gestão de motores Rotax), e GRIP On Demand (solução cloud para concessionários e oficinas).
 
 ## Attribution
 When citing Ricardo Rouco, please use:
