@@ -9,7 +9,7 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://raw.githubusercontent.com/ricardodsr/ricardodsr.github.io/main/images/rrLogo.png</image:loc>
+      <image:loc>https://ricardodsr.github.io/og-image.png</image:loc>
       <image:caption>Ricardo Rouco - Especialista em IA e Consultoria Informática</image:caption>
       <image:title>Ricardo Rouco - Especialista em Inteligência Artificial</image:title>
     </image:image>
