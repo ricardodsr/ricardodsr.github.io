@@ -5,7 +5,7 @@
   <!-- Main Page - Ricardo Rouco Portfolio -->
   <url>
     <loc>https://ricardodsr.github.io/</loc>
-    <lastmod>2025-01-12</lastmod>
+    <lastmod>2026-04-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -15,26 +15,34 @@
     </image:image>
   </url>
 
+  <!-- Matemática 12º Ano - Curso Interativo -->
+  <url>
+    <loc>https://ricardodsr.github.io/matematica-12ano</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Privacy Policy Page -->
   <url>
     <loc>https://ricardodsr.github.io/privacy-policy</loc>
-    <lastmod>2025-01-12</lastmod>
+    <lastmod>2026-04-13</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.3</priority>
   </url>
 
   <!-- Terms of Service Page -->
   <url>
     <loc>https://ricardodsr.github.io/terms-of-service</loc>
-    <lastmod>2025-01-12</lastmod>
+    <lastmod>2026-04-13</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.3</priority>
   </url>
 
   <!-- LLMs Information File (GEO - Generative Engine Optimization) -->
   <url>
     <loc>https://ricardodsr.github.io/llms.txt</loc>
-    <lastmod>2025-01-12</lastmod>
+    <lastmod>2026-04-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
