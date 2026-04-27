@@ -1,50 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Main Page - Ricardo Rouco Portfolio -->
   <url>
     <loc>https://ricardodsr.github.io/</loc>
-    <lastmod>2026-04-13</lastmod>
+    <lastmod>2026-04-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <image:image>
-      <image:loc>https://ricardodsr.github.io/og-image.png</image:loc>
-      <image:caption>Ricardo Rouco - Especialista em IA e Consultoria Informática</image:caption>
-      <image:title>Ricardo Rouco - Especialista em Inteligência Artificial</image:title>
-    </image:image>
   </url>
 
-  <!-- Matemática 12º Ano - Curso Interativo -->
   <url>
     <loc>https://ricardodsr.github.io/matematica-12ano</loc>
-    <lastmod>2026-04-13</lastmod>
+    <lastmod>2026-04-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Privacy Policy Page -->
   <url>
     <loc>https://ricardodsr.github.io/privacy-policy</loc>
-    <lastmod>2026-04-13</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-27</lastmod>
+    <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
-  <!-- Terms of Service Page -->
   <url>
     <loc>https://ricardodsr.github.io/terms-of-service</loc>
-    <lastmod>2026-04-13</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-27</lastmod>
+    <changefreq>yearly</changefreq>
     <priority>0.3</priority>
-  </url>
-
-  <!-- LLMs Information File (GEO - Generative Engine Optimization) -->
-  <url>
-    <loc>https://ricardodsr.github.io/llms.txt</loc>
-    <lastmod>2026-04-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
 
 </urlset>
