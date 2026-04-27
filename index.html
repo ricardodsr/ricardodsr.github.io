@@ -65,8 +65,12 @@
     content="Ricardo Rouco é Especialista em Inteligência Artificial no Grupo Erre, oferecendo consultoria informática e autor de e-books técnicos em Portugal." />
 
   <!-- Google Search Console Verification -->
-  <!-- TODO: Substituir CÓDIGO_DO_GOOGLE pelo código de verificação do Search Console -->
-  <!-- <meta name="google-site-verification" content="CÓDIGO_DO_GOOGLE" /> -->
+  <meta name="google-site-verification" content="GV1b5MLo7Uzi8l_3n_PrPUGKX1EmKYUPJmZOTYR3kQQ" />
+
+  <!-- Crawler directives -->
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:300, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow, max-snippet:300, max-image-preview:large" />
+  <meta name="bingbot" content="index, follow, max-snippet:300, max-image-preview:large" />
 
   <!-- Canonical URL -->
   <link rel="canonical" href="https://ricardodsr.github.io/" />
@@ -100,60 +104,220 @@
   <!-- Favicon -->
   <link rel="icon" href="/favicon.ico" />
 
-  <!-- Structured Data -->
+  <!-- Structured Data — static @graph visible to crawlers before JS -->
   <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
       {
-        "@context": "https://schema.org",
         "@type": "Person",
+        "@id": "https://ricardodsr.github.io/#person",
         "name": "Ricardo Rouco",
-        "url": "https://ricardodsr.github.io",
+        "image": {
+          "@type": "ImageObject",
+          "@id": "https://ricardodsr.github.io/#personImage",
+          "url": "https://ricardodsr.github.io/og-image.png",
+          "width": 1200,
+          "height": 630,
+          "caption": "Ricardo Rouco"
+        },
+        "description": "Especialista em IA e Head of Development & AI R&D no Grupo Erre. Mais de 10 anos a desenvolver soluções e aplicações, cibersegurança e desenvolvimento full-stack.",
+        "jobTitle": "Head of Development and AI R&D",
+        "email": "ricardo.rouco@gmail.com",
+        "url": "https://ricardodsr.github.io/",
         "sameAs": [
           "https://github.com/ricardodsr",
-          "https://linkedin.com/in/ricardorouco",
+          "https://linkedin.com/in/ricardo-rouco-57420b37/",
           "https://linktr.ee/ricardodsr"
         ],
-        "jobTitle": "Especialista em IA - Head of Development and AI R&D",
-        "description": "Especialista em Inteligência Artificial (IA) e Head of Development & AI R&D no Grupo Erre. Consultoria informática, cibersegurança, desenvolvimento web e autor de e-books técnicos em Portugal.",
-        "knowsAbout": ["Inteligência Artificial", "Consultoria Informática", "Cibersegurança", "Desenvolvimento Web", "E-Books Técnicos", "Machine Learning", "Programação", "Matemática", "Python", "JavaScript"],
-        "worksFor": {
-          "@type": "Organization",
-          "name": "Grupo Erre",
-          "@id": "https://grupoerre.pt/#organization"
-        },
+        "knowsAbout": ["Inteligência Artificial", "Consultoria Informática", "Cibersegurança", "Desenvolvimento Web", "E-Books Técnicos", "Machine Learning", "Python", "JavaScript", "Matemática"],
         "hasOccupation": {
           "@type": "Occupation",
           "name": "Especialista em Inteligência Artificial",
           "occupationalCategory": "15-1252.00",
           "skills": ["Artificial Intelligence", "Machine Learning", "Cybersecurity", "Web Development", "IT Consulting"]
         },
-        "offers": [
+        "worksFor": {
+          "@type": "Organization",
+          "@id": "https://grupoerre.pt/#organization",
+          "name": "Grupo Erre"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://ricardodsr.github.io/#website",
+        "url": "https://ricardodsr.github.io/",
+        "name": "Ricardo Rouco | Head of Development & AI R&D | Especialista em Cibersegurança",
+        "description": "Head of Development e AI R&D no Grupo Erre. Especialista em Cibersegurança, IA e Desenvolvimento Web fornecendo soluções digitais integradas para proteger e impulsionar seu negócio.",
+        "inLanguage": "pt",
+        "publisher": { "@id": "https://ricardodsr.github.io/#person" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://ricardodsr.github.io/#webpage",
+        "url": "https://ricardodsr.github.io/",
+        "name": "Ricardo Rouco | Head of Development & AI R&D | Especialista em Cibersegurança",
+        "isPartOf": { "@id": "https://ricardodsr.github.io/#website" },
+        "about": { "@id": "https://ricardodsr.github.io/#person" },
+        "primaryImageOfPage": { "@id": "https://ricardodsr.github.io/#personImage" },
+        "datePublished": "2023-01-01T00:00:00+00:00",
+        "dateModified": "2026-04-27T00:00:00+00:00",
+        "description": "Head of Development e AI R&D no Grupo Erre. Especialista em Cibersegurança, IA e Desenvolvimento Web fornecendo soluções digitais integradas para proteger e impulsionar seu negócio.",
+        "breadcrumb": { "@id": "https://ricardodsr.github.io/#breadcrumb" },
+        "inLanguage": "pt",
+        "potentialAction": [{ "@type": "ReadAction", "target": ["https://ricardodsr.github.io/"] }]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://ricardodsr.github.io/#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ricardodsr.github.io/" },
+          { "@type": "ListItem", "position": 2, "name": "Sobre Ricardo Rouco", "item": "https://ricardodsr.github.io/#about" },
+          { "@type": "ListItem", "position": 3, "name": "Serviços", "item": "https://ricardodsr.github.io/#services" },
+          { "@type": "ListItem", "position": 4, "name": "E-books", "item": "https://ricardodsr.github.io/#ebooks" },
+          { "@type": "ListItem", "position": 5, "name": "Contacto", "item": "https://ricardodsr.github.io/#contact" }
+        ]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://grupoerre.pt/#organization",
+        "name": "Grupo Erre",
+        "url": "https://grupoerre.pt",
+        "description": "Organização portuguesa especializada em desenvolvimento de software, investigação em inteligência artificial e soluções de gestão automobilística (GRIP).",
+        "foundingLocation": { "@type": "Country", "name": "Portugal" },
+        "industry": "Technology",
+        "employee": [{ "@id": "https://ricardodsr.github.io/#person" }]
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://ricardodsr.github.io/#consultoria",
+        "name": "Consultoria Informática — Ricardo Rouco",
+        "description": "Serviços especializados de consultoria: implementação de IA, cibersegurança, desenvolvimento web e transformação digital.",
+        "provider": { "@id": "https://ricardodsr.github.io/#person" },
+        "serviceType": ["IT Consulting", "AI Implementation", "Cybersecurity", "Web Development"],
+        "areaServed": { "@type": "Country", "name": "Portugal" },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Serviços Profissionais",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Implementação de Inteligência Artificial", "description": "Desenvolvimento e implementação de soluções de IA e machine learning para empresas" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Consultoria de Cibersegurança", "description": "Auditorias de segurança, pentests e análise de vulnerabilidades" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Desenvolvimento Web", "description": "Desenvolvimento de aplicações web, e-commerce e soluções digitais" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Formação Técnica", "description": "Workshops e formação em IA, cibersegurança e programação" } }
+          ]
+        }
+      },
+      {
+        "@type": "CreativeWork",
+        "name": "Portfólio de E-books Técnicos",
+        "description": "Coleção de 9 e-books técnicos cobrindo cibersegurança, IA, programação e matemática",
+        "author": { "@id": "https://ricardodsr.github.io/#person" },
+        "publisher": { "@type": "Organization", "name": "Google Play Books" },
+        "about": ["Cibersegurança", "Inteligência Artificial", "Programação", "Matemática", "Blockchain"],
+        "inLanguage": "pt",
+        "workExample": [
+          { "@type": "Book", "name": "Engenharia de Prompts", "datePublished": "2025", "genre": "Inteligência Artificial", "url": "https://play.google.com/store/books/details?id=2B1aEQAAQBAJ" },
+          { "@type": "Book", "name": "Cybersecurity 101", "datePublished": "2024", "genre": "Cibersegurança", "url": "https://play.google.com/store/books/details?id=A3PrEAAAQBAJ" },
+          { "@type": "Book", "name": "Algoritmos e estruturas de dados", "datePublished": "2024", "genre": "Programação", "isAccessibleForFree": true, "url": "https://play.google.com/store/books/details?id=k5YUEQAAQBAJ" },
+          { "@type": "Book", "name": "Matemática 12º Ano", "datePublished": "2024", "genre": "Matemática", "isAccessibleForFree": true }
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://grupoerre.pt/#grip-software",
+        "name": "GRIP — Software de Gestão Automobilística",
+        "description": "Suite de software de gestão automobilística desenvolvida pelo Grupo Erre: GRIP SRO, GRIP ROTAX e GRIP On Demand.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web, Windows",
+        "creator": { "@id": "https://grupoerre.pt/#organization" },
+        "author": { "@id": "https://ricardodsr.github.io/#person" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
           {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Consultoria Informática",
-              "description": "Consultoria especializada em implementação de IA, cibersegurança e desenvolvimento web"
-            }
+            "@type": "Question",
+            "name": "Quem é Ricardo Rouco?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Ricardo Rouco é Especialista em Inteligência Artificial (IA) e Head of Development & AI R&D no Grupo Erre, com 10+ anos de experiência em tecnologia. Oferece consultoria informática especializada em cibersegurança, IA e desenvolvimento web. Autor de 9 e-books técnicos no Google Play Books." }
           },
           {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Tutoria Educacional",
-              "description": "Tutoria personalizada em Programação, Matemática e Informática"
-            }
+            "@type": "Question",
+            "name": "Ricardo Rouco é especialista em IA?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sim, Ricardo Rouco é Especialista em Inteligência Artificial e ocupa o cargo de Head of Development & AI R&D no Grupo Erre. Lidera projetos de pesquisa em IA, implementação de soluções de machine learning e desenvolvimento de sistemas inteligentes." }
+          },
+          {
+            "@type": "Question",
+            "name": "Que serviços oferece Ricardo Rouco?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Ricardo oferece: consultoria em implementação de IA e machine learning, auditorias de cibersegurança (pentests, análise de vulnerabilidades), desenvolvimento de aplicações web e e-commerce, e formação técnica em programação e IA." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quais e-books Ricardo Rouco escreveu?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Ricardo Rouco é autor de 9 e-books técnicos no Google Play Books: Engenharia de Prompts (IA), Cybersecurity 101, Algoritmos e Estruturas de Dados (gratuito), Matemática 12º Ano (gratuito), Python, JavaScript & React, Blockchain e Docker & Kubernetes." }
+          },
+          {
+            "@type": "Question",
+            "name": "Como contactar Ricardo Rouco?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Contacto: Email comercial@erre-technology.com | LinkedIn: linkedin.com/in/ricardo-rouco-57420b37 | Links: linktr.ee/ricardodsr" }
+          },
+          {
+            "@type": "Question",
+            "name": "O que é o software GRIP?",
+            "acceptedAnswer": { "@type": "Answer", "text": "GRIP é um conjunto de software de gestão automobilística desenvolvido pela equipa do Ricardo Rouco no Grupo Erre. Inclui GRIP SRO (Sistema de Reparação Oficial), GRIP ROTAX (gestão de motores Rotax) e GRIP On Demand (solução cloud para oficinas)." }
           }
-        ],
-        "image": "https://ricardodsr.github.io/og-image.png",
-        "email": "ricardo.rouco@gmail.com"
+        ]
       }
-    </script>
+    ]
+  }
+  </script>
   <script type="module" crossorigin src="/assets/index-DXUaZyqJ.js"></script>
   <link rel="stylesheet" crossorigin href="/assets/index-CvA1x-rY.css">
 </head>
 
 <body>
   <div id="root"></div>
+
+  <!-- Fallback content for crawlers that don't execute JavaScript -->
+  <noscript>
+    <header>
+      <h1>Ricardo Rouco — Especialista em IA &amp; Consultoria Informática</h1>
+      <p>Head of Development &amp; AI R&amp;D no Grupo Erre, Portugal.</p>
+    </header>
+    <main>
+      <section>
+        <h2>Sobre Ricardo Rouco</h2>
+        <p>Especialista em Inteligência Artificial (IA) e Head of Development &amp; AI R&amp;D no Grupo Erre.
+          Mais de 10 anos a desenvolver soluções e aplicações, cibersegurança e desenvolvimento full-stack.</p>
+      </section>
+      <section>
+        <h2>Serviços Profissionais</h2>
+        <ul>
+          <li>Implementação de Inteligência Artificial — desenvolvimento e integração de soluções de IA e machine learning</li>
+          <li>Consultoria de Cibersegurança — auditorias, pentests e análise de vulnerabilidades</li>
+          <li>Desenvolvimento Web — aplicações web, e-commerce e soluções digitais</li>
+          <li>Formação Técnica — workshops e formação em IA, cibersegurança e programação</li>
+        </ul>
+      </section>
+      <section>
+        <h2>E-books Técnicos</h2>
+        <p>Autor de 9 e-books técnicos disponíveis no Google Play Books:</p>
+        <ul>
+          <li>Engenharia de Prompts (2025)</li>
+          <li>Cybersecurity 101 (2024)</li>
+          <li>Algoritmos e Estruturas de Dados (2024) — gratuito</li>
+          <li>Matemática 12º Ano (2024) — gratuito</li>
+          <li>Python, JavaScript &amp; React, Blockchain, Docker &amp; Kubernetes</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Contacto</h2>
+        <p>Email: <a href="mailto:comercial@erre-technology.com">comercial@erre-technology.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/ricardo-rouco-57420b37/">linkedin.com/in/ricardo-rouco-57420b37</a></p>
+        <p>Links: <a href="https://linktr.ee/ricardodsr">linktr.ee/ricardodsr</a></p>
+      </section>
+    </main>
+  </noscript>
+
   <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
   <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
 </body>
