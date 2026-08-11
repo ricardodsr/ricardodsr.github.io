@@ -16,6 +16,20 @@ Crawl-delay: 1
 User-agent: ChatGPT-User
 Allow: /
 
+# OpenAI search crawler — indexes for ChatGPT Search (distinct from GPTBot)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+# Legacy Anthropic agents (kept for older crawler deployments)
 User-agent: anthropic-ai
 Allow: /
 
@@ -32,6 +46,12 @@ User-agent: GoogleOther
 Allow: /
 
 User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: MistralAI-User
 Allow: /
 
 User-agent: YouBot

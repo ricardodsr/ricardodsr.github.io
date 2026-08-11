@@ -1,32 +1,214 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://ricardodsr.github.io/</loc>
-    <lastmod>2026-04-27</lastmod>
+    <lastmod>2026-08-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://ricardodsr.github.io/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://ricardodsr.github.io/en/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ricardodsr.github.io/es/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ricardodsr.github.io/" />
   </url>
-
   <url>
     <loc>https://ricardodsr.github.io/matematica-12ano</loc>
-    <lastmod>2026-04-27</lastmod>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://ricardodsr.github.io/matematica-12ano" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://ricardodsr.github.io/en/matematica-12ano" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ricardodsr.github.io/es/matematica-12ano" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ricardodsr.github.io/matematica-12ano" />
+  </url>
+  <url>
+    <loc>https://ricardodsr.github.io/privacy-policy</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://ricardodsr.github.io/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://ricardodsr.github.io/en/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ricardodsr.github.io/es/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ricardodsr.github.io/privacy-policy" />
+  </url>
+  <url>
+    <loc>https://ricardodsr.github.io/terms-of-service</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://ricardodsr.github.io/terms-of-service" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://ricardodsr.github.io/en/terms-of-service" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ricardodsr.github.io/es/terms-of-service" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ricardodsr.github.io/terms-of-service" />
+  </url>
+  <url>
+    <loc>https://ricardodsr.github.io/cookie-policy</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://ricardodsr.github.io/cookie-policy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://ricardodsr.github.io/en/cookie-policy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ricardodsr.github.io/es/cookie-policy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ricardodsr.github.io/cookie-policy" />
+  </url>
+  <url>
+    <loc>https://ricardodsr.github.io/ebooks/ia-agentica</loc>
+    <lastmod>2026-08-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://ricardodsr.github.io/privacy-policy</loc>
-    <lastmod>2026-04-27</lastmod>
+    <loc>https://ricardodsr.github.io/ebooks/engenharia-de-prompts</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ricardodsr.github.io/ebooks/seguranca-online-jovens-criancas</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ricardodsr.github.io/ebooks/algoritmos-e-estruturas-de-dados</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ricardodsr.github.io/ebooks/cybersecurity-101</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ricardodsr.github.io/ebooks/ciberseguranca-proteger-a-sua-empresa</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ricardodsr.github.io/ebooks/ai-introducao-prompts</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ricardodsr.github.io/ebooks/fundamentos-programacao-python</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ricardodsr.github.io/ebooks/introducao-programacao-funcional</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ricardodsr.github.io/ebooks/introducao-as-criptomoedas</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ricardodsr.github.io/en/</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://ricardodsr.github.io/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://ricardodsr.github.io/en/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ricardodsr.github.io/es/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ricardodsr.github.io/" />
+  </url>
+  <url>
+    <loc>https://ricardodsr.github.io/en/matematica-12ano</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://ricardodsr.github.io/matematica-12ano" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://ricardodsr.github.io/en/matematica-12ano" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ricardodsr.github.io/es/matematica-12ano" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ricardodsr.github.io/matematica-12ano" />
+  </url>
+  <url>
+    <loc>https://ricardodsr.github.io/en/privacy-policy</loc>
+    <lastmod>2026-08-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://ricardodsr.github.io/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://ricardodsr.github.io/en/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ricardodsr.github.io/es/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ricardodsr.github.io/privacy-policy" />
   </url>
-
   <url>
-    <loc>https://ricardodsr.github.io/terms-of-service</loc>
-    <lastmod>2026-04-27</lastmod>
+    <loc>https://ricardodsr.github.io/en/terms-of-service</loc>
+    <lastmod>2026-08-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://ricardodsr.github.io/terms-of-service" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://ricardodsr.github.io/en/terms-of-service" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ricardodsr.github.io/es/terms-of-service" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ricardodsr.github.io/terms-of-service" />
   </url>
-
+  <url>
+    <loc>https://ricardodsr.github.io/en/cookie-policy</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://ricardodsr.github.io/cookie-policy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://ricardodsr.github.io/en/cookie-policy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ricardodsr.github.io/es/cookie-policy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ricardodsr.github.io/cookie-policy" />
+  </url>
+  <url>
+    <loc>https://ricardodsr.github.io/es/</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://ricardodsr.github.io/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://ricardodsr.github.io/en/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ricardodsr.github.io/es/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ricardodsr.github.io/" />
+  </url>
+  <url>
+    <loc>https://ricardodsr.github.io/es/matematica-12ano</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://ricardodsr.github.io/matematica-12ano" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://ricardodsr.github.io/en/matematica-12ano" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ricardodsr.github.io/es/matematica-12ano" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ricardodsr.github.io/matematica-12ano" />
+  </url>
+  <url>
+    <loc>https://ricardodsr.github.io/es/privacy-policy</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://ricardodsr.github.io/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://ricardodsr.github.io/en/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ricardodsr.github.io/es/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ricardodsr.github.io/privacy-policy" />
+  </url>
+  <url>
+    <loc>https://ricardodsr.github.io/es/terms-of-service</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://ricardodsr.github.io/terms-of-service" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://ricardodsr.github.io/en/terms-of-service" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ricardodsr.github.io/es/terms-of-service" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ricardodsr.github.io/terms-of-service" />
+  </url>
+  <url>
+    <loc>https://ricardodsr.github.io/es/cookie-policy</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://ricardodsr.github.io/cookie-policy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://ricardodsr.github.io/en/cookie-policy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ricardodsr.github.io/es/cookie-policy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ricardodsr.github.io/cookie-policy" />
+  </url>
 </urlset>
