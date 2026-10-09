@@ -274,42 +274,40 @@
         <div class="content">
             <div class="section">
                 <h2>Introdução ao Ecossistema de Ferramentas IA</h2>
-                <p>Neste módulo, exploraremos ferramentas complementares que ampliam as capacidades dos assistentes de IA principais. Cada ferramenta foi selecionada para resolver problemas específicos e integrar-se perfeitamente ao seu workflow.</p>
+                <p>Neste módulo, exploraremos ferramentas complementares que ampliam as capacidades dos assistentes de IA principais. Este é o módulo que envelhece mais depressa: planos, nomes e até a existência das ferramentas mudam todos os anos. Reveja-o com a data da última atualização em mente (outubro de 2026) e confirme sempre nos sites oficiais.</p>
             </div>
 
             <div class="section">
-                <h2>1. Banana - Deploy Rápido de Modelos ML</h2>
+                <h2>1. Deploy de Modelos ML (a Banana foi descontinuada)</h2>
 
                 <div class="tool-card">
-                    <h4>🍌 O que é o Banana?</h4>
-                    <p>Banana é uma plataforma de infraestrutura serverless otimizada para deploy de modelos de Machine Learning. Permite escalar modelos de IA de forma eficiente com latência ultra-baixa.</p>
+                    <h4>🍌 O que aconteceu à Banana?</h4>
+                    <p>A Banana.dev, plataforma serverless de GPUs que este módulo apresentava, anunciou em fevereiro de 2024 o fim do serviço, que foi desativado a 31 de março de 2024. Quem a usava teve de migrar para outro fornecedor.</p>
 
-                    <h5>Características Principais:</h5>
+                    <h5>Alternativas referidas para deploy de modelos:</h5>
                     <ul class="feature-list">
-                        <li>Deploy em menos de 5 minutos</li>
-                        <li>Auto-scaling baseado em demanda</li>
-                        <li>Cold start otimizado (< 1 segundo)</li>
-                        <li>Suporte para PyTorch, TensorFlow, Hugging Face</li>
-                        <li>Preços pay-per-use competitivos</li>
-                        <li>GPU dedicadas para inferência</li>
+                        <li>Modal - funções e GPUs serverless</li>
+                        <li>RunPod - GPUs a pedido e endpoints serverless</li>
+                        <li>Replicate - execução de modelos por API</li>
+                        <li>Baseten - serviço de inferência para modelos próprios</li>
+                        <li>Nuvens grandes: Google Cloud (Vertex AI) e Amazon Bedrock</li>
                     </ul>
                 </div>
 
                 <div class="workflow-section">
-                    <h4>Workflow de Deploy no Banana</h4>
+                    <h4>Workflow Genérico de Deploy de um Modelo</h4>
                     <ol class="workflow-steps">
-                        <li>Preparar o modelo (formato compatível)</li>
-                        <li>Criar arquivo de configuração banana.yaml</li>
-                        <li>Fazer upload via CLI ou interface web</li>
-                        <li>Testar endpoint gerado automaticamente</li>
-                        <li>Integrar API no seu aplicativo</li>
+                        <li>Escolher o modelo (próprio ou aberto) e o fornecedor</li>
+                        <li>Empacotar o modelo e as dependências (normalmente num contentor)</li>
+                        <li>Publicar o endpoint através da CLI ou da interface web</li>
+                        <li>Testar o endpoint e medir latência e custo por pedido</li>
+                        <li>Integrar a API na sua aplicação, com monitorização e limites de gasto</li>
                     </ol>
                 </div>
 
-                <div class="use-case">
-                    <h5>📌 Caso de Uso Prático</h5>
-                    <p><strong>Cenário:</strong> Startup de e-commerce precisa de recomendações personalizadas em tempo real.</p>
-                    <p><strong>Solução:</strong> Deploy de modelo de recomendação no Banana com auto-scaling para Black Friday, economizando 70% em infraestrutura comparado a soluções tradicionais.</p>
+                <div class="tip-box">
+                    <h4>💡 Lição Prática</h4>
+                    <p>Plataformas de IA aparecem e desaparecem depressa. Evite ficar preso a um único fornecedor: use contentores e interfaces padrão, para poder migrar sem reescrever a aplicação. Antes de qualquer deploy, confirme se um modelo por API (Claude, Gemini) já resolve o problema sem gerir infraestrutura.</p>
                 </div>
             </div>
 
@@ -318,16 +316,16 @@
 
                 <div class="tool-card">
                     <h4>📔 O que é o NotebookLM?</h4>
-                    <p>NotebookLM é um assistente de pesquisa experimental do Google que transforma documentos em uma base de conhecimento interativa, permitindo análise profunda e síntese de informações.</p>
+                    <p>NotebookLM é um assistente de pesquisa do Google que transforma os seus documentos numa base de conhecimento interativa, permitindo análise profunda e síntese de informações. Nota: o endereço oficial notebooklm.google redireciona agora para "Gemini Notebook", pelo que o nome do produto pode estar a mudar; confirme no site da Google.</p>
 
                     <h5>Funcionalidades Revolucionárias:</h5>
                     <ul class="feature-list">
                         <li>Upload de múltiplos documentos (PDF, Google Docs, texto)</li>
                         <li>Geração automática de resumos e insights</li>
-                        <li>Criação de podcasts de áudio sobre o conteúdo</li>
+                        <li>Audio Overviews (resumos em formato de conversa) e Video Overviews sobre o conteúdo</li>
                         <li>Q&A contextual com citações precisas</li>
-                        <li>Notas colaborativas com IA</li>
-                        <li>Exportação em múltiplos formatos</li>
+                        <li>Notas guardadas e organizadas por caderno</li>
+                        <li>Funcionalidades extra nos planos Google AI Pro e Ultra</li>
                     </ul>
                 </div>
 
@@ -339,7 +337,7 @@
                 <div class="use-case">
                     <h5>📌 Caso de Uso Prático</h5>
                     <p><strong>Cenário:</strong> Pesquisador acadêmico analisando 50 papers sobre IA.</p>
-                    <p><strong>Solução:</strong> Upload dos papers no NotebookLM, geração de síntese temática, identificação de gaps na literatura e criação de podcast resumo para compartilhar com a equipe.</p>
+                    <p><strong>Solução:</strong> Upload dos papers no NotebookLM, geração de síntese temática, identificação de gaps na literatura e criação de um Audio Overview para partilhar com a equipa.</p>
                 </div>
             </div>
 
@@ -353,51 +351,20 @@
                     <h5>Diferenciais Competitivos:</h5>
                     <ul class="feature-list">
                         <li>Respostas com citações e fontes verificáveis</li>
-                        <li>Modo Focus para pesquisa acadêmica</li>
-                        <li>Copilot interativo para pesquisas complexas</li>
-                        <li>Threads de conversação com contexto</li>
-                        <li>Integração com Wolfram Alpha para cálculos</li>
+                        <li>Pesquisa conversacional com acompanhamento de perguntas</li>
+                        <li>Modos de pesquisa mais profunda para temas complexos</li>
                         <li>API para desenvolvedores</li>
                     </ul>
                 </div>
 
-                <div class="comparison-table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Característica</th>
-                                <th>Perplexity</th>
-                                <th>Google</th>
-                                <th>ChatGPT</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Informação em tempo real</td>
-                                <td>✅ Sempre</td>
-                                <td>✅ Sempre</td>
-                                <td>❌ Limitado</td>
-                            </tr>
-                            <tr>
-                                <td>Citação de fontes</td>
-                                <td>✅ Automática</td>
-                                <td>⚠️ Manual</td>
-                                <td>❌ Sem fontes</td>
-                            </tr>
-                            <tr>
-                                <td>Interface conversacional</td>
-                                <td>✅ Nativa</td>
-                                <td>⚠️ SGE Beta</td>
-                                <td>✅ Nativa</td>
-                            </tr>
-                            <tr>
-                                <td>Personalização</td>
-                                <td>✅ Profiles</td>
-                                <td>✅ Histórico</td>
-                                <td>✅ Custom GPTs</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="tip-box">
+                    <h4>💡 Como Usar Bem um Motor de Busca com IA</h4>
+                    <ul>
+                        <li>Abra sempre as fontes citadas: uma citação não garante que a resposta esteja certa</li>
+                        <li>Compare com pelo menos uma segunda fonte em temas de saúde, direito ou finanças</li>
+                        <li>As ofertas e os planos mudam depressa; consulte o site oficial para ver os modelos e limites atuais</li>
+                        <li>Assistentes como Gemini, ChatGPT e Claude também pesquisam na web: teste a mesma pergunta em dois ou três</li>
+                    </ul>
                 </div>
             </div>
 
@@ -411,11 +378,12 @@
                     <h5>Capacidades Artísticas:</h5>
                     <ul class="feature-list">
                         <li>Estilos artísticos diversos e únicos</li>
-                        <li>Upscaling até 4K com detalhes preservados</li>
-                        <li>Variações e remixes infinitos</li>
+                        <li>Variações e remixes de uma imagem</li>
                         <li>Modo Niji para anime/manga</li>
-                        <li>Pan e Zoom para expansão de imagens</li>
-                        <li>Blend para misturar múltiplas imagens</li>
+                        <li>Referências de estilo e de personagem</li>
+                        <li>Geração de vídeo curto (clipes de cerca de 5 segundos, extensíveis)</li>
+                        <li>Versões recentes: V7 e a série V8.x (fontes divergem sobre qual é a predefinida; confirme em midjourney.com)</li>
+                        <li>Planos Basic ($10), Standard ($30), Pro ($60) e Mega ($120) por mês, medidos em tempo de GPU</li>
                     </ul>
                 </div>
 
@@ -436,23 +404,23 @@
 
                 <div class="tool-card">
                     <h4>🎤 O que é o ElevenLabs?</h4>
-                    <p>ElevenLabs é a plataforma líder em síntese de voz com IA, oferecendo vozes indistinguíveis de humanos reais com controle emocional preciso.</p>
+                    <p>ElevenLabs é uma plataforma de síntese de voz com IA, com vozes muito naturais e controlo de emoção. A página oficial destaca os modelos Eleven v4 e v3.</p>
 
                     <h5>Tecnologias Disponíveis:</h5>
                     <ul class="feature-list">
-                        <li>Clonagem de voz com 1 minuto de áudio</li>
-                        <li>29 idiomas com sotaques nativos</li>
-                        <li>Speech-to-Speech para dublagem</li>
-                        <li>Controle de emoção e entonação</li>
-                        <li>API para integração em tempo real</li>
-                        <li>Biblioteca de vozes profissionais</li>
+                        <li>Clonagem de voz instantânea (a partir do plano Starter) e profissional (a partir do Creator)</li>
+                        <li>74 idiomas</li>
+                        <li>Dubbing Studio para dublagem de vídeo</li>
+                        <li>Geração de música, incluída nos planos</li>
+                        <li>Planos: Free ($0), Starter, Creator, Pro ($99), Scale ($299) e Business ($990) por mês</li>
+                        <li>API e agentes de voz</li>
                     </ul>
                 </div>
 
                 <div class="use-case">
                     <h5>📌 Caso de Uso Prático</h5>
                     <p><strong>Cenário:</strong> Criador de conteúdo educacional em múltiplos idiomas.</p>
-                    <p><strong>Solução:</strong> Gravação em português, uso do ElevenLabs para dublar automaticamente em inglês, espanhol e mandarim mantendo a voz original e emoções.</p>
+                    <p><strong>Solução:</strong> Gravação em português e uso do ElevenLabs para dublar em outros idiomas. Clone apenas a sua própria voz, ou vozes para as quais tenha consentimento escrito.</p>
                 </div>
             </div>
 
@@ -460,10 +428,10 @@
                 <h2>6. Outras Ferramentas Essenciais</h2>
 
                 <div class="tool-card">
-                    <h4>🚀 Runway ML</h4>
-                    <p><strong>Foco:</strong> Edição de vídeo com IA</p>
+                    <h4>🚀 Runway</h4>
+                    <p><strong>Foco:</strong> Geração e edição de vídeo com IA</p>
                     <ul class="feature-list">
-                        <li>Gen-2: Texto para vídeo</li>
+                        <li>Texto e imagem para vídeo (os modelos mudam com frequência)</li>
                         <li>Remoção de fundo em vídeo</li>
                         <li>Motion tracking avançado</li>
                         <li>Inpainting de vídeo</li>
@@ -514,9 +482,9 @@
                         <li><strong>Roteiro:</strong> Claude para estruturar o curso e criar scripts</li>
                         <li><strong>Visuais:</strong> MidJourney para capas e Leonardo AI para infográficos</li>
                         <li><strong>Narração:</strong> ElevenLabs para voz profissional em múltiplos idiomas</li>
-                        <li><strong>Vídeo:</strong> Veo 3 para intros e Runway ML para edição</li>
+                        <li><strong>Vídeo:</strong> Veo 3.1 para intros e Runway para edição</li>
                         <li><strong>Música:</strong> Suno AI para trilha sonora original</li>
-                        <li><strong>Deploy:</strong> Banana para hospedar modelos de Q&A personalizados</li>
+                        <li><strong>Deploy:</strong> Uma plataforma serverless (por exemplo Modal ou RunPod) só se precisar de hospedar um modelo próprio</li>
                     </ol>
                 </div>
             </div>
@@ -529,9 +497,9 @@
                     <ul>
                         <li><strong>Pesquisa:</strong> Perplexity para tempo real, NotebookLM para análise profunda</li>
                         <li><strong>Imagens:</strong> MidJourney para arte, Leonardo AI para precisão técnica</li>
-                        <li><strong>Vídeo:</strong> Veo 3 para criação, Runway para edição</li>
+                        <li><strong>Vídeo:</strong> Veo 3.1 para criação (com áudio nativo), Runway para edição</li>
                         <li><strong>Áudio:</strong> ElevenLabs para voz, Suno para música</li>
-                        <li><strong>Deploy:</strong> Banana para modelos custom, APIs diretas para soluções prontas</li>
+                        <li><strong>Deploy:</strong> APIs diretas (Claude, Gemini) para soluções prontas; plataformas serverless apenas para modelos próprios</li>
                     </ul>
                 </div>
 
@@ -557,9 +525,9 @@
                         <li>Use NotebookLM para analisar FAQs e reviews de produtos</li>
                         <li>Configure um chatbot com Claude via API</li>
                         <li>Gere imagens de produtos com Leonardo AI</li>
-                        <li>Crie vídeos de demonstração com Veo 3</li>
+                        <li>Crie vídeos de demonstração com Veo 3.1</li>
                         <li>Adicione narração com ElevenLabs</li>
-                        <li>Deploy o modelo personalizado com Banana</li>
+                        <li>Publique o assistente numa plataforma à sua escolha e defina limites de gasto</li>
                     </ol>
                 </div>
             </div>

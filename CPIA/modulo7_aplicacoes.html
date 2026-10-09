@@ -391,6 +391,10 @@
             <div class="section">
                 <h2>Introdução - IA na Prática</h2>
                 <p>Neste módulo, exploraremos aplicações práticas reais de IA, demonstrando como transformar conhecimento teórico em soluções concretas que geram valor imediato. Cada caso de uso inclui implementação passo a passo e métricas de sucesso.</p>
+                <div class="tip-card">
+                    <h5>ℹ️ Sobre os números neste módulo</h5>
+                    <p>Os cenários e valores (percentagens, tempos, ROI) são <strong>exemplos ilustrativos</strong> para mostrar como medir o impacto, e não resultados medidos ou garantidos. Meça sempre os seus próprios resultados antes e depois.</p>
+                </div>
             </div>
 
             <div class="section">
@@ -398,14 +402,14 @@
 
                 <div class="application-card">
                     <h4>📧 Automação de Email Marketing</h4>
-                    <p><strong>Problema:</strong> Empresa gasta 20 horas semanais criando emails personalizados.</p>
+                    <p><strong>Problema (exemplo):</strong> Uma empresa gasta muitas horas por semana a criar emails personalizados.</p>
                     <p><strong>Solução com IA:</strong> Sistema automatizado usando Claude API + templates dinâmicos.</p>
 
                     <div class="workflow-container">
                         <h4>Implementação Completa</h4>
                         <ol class="step-by-step">
                             <li>Configurar Claude API com prompts especializados para cada tipo de cliente</li>
-                            <li>Integrar com CRM para segmentação automática de audiência</li>
+                            <li>Integrar com CRM para segmentação de audiência, respeitando o consentimento (RGPD) e dando a opção de cancelar a subscrição</li>
                             <li>Criar templates base com variáveis dinâmicas</li>
                             <li>Implementar A/B testing automático com análise de performance</li>
                             <li>Configurar dashboard de métricas em tempo real</li>
@@ -413,20 +417,22 @@
                     </div>
 
                     <div class="results-box">
-                        <h5>📊 Resultados Obtidos</h5>
-                        <span class="metric"><strong>80%</strong> redução de tempo</span>
-                        <span class="metric"><strong>45%</strong> aumento em open rate</span>
-                        <span class="metric"><strong>3x</strong> mais conversões</span>
+                        <h5>📊 O que Medir (valores ilustrativos)</h5>
+                        <span class="metric"><strong>Tempo</strong> poupado por campanha</span>
+                        <span class="metric"><strong>Taxa de abertura</strong> antes e depois</span>
+                        <span class="metric"><strong>Conversões</strong> por campanha</span>
                     </div>
                 </div>
 
                 <div class="application-card">
                     <h4>📄 Processamento de Documentos</h4>
-                    <p><strong>Cenário:</strong> Escritório de advocacia processa 500+ contratos mensalmente.</p>
+                    <p><strong>Cenário:</strong> Um escritório de advocacia processa muitos contratos por mês e quer um primeiro nível de triagem, sempre revisto por um advogado.</p>
 
                     <div class="code-example">
                         <span class="comment"># Exemplo de automação com Claude</span><br>
                         <span class="keyword">import</span> anthropic<br>
+                        <br>
+                        client = anthropic.Anthropic()<br>
                         <br>
                         <span class="keyword">def</span> analyze_contract(document):<br>
                         &nbsp;&nbsp;&nbsp;&nbsp;prompt = <span class="string">f"""
@@ -438,7 +444,12 @@
 
                         Contrato: {document}
                         """</span><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> claude.complete(prompt)
+                        &nbsp;&nbsp;&nbsp;&nbsp;message = client.messages.create(<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;model=<span class="string">"claude-sonnet-5-5"</span>,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;max_tokens=2000,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;messages=[{<span class="string">"role"</span>: <span class="string">"user"</span>, <span class="string">"content"</span>: prompt}],<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> message.content
                     </div>
                 </div>
 
@@ -466,8 +477,12 @@
                 <h2>2. Criação de Assistentes Personalizados</h2>
 
                 <div class="project-box">
-                    <h4>🏥 Assistente Médico Virtual</h4>
-                    <p><strong>Objetivo:</strong> Criar assistente para triagem inicial de pacientes.</p>
+                    <h4>🏥 Assistente Virtual de Informação de Saúde</h4>
+                    <p><strong>Objetivo:</strong> Criar um assistente que organiza informação inicial de pacientes para um profissional de saúde. Não faz diagnóstico nem substitui um médico.</p>
+                    <div class="tip-card">
+                        <h5>⚠️ Atenção Regulatória</h5>
+                        <p>Dados de saúde são dados pessoais de categoria especial no RGPD. Um sistema de IA que apoie decisões clínicas pode ser classificado como de risco elevado no AI Act e/ou como dispositivo médico. Peça aconselhamento jurídico antes de avançar.</p>
+                    </div>
 
                     <div class="integration-flow">
                         <div class="flow-item">
@@ -497,8 +512,8 @@
                             <li><strong>Backend:</strong> Python Flask + Claude API</li>
                             <li><strong>Frontend:</strong> React com interface conversacional</li>
                             <li><strong>Database:</strong> PostgreSQL para histórico</li>
-                            <li><strong>Segurança:</strong> Encriptação end-to-end, HIPAA compliance</li>
-                            <li><strong>Deploy:</strong> Docker + Kubernetes para escalabilidade</li>
+                            <li><strong>Segurança:</strong> Encriptação, controlo de acessos e conformidade com o RGPD</li>
+                            <li><strong>Deploy:</strong> Contentores (Docker) numa região da UE, com registo de auditoria</li>
                         </ul>
                     </div>
                 </div>
@@ -517,7 +532,7 @@
 
                     <div class="tip-card">
                         <h5>💡 Dica de Implementação</h5>
-                        <p>Use NotebookLM para criar base de conhecimento do currículo + Claude para personalização + ElevenLabs para narração de aulas.</p>
+                        <p>Use o NotebookLM para criar a base de conhecimento do currículo + Claude para personalização + ElevenLabs para narração de aulas. Se o tutor for usado por menores, reveja as regras de proteção de dados e peça consentimento aos encarregados de educação.</p>
                     </div>
                 </div>
             </div>
@@ -527,6 +542,7 @@
 
                 <div class="application-card">
                     <h4>📈 Previsão de Vendas com IA</h4>
+                    <p><em>Tabela ilustrativa: os valores abaixo são fictícios e servem apenas de modelo para registar o antes e o depois no seu caso.</em></p>
 
                     <div class="metrics-table">
                         <table>
@@ -581,7 +597,7 @@
 
                 <div class="application-card">
                     <h4>🔍 Análise de Sentimento em Tempo Real</h4>
-                    <p><strong>Aplicação:</strong> Monitoramento de marca em redes sociais.</p>
+                    <p><strong>Aplicação:</strong> Monitorização de marca em redes sociais (pseudocódigo ilustrativo; respeite os termos das plataformas e o RGPD).</p>
 
                     <div class="code-example">
                         <span class="comment"># Pipeline de análise de sentimento</span><br>
@@ -607,7 +623,7 @@
 
                 <div class="project-box">
                     <h4>📰 Sistema Editorial Automatizado</h4>
-                    <p><strong>Case Real:</strong> Portal de notícias aumenta produção de 10 para 100 artigos/dia.</p>
+                    <p><strong>Cenário de exemplo:</strong> Um portal de notícias quer acelerar a produção de rascunhos, mantendo jornalistas na verificação e na decisão final.</p>
 
                     <div class="integration-flow">
                         <div class="flow-item">
@@ -642,7 +658,8 @@
                             <li>Sempre identificar conteúdo gerado por IA</li>
                             <li>Manter revisão humana para tópicos sensíveis</li>
                             <li>Verificar direitos autorais de imagens</li>
-                            <li>Implementar fact-checking rigoroso</li>
+                            <li>Implementar verificação de factos rigorosa: modelos de IA podem errar ou inventar fontes</li>
+                            <li>Na UE, o AI Act (artigo 50) prevê obrigações de transparência para certo conteúdo gerado por IA; confirme o calendário em vigor</li>
                         </ul>
                     </div>
                 </div>
@@ -650,7 +667,7 @@
                 <div class="automation-grid">
                     <div class="automation-item">
                         <h5>🎬 Vídeos YouTube</h5>
-                        <p>Script (Claude) + Narração (ElevenLabs) + Vídeo (Veo 3)</p>
+                        <p>Script (Claude) + Narração (ElevenLabs) + Vídeo (Veo 3.1)</p>
                     </div>
                     <div class="automation-item">
                         <h5>📱 Posts Instagram</h5>
@@ -687,17 +704,17 @@
                     </div>
 
                     <div class="results-box">
-                        <h5>🚀 Impacto no Negócio</h5>
-                        <span class="metric"><strong>35%</strong> aumento no ticket médio</span>
-                        <span class="metric"><strong>50%</strong> redução no abandono de carrinho</span>
-                        <span class="metric"><strong>90%</strong> satisfação do cliente</span>
-                        <span class="metric"><strong>25%</strong> redução custos operacionais</span>
+                        <h5>🚀 Indicadores a Acompanhar</h5>
+                        <span class="metric"><strong>Ticket médio</strong></span>
+                        <span class="metric"><strong>Abandono de carrinho</strong></span>
+                        <span class="metric"><strong>Satisfação do cliente</strong></span>
+                        <span class="metric"><strong>Custos operacionais</strong></span>
                     </div>
                 </div>
 
                 <div class="project-box">
                     <h4>🏢 Transformação Digital Corporativa</h4>
-                    <p><strong>Empresa:</strong> Multinacional com 5000+ funcionários</p>
+                    <p><strong>Cenário de exemplo:</strong> Uma grande empresa define o que medir em cada departamento (os resultados abaixo são metas a medir, não resultados conhecidos).</p>
 
                     <div class="metrics-table">
                         <table>
@@ -712,27 +729,27 @@
                                 <tr>
                                     <td>Vendas</td>
                                     <td>Claude + CRM</td>
-                                    <td>40% mais leads qualificados</td>
+                                    <td>Leads qualificados por mês</td>
                                 </tr>
                                 <tr>
                                     <td>Marketing</td>
-                                    <td>MidJourney + Veo 3</td>
-                                    <td>70% redução custo criativo</td>
+                                    <td>MidJourney + Veo 3.1</td>
+                                    <td>Custo por peça criativa</td>
                                 </tr>
                                 <tr>
                                     <td>RH</td>
                                     <td>Claude + NotebookLM</td>
-                                    <td>60% redução tempo contratação</td>
+                                    <td>Tempo até à contratação</td>
                                 </tr>
                                 <tr>
                                     <td>Jurídico</td>
                                     <td>Claude + Perplexity</td>
-                                    <td>80% mais rápido análise contratos</td>
+                                    <td>Tempo de análise de contratos</td>
                                 </tr>
                                 <tr>
                                     <td>TI</td>
-                                    <td>Cursor + Banana</td>
-                                    <td>3x velocidade desenvolvimento</td>
+                                    <td>Claude Code / Cursor</td>
+                                    <td>Prazo de entrega e defeitos</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -769,7 +786,7 @@
                         <li>Gerar conteúdo escrito e exercícios</li>
                         <li>Criar apresentações visuais com Leonardo AI</li>
                         <li>Gravar narração profissional com ElevenLabs</li>
-                        <li>Produzir vídeos introdutórios com Veo 3</li>
+                        <li>Produzir vídeos introdutórios com Veo 3.1</li>
                         <li>Montar plataforma com quiz automático</li>
                     </ol>
                 </div>

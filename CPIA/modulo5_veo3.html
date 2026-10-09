@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Módulo 5 - Veo 3: Geração de Vídeo com IA</title>
+    <title>Módulo 5 - Veo 3.1: Geração de Vídeo com IA</title>
     <style>
         * {
             margin: 0;
@@ -302,7 +302,7 @@
     <div class="container">
         <div class="header">
             <h1>🎬 Módulo 5</h1>
-            <p>Veo 3 - Geração de Vídeo com Inteligência Artificial</p>
+            <p>Veo 3.1 - Geração de Vídeo com Inteligência Artificial</p>
         </div>
 
         <div class="content">
@@ -311,29 +311,29 @@
             </div>
 
             <div class="section">
-                <h2>Introdução ao Veo 3</h2>
+                <h2>Introdução ao Veo 3.1</h2>
 
                 <div class="info-box">
                     <h3>O Futuro da Criação de Vídeo</h3>
-                    <p>Veo 3 é o modelo de geração de vídeo mais avançado do Google DeepMind, capaz de criar vídeos de alta qualidade a partir de descrições textuais. Representa um salto quântico na criação de conteúdo audiovisual, democratizando a produção de vídeo profissional.</p>
+                    <p>Veo 3.1 é o modelo de geração de vídeo de topo do Google DeepMind. Cria clipes a partir de texto e de imagens de referência, e gera também o áudio (efeitos sonoros, ambiente e diálogo) no mesmo passo. Está disponível ao público através da app Gemini, do Flow, do Google Vids e da API.</p>
                 </div>
 
                 <div class="stat-grid">
                     <div class="stat-card">
-                        <div class="stat-number">1080p</div>
-                        <div class="stat-label">Resolução HD</div>
+                        <div class="stat-number">4K</div>
+                        <div class="stat-label">Resolução máxima (também 1080p)</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">60s</div>
-                        <div class="stat-label">Duração Máxima</div>
+                        <div class="stat-number">8s</div>
+                        <div class="stat-label">Duração típica de cada clipe (extensível com Scene Extension)</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">24fps</div>
-                        <div class="stat-label">Taxa de Quadros</div>
+                        <div class="stat-number">🔊</div>
+                        <div class="stat-label">Áudio nativo: efeitos, ambiente e diálogo</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">2024</div>
-                        <div class="stat-label">Ano de Lançamento</div>
+                        <div class="stat-number">3 níveis</div>
+                        <div class="stat-label">No Flow: Lite, Fast e Quality</div>
                     </div>
                 </div>
             </div>
@@ -341,18 +341,22 @@
             <div class="section">
                 <h2>Capacidades Técnicas</h2>
 
-                <h3>O que Veo 3 Pode Fazer</h3>
+                <h3>O que Veo 3.1 Pode Fazer</h3>
                 <ul class="concept-list">
                     <li><strong>Geração Text-to-Video:</strong> Cria vídeos completos a partir de descrições textuais detalhadas</li>
+                    <li><strong>Áudio Nativo:</strong> Gera efeitos sonoros, ruído ambiente e diálogo; a fala natural, sobretudo em segmentos curtos, ainda está a ser refinada</li>
+                    <li><strong>Ingredients to Video:</strong> Usa imagens de referência de uma cena, personagem ou objeto (e imagens de estilo) para manter a consistência</li>
+                    <li><strong>Primeiro e Último Fotograma:</strong> Cria a transição entre duas imagens dadas</li>
+                    <li><strong>Scene Extension:</strong> Continua um clipe a partir do seu último segundo</li>
                     <li><strong>Consistência Temporal:</strong> Mantém objetos e personagens consistentes ao longo do vídeo</li>
                     <li><strong>Física Realista:</strong> Simula movimento natural, gravidade e interações físicas</li>
                     <li><strong>Controle de Câmera:</strong> Permite especificar movimentos de câmera como pan, zoom, tracking</li>
                     <li><strong>Estilos Diversos:</strong> Desde fotorrealismo até animação, arte digital e estilos cinematográficos</li>
-                    <li><strong>Edição de Vídeo:</strong> Capacidade de editar vídeos existentes com prompts</li>
+                    <li><strong>Edição:</strong> Adicionar ou remover objetos, outpainting, e controlo de personagem, movimento e câmara</li>
                 </ul>
 
                 <div class="warning-box">
-                    <strong>Importante:</strong> Veo 3 ainda está em acesso limitado através do VideoFX no AI Test Kitchen do Google. Acesso público completo previsto para 2025.
+                    <strong>Acesso:</strong> Veo 3.1 está disponível na app Gemini, no Flow, no Google Vids, no Google AI Studio e na Gemini API. No Flow, os planos Google AI incluem créditos mensais: 200 (AI Plus), 1.000 (AI Pro) e 10.000 ou 25.000 (AI Ultra). Os vídeos levam a marca de água SynthID. Fontes: Google DeepMind e página de planos Google AI, outubro de 2026.
                 </div>
             </div>
 
@@ -395,7 +399,7 @@
 
                 <div class="info-box">
                     <h3>Estrutura de Prompt Eficaz</h3>
-                    <p>Prompts para vídeo devem incluir: ação principal, estilo visual, movimento de câmera, iluminação, duração e transições. Seja específico sobre mudanças temporais.</p>
+                    <p>Prompts para vídeo devem incluir: ação principal, estilo visual, movimento de câmara, iluminação, som e transições. Como cada clipe é curto, descreva uma única ação clara por clipe e encadeie vários clipes para contar uma história.</p>
                 </div>
 
                 <h3>Elementos Essenciais do Prompt</h3>
@@ -406,11 +410,12 @@
                     <li><strong>[Câmera]:</strong> Ângulo, movimento (pan, zoom, tracking, dolly)</li>
                     <li><strong>[Iluminação]:</strong> Natural, dramática, suave, neon</li>
                     <li><strong>[Tempo]:</strong> Velocidade, slow motion, time-lapse</li>
+                    <li><strong>[Áudio]:</strong> Diálogo (entre aspas), efeitos sonoros e ambiente sonoro desejados</li>
                 </ul>
 
                 <div class="interactive-demo">
                     <h3>Exemplos de Prompts</h3>
-                    <button class="demo-button" onclick="alert('Prompt Cinematográfico:\n\nA lone astronaut walks across a desert planet at sunset. Camera slowly dollies back revealing vast alien landscape. Cinematic style, dramatic lighting, lens flares, 35mm film look, slow motion, epic orchestral mood')">Cinema</button>
+                    <button class="demo-button" onclick="alert('Prompt Cinematográfico:\n\nA lone astronaut walks across a desert planet at sunset. Camera slowly dollies back revealing vast alien landscape. Cinematic style, dramatic lighting, 35mm film look. Audio: wind, distant rumble, and the astronaut says: We made it.')">Cinema</button>
                     <button class="demo-button" onclick="alert('Prompt Publicitário:\n\nClose-up of coffee being poured into a white cup, steam rising. Camera rotates 360 degrees. Product photography style, bright studio lighting, 4K quality, slow motion pour, minimalist aesthetic')">Publicidade</button>
                     <button class="demo-button" onclick="alert('Prompt Animação:\n\nCartoon rabbit hops through enchanted forest, butterflies following. Camera tracks alongside. Pixar animation style, vibrant colors, smooth motion, magical particles, cheerful mood')">Animação</button>
                 </div>
@@ -462,42 +467,33 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Veo 3</strong></td>
-                            <td>1080p</td>
-                            <td>60s</td>
-                            <td>Beta Limitado</td>
-                            <td>Gratuito (Beta)</td>
+                            <td><strong>Veo 3.1 (Google)</strong></td>
+                            <td>1080p e 4K</td>
+                            <td>Clipes de ~8s, extensíveis</td>
+                            <td>App Gemini, Flow, Vids, AI Studio, API</td>
+                            <td>Créditos Flow incluídos nos planos Google AI; API cobrada ao segundo</td>
                         </tr>
                         <tr>
-                            <td><strong>Runway Gen-3</strong></td>
-                            <td>1280x768</td>
-                            <td>10s</td>
-                            <td>Público</td>
-                            <td>$15-95/mês</td>
+                            <td><strong>Midjourney (vídeo)</strong></td>
+                            <td>SD e HD</td>
+                            <td>Clipes de ~5s, extensíveis*</td>
+                            <td>Planos Midjourney</td>
+                            <td>Desde $10/mês*</td>
                         </tr>
                         <tr>
-                            <td><strong>Pika Labs</strong></td>
-                            <td>1024x576</td>
-                            <td>3s</td>
-                            <td>Público</td>
-                            <td>$10-60/mês</td>
+                            <td><strong>Modelos de vídeo na Leonardo</strong></td>
+                            <td>Varia por modelo</td>
+                            <td>Varia por modelo</td>
+                            <td>Planos Leonardo</td>
+                            <td>Gastam muitos tokens*</td>
                         </tr>
                         <tr>
-                            <td><strong>Stable Video</strong></td>
-                            <td>1024x576</td>
-                            <td>4s</td>
-                            <td>Open Source</td>
-                            <td>Gratuito</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Sora (OpenAI)</strong></td>
-                            <td>1920x1080</td>
-                            <td>60s</td>
-                            <td>Não Lançado</td>
-                            <td>TBD</td>
+                            <td><strong>Sora (OpenAI), Runway e outros</strong></td>
+                            <td colspan="4">Evoluem depressa: consulte os sites oficiais e teste com o mesmo prompt antes de escolher.</td>
                         </tr>
                     </tbody>
                 </table>
+                <p><em>* Informação de fontes secundárias, outubro de 2026. Apenas os dados do Veo 3.1 e dos créditos Flow vêm de páginas oficiais da Google. Os números de durações, resoluções e preços dos concorrentes mudam com frequência e foram retirados da tabela anterior por estarem desatualizados.</em></p>
             </div>
 
             <div class="section">
@@ -505,16 +501,16 @@
 
                 <div class="info-box">
                     <h3>Pipeline Completo de Produção</h3>
-                    <p>Veo 3 funciona melhor quando integrado com outras ferramentas de IA e edição tradicional para criar um workflow completo de produção.</p>
+                    <p>Como cada clipe é curto, Veo 3.1 funciona melhor integrado com outras ferramentas de IA e com edição tradicional para montar um vídeo completo.</p>
                 </div>
 
                 <div class="feature-grid">
                     <div class="feature-card">
                         <h4>🎵 Áudio com IA</h4>
                         <ul>
-                            <li>ElevenLabs - Narração</li>
-                            <li>Suno - Música original</li>
-                            <li>Adobe Podcast - Limpeza áudio</li>
+                            <li>Áudio nativo do próprio Veo 3.1</li>
+                            <li>ElevenLabs - Narração e vozes</li>
+                            <li>Ferramentas de música com IA - Banda sonora</li>
                         </ul>
                     </div>
                     <div class="feature-card">
@@ -530,7 +526,7 @@
                         <ul>
                             <li>Leonardo AI - Backgrounds</li>
                             <li>Midjourney - Concepts</li>
-                            <li>DALL-E - Elements</li>
+                            <li>Nano Banana (Gemini) - Imagens de referência</li>
                         </ul>
                     </div>
                 </div>
@@ -540,12 +536,12 @@
                 <h2>Considerações Éticas</h2>
 
                 <div class="warning-box">
-                    <strong>Responsabilidade:</strong> Com grande poder vem grande responsabilidade. Use Veo 3 eticamente, evite deepfakes maliciosos, respeite direitos autorais e sempre declare quando conteúdo foi gerado por IA.
+                    <strong>Responsabilidade:</strong> Com grande poder vem grande responsabilidade. Use Veo 3.1 eticamente, evite deepfakes maliciosos, respeite direitos de autor e declare sempre quando o conteúdo foi gerado por IA. Na UE, o AI Act (artigo 50) prevê obrigações de transparência para conteúdo sintético e deepfakes; confirme o calendário em vigor.
                 </div>
 
                 <h3>Diretrizes Éticas</h3>
                 <ul class="concept-list">
-                    <li><strong>Transparência:</strong> Sempre indique que o vídeo foi gerado por IA</li>
+                    <li><strong>Transparência:</strong> Sempre indique que o vídeo foi gerado por IA; o Veo marca os vídeos com SynthID, mas isso não substitui a sua indicação</li>
                     <li><strong>Consentimento:</strong> Não crie vídeos de pessoas reais sem permissão</li>
                     <li><strong>Veracidade:</strong> Evite criar conteúdo enganoso ou fake news</li>
                     <li><strong>Direitos:</strong> Respeite propriedade intelectual e marcas registradas</li>
@@ -559,7 +555,7 @@
                 <div class="info-box">
                     <h3>O que você aprendeu</h3>
                     <ul>
-                        <li>✅ Capacidades do Veo 3 para geração de vídeo</li>
+                        <li>✅ Capacidades do Veo 3.1 para geração de vídeo</li>
                         <li>✅ Workflow de produção com IA</li>
                         <li>✅ Técnicas de prompt engineering para vídeo</li>
                         <li>✅ Casos de uso práticos</li>
