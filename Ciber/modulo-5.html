@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Módulo 5 · Incidentes e aprendizagem</title>
+<meta name="description" content="Módulo 5 do curso de Cibersegurança Básica: o que fazer se for vítima, resposta a incidentes e educação contínua.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Source+Sans+3:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#conteudo">Saltar para o conteúdo</a>
+<header class="topo">
+  <div class="wrap">
+    <a class="marca" href="index.html">Cibersegurança Básica</a>
+    <nav aria-label="Módulos do curso">
+      <a href="index.html">Início</a>
+      <a href="modulo-1.html" aria-label="Módulo 1">M1</a>
+      <a href="modulo-2.html" aria-label="Módulo 2">M2</a>
+      <a href="modulo-3.html" aria-label="Módulo 3">M3</a>
+      <a href="modulo-4.html" aria-label="Módulo 4">M4</a>
+      <a href="modulo-5.html" aria-label="Módulo 5" aria-current="page">M5</a>
+      <a href="anexos.html">Anexos</a>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo" class="wrap">
+  <span class="etiqueta">Módulo 5 de 5</span>
+  <h1>Lidar com incidentes e continuar a aprender</h1>
+  <p class="lead">O que fazer se for vítima de uma burla, como se responde a incidentes numa organização e onde continuar a aprender.</p>
+
+  <nav class="toc" aria-label="Neste módulo">
+    <strong>Neste módulo</strong>
+    <ol>
+      <li><a href="#s5-1">Fui vítima de burla. E agora?</a></li>
+      <li><a href="#s5-2">Em contexto profissional: o plano de resposta a incidentes</a></li>
+      <li><a href="#s5-3">A importância da educação contínua</a></li>
+      <li><a href="#sintese">Síntese final do curso: 5 hábitos</a></li>
+      <li><a href="#perguntas">Perguntas e respostas</a></li>
+      <li><a href="#avaliacao">Avaliação de conhecimentos</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="s5-1">5.1 Fui vítima de burla. E agora?</h2>
+  <p><strong>Não tenha vergonha: acontece a qualquer pessoa.</strong> Quanto mais cedo agir, mais pode recuperar. Siga esta ordem:</p>
+  <div class="grelha">
+    <div class="cartao"><p class="num">1</p><h3>Ligue já ao banco</h3><p>pelo número que está no cartão ou na app — peça para bloquear cartões, transferências e o MB WAY.</p></div>
+    <div class="cartao"><p class="num">2</p><h3>Mude as palavras-passe</h3><p>das contas afetadas — a partir de outro dispositivo, se suspeitar que o seu está infetado — e ative a verificação em dois passos.</p></div>
+    <div class="cartao"><p class="num">3</p><h3>Guarde provas</h3><p>capturas de ecrã, números de telefone, links, emails, comprovativos de pagamento, datas e horas.</p></div>
+    <div class="cartao"><p class="num">4</p><h3>Denuncie</h3><p>na PSP, GNR ou Polícia Judiciária — presencialmente ou através do Sistema de Queixa Eletrónica do MAI.</p></div>
+    <div class="cartao"><p class="num">5</p><h3>Avise os seus contactos</h3><p>se a sua conta de email, WhatsApp ou redes sociais foi usada para enviar mensagens.</p></div>
+  </div>
+
+  <div class="caixa">
+    <h3>Apoio gratuito</h3>
+    <ul>
+      <li><strong>Linha Internet Segura (APAV) · <a href="tel:800219090">800 21 90 90</a></strong> — gratuita e confidencial, em dias úteis. Apoia vítimas de burlas e outros crimes online e ajuda a perceber os próximos passos.</li>
+      <li><strong>Sistema de Queixa Eletrónica</strong> · <a href="https://queixaselectronicas.mai.gov.pt">queixaselectronicas.mai.gov.pt</a> — permite apresentar queixa por burla à PSP ou à GNR, com autenticação por Cartão de Cidadão ou Chave Móvel Digital.</li>
+      <li><strong>Emergência · 112</strong> — se houver ameaça à integridade física de alguém.</li>
+    </ul>
+  </div>
+
+  <div class="caixa aviso">
+    <h3>Se o dispositivo foi infetado</h3>
+    <ul>
+      <li>Desligue-o da Internet (Wi-Fi e cabo) para travar a propagação e o envio de dados.</li>
+      <li>Faça uma análise completa com o antivírus; se o problema continuar, peça ajuda a um técnico de confiança.</li>
+      <li>Restaure os ficheiros a partir de uma cópia de segurança limpa — <strong>não pague resgates</strong>: não há garantia de recuperação.</li>
+    </ul>
+  </div>
+  <p class="ref">Manual, p. 16</p>
+
+  <h2 id="s5-2">5.2 Em contexto profissional: o plano de resposta a incidentes</h2>
+  <p>Numa empresa ou organização, ao detetar um incidente, <strong>notifique de imediato</strong> a equipa de segurança ou o responsável de TI, com o máximo de detalhes: o que aconteceu, quando, que sistemas foram afetados e que provas existem. Não tente resolver sozinho nem apague evidências.</p>
+  <p>Um bom plano de resposta a incidentes define papéis e responsabilidades e inclui estas fases:</p>
+  <table class="tabela">
+    <thead><tr><th>Fase</th><th>O que acontece</th></tr></thead>
+    <tbody>
+      <tr><td data-label="Fase"><strong>Identificação</strong></td><td data-label="O que acontece">Detetar o incidente: atividade anómala, alertas de segurança, relatos de utilizadores.</td></tr>
+      <tr><td data-label="Fase"><strong>Notificação</strong></td><td data-label="O que acontece">Comunicar às pessoas responsáveis e, quando a lei o exige, às autoridades.</td></tr>
+      <tr><td data-label="Fase"><strong>Análise</strong></td><td data-label="O que acontece">Perceber a extensão e o impacto do incidente.</td></tr>
+      <tr><td data-label="Fase"><strong>Contenção</strong></td><td data-label="O que acontece">Limitar a propagação — por exemplo, isolar da rede os sistemas afetados.</td></tr>
+      <tr><td data-label="Fase"><strong>Erradicação</strong></td><td data-label="O que acontece">Remover a ameaça e corrigir a vulnerabilidade explorada.</td></tr>
+      <tr><td data-label="Fase"><strong>Recuperação</strong></td><td data-label="O que acontece">Restaurar dados e sistemas a partir de cópias limpas e verificar a sua integridade.</td></tr>
+      <tr><td data-label="Fase"><strong>Lições aprendidas</strong></td><td data-label="O que acontece">Avaliar o que correu bem e mal para prevenir incidentes futuros.</td></tr>
+    </tbody>
+  </table>
+  <p>Em Portugal, a legislação de cibersegurança obriga determinadas entidades a notificar incidentes relevantes ao CNCS; se estiverem em causa dados pessoais, o RGPD pode também exigir a notificação à CNPD.</p>
+  <p class="ref">Manual, p. 16–17</p>
+
+  <h2 id="s5-3">5.3 A importância da educação contínua</h2>
+  <p>As ameaças mudam todos os meses; os hábitos certos mantêm-se. Aprender continuamente melhora a capacidade de reconhecer burlas novas, responder mais depressa a incidentes e criar uma cultura de segurança em casa e no trabalho.</p>
+  <h3>Recursos para continuar a aprender</h3>
+  <ul>
+    <li>Cursos gratuitos do CNCS na plataforma <a href="https://www.nau.edu.pt">NAU (nau.edu.pt)</a> — por exemplo, «Cidadão Ciberseguro», «Consumidor Ciberseguro» e «Cidadão Cibersocial». Consulte a disponibilidade das edições no site.</li>
+    <li>Alertas e campanhas do CNCS (<a href="https://www.cncs.gov.pt">cncs.gov.pt</a>) sobre burlas em curso em Portugal.</li>
+    <li>Plataformas internacionais como Coursera, edX ou Udemy, para quem quer aprofundar.</li>
+    <li>Certificações profissionais (CompTIA Security+, CISSP, CEH), para quem quer seguir a área.</li>
+    <li>Webinars, seminários, blogs e notícias de cibersegurança para acompanhar as novidades.</li>
+  </ul>
+  <p class="ref">Manual, p. 17</p>
+
+  <div class="caixa resumo">
+    <h3>Em resumo</h3>
+    <ul>
+      <li>Se for vítima: banco → palavras-passe → provas → denúncia. Rapidez conta mais do que vergonha.</li>
+      <li>Linha Internet Segura: 800 21 90 90. Queixa online em queixaselectronicas.mai.gov.pt.</li>
+      <li>Pare. Pense. Verifique. Serve para qualquer ameaça nova — mesmo as que ainda não existem.</li>
+    </ul>
+  </div>
+
+  <h2 id="sintese">Síntese final do curso: 5 hábitos para levar para casa</h2>
+  <div class="grelha">
+    <div class="cartao"><p class="num">1</p><h3>Desconfie da urgência</h3><p class="fonte">Ameaças · <a href="modulo-2.html#s2-2">Módulo 2</a></p></div>
+    <div class="cartao"><p class="num">2</p><h3>Frases-passe únicas + gestor</h3><p class="fonte">Contas · <a href="modulo-3.html#s3-2">Módulo 3</a></p></div>
+    <div class="cartao"><p class="num">3</p><h3>Dois passos, a começar pelo email</h3><p class="fonte">Contas · <a href="modulo-3.html#s3-4">Módulo 3</a></p></div>
+    <div class="cartao"><p class="num">4</p><h3>Atualizações e cópias 3-2-1</h3><p class="fonte">Dispositivos · <a href="modulo-4.html#s4-1">Módulo 4</a></p></div>
+    <div class="cartao"><p class="num">5</p><h3>Na dúvida, ligue para o número oficial</h3><p class="fonte">Incidentes · <a href="#s5-1">Módulo 5</a></p></div>
+  </div>
+  <p class="lema">Pare. Pense. Verifique.</p>
+  <p style="text-align:center">Serve para qualquer ameaça nova — mesmo as que ainda não existem.</p>
+  <div class="caixa">
+    <p><strong>Autoavaliação:</strong> de 1 a 5, quão capaz se sente agora de identificar uma mensagem de burla, criar uma frase-passe segura e proteger as suas contas e dados? Compare com as respostas que anotou no <a href="index.html#diagnostico">início do curso</a>.</p>
+  </div>
+
+  <h2 id="perguntas">Perguntas e respostas</h2>
+  <p>Tente responder antes de abrir cada resposta.</p>
+  <div class="faq">
+    <details>
+      <summary>Fui enganado e tenho vergonha de contar. Vale a pena denunciar?</summary>
+      <div><p>Sim. Acontece a qualquer pessoa, e quanto mais cedo agir, mais pode recuperar. A Linha Internet Segura (800 21 90 90) é gratuita e confidencial e ajuda a perceber os próximos passos.</p></div>
+    </details>
+    <details>
+      <summary>Que provas devo guardar?</summary>
+      <div><p>Capturas de ecrã, números de telefone, links, emails, comprovativos de pagamento, datas e horas.</p></div>
+    </details>
+    <details>
+      <summary>Porque devo mudar as palavras-passe a partir de outro dispositivo?</summary>
+      <div><p>Porque, se o seu dispositivo estiver infetado, não é seguro usá-lo para isso. Se suspeitar de infeção, mude as palavras-passe a partir de outro dispositivo e ative a verificação em dois passos.</p></div>
+    </details>
+    <details>
+      <summary>Quando devo ligar para o 112?</summary>
+      <div><p>Se houver ameaça à integridade física de alguém. Para uma burla, contacte o banco, a Linha Internet Segura e apresente queixa na PSP, GNR ou PJ (ou em queixaselectronicas.mai.gov.pt).</p></div>
+    </details>
+    <details>
+      <summary>No trabalho, encontro ficheiros suspeitos no meu computador. Devo apagá-los?</summary>
+      <div><p>Não. Notifique de imediato a equipa de segurança ou o responsável de TI. Apagar ficheiros destrói provas necessárias à análise do incidente.</p></div>
+    </details>
+  </div>
+
+  <h2 id="avaliacao">Avaliação de conhecimentos</h2>
+  <p>6 perguntas · critério de êxito: <strong>4 ou mais certas</strong>. Escolha uma opção em cada pergunta e carregue em «Corrigir».</p>
+  <form class="quiz" data-modulo="5" data-limiar="4">
+    <fieldset class="q" data-correct="b" data-ref="§5.1">
+      <legend>1. Recebeu uma chamada do «banco» a pedir o código que acabou de chegar por SMS para «cancelar uma operação». O que faz?</legend>
+      <label><input type="radio" name="m5q1" value="a"> <span>A) Dá o código, porque a chamada vem do número do banco</span></label>
+      <label><input type="radio" name="m5q1" value="b"> <span>B) Desliga e liga para o número que está no cartão</span></label>
+      <label><input type="radio" name="m5q1" value="c"> <span>C) Ativa a VPN no telemóvel</span></label>
+      <label><input type="radio" name="m5q1" value="d"> <span>D) Pede ao interlocutor que lhe envie um email</span></label>
+      <p class="explicacao" hidden>É vishing. O número de origem pode ser falsificado. Desligue e contacte o banco por um canal que já conhece.</p>
+    </fieldset>
+
+    <fieldset class="q" data-correct="b" data-ref="§5.2">
+      <legend>2. Numa organização, qual é o primeiro passo ao identificar um incidente de segurança?</legend>
+      <label><input type="radio" name="m5q2" value="a"> <span>A) Recuperar os dados comprometidos</span></label>
+      <label><input type="radio" name="m5q2" value="b"> <span>B) Notificar a equipa de segurança ou o responsável de TI</span></label>
+      <label><input type="radio" name="m5q2" value="c"> <span>C) Apagar os ficheiros suspeitos</span></label>
+      <label><input type="radio" name="m5q2" value="d"> <span>D) Esperar para ver se volta a acontecer</span></label>
+      <p class="explicacao" hidden>Notificar logo permite conter o incidente a tempo. Apagar ficheiros destrói provas necessárias à análise.</p>
+    </fieldset>
+
+    <fieldset class="q" data-correct="d" data-ref="§5.1">
+      <legend>3. Percebeu que transferiu dinheiro para um burlão. Qual é o primeiro passo?</legend>
+      <label><input type="radio" name="m5q3" value="a"> <span>A) Publicar o caso nas redes sociais com o número do burlão, para alertar os amigos e ver se alguém o consegue identificar e denunciar</span></label>
+      <label><input type="radio" name="m5q3" value="b"> <span>B) Esperar uns dias para ver se o dinheiro volta</span></label>
+      <label><input type="radio" name="m5q3" value="c"> <span>C) Responder ao burlão a pedir a devolução</span></label>
+      <label><input type="radio" name="m5q3" value="d"> <span>D) Ligar já ao banco, pelo número do cartão ou da app, para bloquear cartões, transferências e o MB WAY</span></label>
+      <p class="explicacao" hidden>A ordem é: banco → palavras-passe → provas → denúncia → avisar os contactos. Rapidez conta mais do que vergonha.</p>
+    </fieldset>
+
+    <fieldset class="q" data-correct="a" data-ref="§5.1">
+      <legend>4. Um ransomware cifrou os ficheiros do seu computador e exige um pagamento. O que deve fazer?</legend>
+      <label><input type="radio" name="m5q4" value="a"> <span>A) Desligar da Internet, fazer uma análise com o antivírus e restaurar a partir de uma cópia limpa — sem pagar</span></label>
+      <label><input type="radio" name="m5q4" value="b"> <span>B) Pagar o resgate o mais depressa possível, porque o valor costuma subir com o tempo e é a única forma garantida de recuperar os ficheiros</span></label>
+      <label><input type="radio" name="m5q4" value="c"> <span>C) Continuar a usar o computador normalmente</span></label>
+      <label><input type="radio" name="m5q4" value="d"> <span>D) Ligar o disco externo das cópias para ver se ainda funciona</span></label>
+      <p class="explicacao" hidden>Desligue o dispositivo da Internet para travar a propagação, faça uma análise completa e restaure a partir de uma cópia limpa. Não pague resgates: não há garantia de recuperação. Pela mesma razão que se desliga o disco externo depois de cada cópia (Módulo 4), não o ligue a um PC infetado: também pode ser cifrado.</p>
+    </fieldset>
+
+    <fieldset class="q" data-correct="d" data-ref="§5.1">
+      <legend>5. Onde pode pedir apoio gratuito e confidencial depois de ser vítima de uma burla online?</legend>
+      <label><input type="radio" name="m5q5" value="a"> <span>A) Ao número que lhe ligou a oferecer ajuda para recuperar o dinheiro</span></label>
+      <label><input type="radio" name="m5q5" value="b"> <span>B) Ao 112, em qualquer caso de burla</span></label>
+      <label><input type="radio" name="m5q5" value="c"> <span>C) Numa página de recuperação de dinheiro anunciada nas redes sociais</span></label>
+      <label><input type="radio" name="m5q5" value="d"> <span>D) À Linha Internet Segura (APAV), pelo 800 21 90 90</span></label>
+      <p class="explicacao" hidden>A Linha Internet Segura (APAV) é gratuita e confidencial, em dias úteis. O 112 é para quando há ameaça à integridade física de alguém. Contacte sempre entidades por canais que já conhece.</p>
+    </fieldset>
+
+    <fieldset class="q" data-correct="c" data-ref="§5.2">
+      <legend>6. Num plano de resposta a incidentes, em que fase se isolam da rede os sistemas afetados para limitar a propagação?</legend>
+      <label><input type="radio" name="m5q6" value="a"> <span>A) Identificação</span></label>
+      <label><input type="radio" name="m5q6" value="b"> <span>B) Lições aprendidas</span></label>
+      <label><input type="radio" name="m5q6" value="c"> <span>C) Contenção</span></label>
+      <label><input type="radio" name="m5q6" value="d"> <span>D) Recuperação</span></label>
+      <p class="explicacao" hidden>As fases são: identificação, notificação, análise, contenção, erradicação, recuperação e lições aprendidas. A contenção limita a propagação — por exemplo, isolando os sistemas afetados.</p>
+    </fieldset>
+
+    <div class="acoes">
+      <button class="btn" type="submit">Corrigir</button>
+      <button class="btn sec" type="reset">Tentar de novo</button>
+    </div>
+    <div class="resultado" aria-live="polite"></div>
+    <div class="percurso recuperacao caixa aviso" hidden>
+      <h3>Para rever</h3>
+      <ul>
+        <li><a href="#s5-1">5.1 Fui vítima de burla. E agora?</a> — os 5 passos, o apoio gratuito e o dispositivo infetado</li>
+        <li><a href="#s5-2">5.2 Plano de resposta a incidentes</a> — as 7 fases</li>
+        <li><a href="#sintese">Síntese final: os 5 hábitos</a></li>
+      </ul>
+      <p>Depois de rever, carregue em «Tentar de novo».</p>
+    </div>
+    <div class="percurso enriquecimento caixa resumo" hidden>
+      <h3>Parabéns! Concluiu o último módulo</h3>
+      <ul>
+        <li>Continue a aprender com o curso gratuito «Cidadão Ciberseguro», do CNCS, na plataforma <a href="https://www.nau.edu.pt">NAU (nau.edu.pt)</a>.</li>
+        <li>Verifique as suas palavras-passe em <a href="https://passwords.google.com">passwords.google.com</a>.</li>
+        <li>Guarde os <a href="anexos.html#anexo-c">contactos úteis</a> e faça a <a href="anexos.html#anexo-b">checklist de segurança pessoal</a>.</li>
+        <li>Veja o seu progresso na <a href="index.html">página inicial</a>.</li>
+      </ul>
+    </div>
+  </form>
+
+  <nav class="navmod" aria-label="Navegação entre módulos">
+    <a href="modulo-4.html">← Módulo 4 · Dispositivos</a>
+    <a href="anexos.html">Anexos →</a>
+  </nav>
+</main>
+
+<footer>Baseado no <em>Manual de Cibersegurança Básica</em>, edição de outubro de 2026 · Ricardo Rouco · <a href="https://ricardodsr.github.io">ricardodsr.github.io</a></footer>
+<script src="quiz.js"></script>
+</body>
+</html>

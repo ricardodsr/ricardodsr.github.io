@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Módulo 2 · Ameaças comuns</title>
+<meta name="description" content="Módulo 2 do curso de Cibersegurança Básica: engenharia social, os 5 sinais de alerta, malware e DDoS.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Source+Sans+3:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#conteudo">Saltar para o conteúdo</a>
+<header class="topo">
+  <div class="wrap">
+    <a class="marca" href="index.html">Cibersegurança Básica</a>
+    <nav aria-label="Módulos do curso">
+      <a href="index.html">Início</a>
+      <a href="modulo-1.html" aria-label="Módulo 1">M1</a>
+      <a href="modulo-2.html" aria-label="Módulo 2" aria-current="page">M2</a>
+      <a href="modulo-3.html" aria-label="Módulo 3">M3</a>
+      <a href="modulo-4.html" aria-label="Módulo 4">M4</a>
+      <a href="modulo-5.html" aria-label="Módulo 5">M5</a>
+      <a href="anexos.html">Anexos</a>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo" class="wrap">
+  <span class="etiqueta">Módulo 2 de 5</span>
+  <h1>Ameaças comuns na Internet</h1>
+  <p class="lead">Os ataques dividem-se em dois grandes grupos: os que nos <strong>enganam</strong> (engenharia social) e os que <strong>infetam</strong> os nossos dispositivos (malware). Muitas vezes combinam-se: uma mensagem falsa leva-nos a instalar uma app maliciosa.</p>
+
+  <nav class="toc" aria-label="Neste módulo">
+    <strong>Neste módulo</strong>
+    <ol>
+      <li><a href="#s2-1">Engenharia social: quando o alvo somos nós</a></li>
+      <li><a href="#s2-2">Os 5 sinais de alerta</a></li>
+      <li><a href="#s2-3">Malware: software malicioso</a></li>
+      <li><a href="#s2-4">Ataques de negação de serviço (DDoS)</a></li>
+      <li><a href="#perguntas">Perguntas e respostas</a></li>
+      <li><a href="#avaliacao">Avaliação de conhecimentos</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="s2-1">2.1 Engenharia social: quando o alvo somos nós</h2>
+  <p>A <strong>engenharia social</strong> explora a confiança, o medo ou a pressa para nos levar a entregar dados, códigos ou dinheiro.</p>
+  <table class="tabela">
+    <thead><tr><th>Tipo</th><th>Como funciona</th><th>Exemplo típico</th></tr></thead>
+    <tbody>
+      <tr><td data-label="Tipo"><strong>Phishing</strong></td><td data-label="Como funciona">Email falso que imita uma entidade conhecida e leva a um site falso.</td><td data-label="Exemplo típico">«A sua conta será suspensa. Confirme os seus dados aqui.»</td></tr>
+      <tr><td data-label="Tipo"><strong>Smishing</strong></td><td data-label="Como funciona">O mesmo, por SMS.</td><td data-label="Exemplo típico">«CTT: encomenda retida, pague 1,99 € de portes.»</td></tr>
+      <tr><td data-label="Tipo"><strong>Vishing</strong></td><td data-label="Como funciona">Chamada telefónica falsa — às vezes com o número da entidade falsificado.</td><td data-label="Exemplo típico">«Fala do banco; para cancelar uma operação diga-me o código que recebeu.»</td></tr>
+      <tr><td data-label="Tipo"><strong>«Olá pai, olá mãe»</strong></td><td data-label="Como funciona">Falso familiar no WhatsApp com «número novo» que pede uma transferência urgente.</td><td data-label="Exemplo típico">«O meu telemóvel avariou, podes pagar-me esta conta?»</td></tr>
+      <tr><td data-label="Tipo"><strong>Falso suporte técnico</strong></td><td data-label="Como funciona">Aviso alarmante no ecrã ou chamada de um «técnico» que pede acesso remoto ao computador.</td><td data-label="Exemplo típico">«O seu PC está infetado. Ligue já para este número.»</td></tr>
+      <tr><td data-label="Tipo"><strong>Burlas de compras e investimento</strong></td><td data-label="Como funciona">Lojas falsas, anúncios com celebridades, promessas de lucros garantidos em criptomoedas.</td><td data-label="Exemplo típico">«Invista 250 € e ganhe 3 000 € num mês.»</td></tr>
+    </tbody>
+  </table>
+  <p>Segundo a Linha Internet Segura, as burlas mais frequentes em 2025 foram as de <strong>comércio online</strong>, as de <strong>investimento e criptomoedas</strong> e as <strong>burlas românticas</strong>.</p>
+  <p class="ref">Manual, p. 6–7</p>
+
+  <h2 id="s2-2">2.2 Os 5 sinais de alerta</h2>
+  <p>Quase todas as burlas têm pelo menos um destes sinais — e a maioria tem três ou mais:</p>
+  <table class="tabela">
+    <thead><tr><th>Sinal</th><th>O que procurar</th></tr></thead>
+    <tbody>
+      <tr><td data-label="Sinal"><strong>1. Urgência ou ameaça</strong></td><td data-label="O que procurar">«hoje», «em 24 horas», «bloqueio», «último aviso»</td></tr>
+      <tr><td data-label="Sinal"><strong>2. Pede dados, códigos ou dinheiro</strong></td><td data-label="O que procurar">Nenhuma entidade legítima pede códigos de confirmação, PIN ou palavras-passe</td></tr>
+      <tr><td data-label="Sinal"><strong>3. Link ou remetente estranho</strong></td><td data-label="O que procurar">Endereços que imitam o verdadeiro (<code>ctt-entregas-pt.top</code>, <code>bit.ly/…</code>), remetentes com letras trocadas</td></tr>
+      <tr><td data-label="Sinal"><strong>4. Bom demais para ser verdade</strong></td><td data-label="O que procurar">Prémios, ofertas, reembolsos inesperados, investimentos com lucro garantido</td></tr>
+      <tr><td data-label="Sinal"><strong>5. Contacto inesperado</strong></td><td data-label="O que procurar">Número novo, «familiar» que muda de número, desconhecido que já sabe o seu nome</td></tr>
+    </tbody>
+  </table>
+
+  <p class="lema">Pare. Pense. Verifique.</p>
+  <div class="caixa">
+    <h3>Regra de ouro</h3>
+    <p>Na dúvida, não clique nem responda. Contacte a entidade por um <strong>canal que já conhece</strong> — a app oficial, o número que está no cartão bancário ou o site escrito por si na barra de endereço. Se for um «familiar», ligue para o número antigo.</p>
+  </div>
+  <div class="caixa alerta">
+    <h3>Atenção: os erros ortográficos já não são um bom sinal</h3>
+    <p>Durante anos, aconselhou-se a desconfiar de mensagens com erros. Hoje, muitas burlas são escritas com ferramentas de inteligência artificial e chegam em português correto. Um texto bem escrito não prova que a mensagem é legítima — procure os 5 sinais acima.</p>
+  </div>
+  <p class="ref">Manual, p. 7</p>
+
+  <h2 id="s2-3">2.3 Malware: software malicioso</h2>
+  <p><strong>Malware</strong> é qualquer programa criado para causar danos, roubar informação ou dar a terceiros o controlo de um dispositivo. Entra, sobretudo, através de anexos e links em mensagens falsas, de programas e apps fora das lojas oficiais e de sites comprometidos.</p>
+  <table class="tabela">
+    <thead><tr><th>Tipo</th><th>O que faz</th></tr></thead>
+    <tbody>
+      <tr><td data-label="Tipo"><strong>Vírus</strong></td><td data-label="O que faz">Infeta ficheiros e espalha-se para outros ficheiros e dispositivos.</td></tr>
+      <tr><td data-label="Tipo"><strong>Worm</strong></td><td data-label="O que faz">Propaga-se sozinho pela rede, sem precisar de ação do utilizador.</td></tr>
+      <tr><td data-label="Tipo"><strong>Trojan (cavalo de Troia)</strong></td><td data-label="O que faz">Disfarça-se de programa útil (uma app de entregas, um «leitor de faturas») para entrar no dispositivo.</td></tr>
+      <tr><td data-label="Tipo"><strong>Ransomware</strong></td><td data-label="O que faz">Cifra os ficheiros da vítima e exige um resgate para os devolver. Pagar não garante a recuperação.</td></tr>
+      <tr><td data-label="Tipo"><strong>Infostealer</strong></td><td data-label="O que faz">Rouba palavras-passe guardadas no browser, cookies de sessão e dados de cartões.</td></tr>
+      <tr><td data-label="Tipo"><strong>Spyware</strong></td><td data-label="O que faz">Espia a atividade da vítima — mensagens, localização, teclas digitadas.</td></tr>
+    </tbody>
+  </table>
+  <div class="caixa">
+    <h3>Como se proteger contra malware e ransomware</h3>
+    <ul>
+      <li>Mantenha o software atualizado — sistema operativo, browser e apps, com atualizações automáticas ligadas.</li>
+      <li>Use um antivírus ativo e atualizado (o Microsoft Defender no Windows).</li>
+      <li>Instale apps só das lojas oficiais (Google Play, App Store, Microsoft Store) e desconfie de apps enviadas por link.</li>
+      <li>Não abra anexos nem links de mensagens inesperadas, mesmo que pareçam vir de alguém conhecido.</li>
+      <li>Faça cópias de segurança regulares com a regra 3-2-1 (<a href="modulo-4.html#s4-6">Módulo 4</a>) — é a melhor defesa contra o ransomware.</li>
+    </ul>
+  </div>
+  <p class="ref">Manual, p. 8</p>
+
+  <h2 id="s2-4">2.4 Ataques de negação de serviço (DDoS)</h2>
+  <p>Um ataque <strong>DDoS</strong> (<em>Distributed Denial of Service</em>) sobrecarrega um site ou serviço com tráfego vindo de milhares de dispositivos infetados (uma <strong>botnet</strong>), tornando-o indisponível.</p>
+  <p>O utilizador comum raramente é o alvo — mas os seus dispositivos podem ser usados no ataque se estiverem infetados ou desatualizados, incluindo routers e câmaras IP com a palavra-passe de fábrica.</p>
+  <p class="ref">Manual, p. 9</p>
+
+  <div class="caixa resumo">
+    <h3>Em resumo</h3>
+    <ul>
+      <li>Os ataques ou nos enganam (engenharia social) ou nos infetam (malware).</li>
+      <li>Urgência + pedido de dados, códigos ou dinheiro = alarme.</li>
+      <li>Confirme sempre por um canal oficial que já conhece. Pare. Pense. Verifique.</li>
+    </ul>
+  </div>
+
+  <h2 id="perguntas">Perguntas e respostas</h2>
+  <h3>Atividade: legítima ou burla?</h3>
+  <p>Leia as três mensagens. Para cada uma, decida se é legítima ou burla e anote os sinais de alerta que encontrar (pelo menos 3 em cada burla). Depois abra a resposta.</p>
+
+  <div class="msg"><span class="de">A · SMS do «Banco»</span>ALERTA: detetámos um acesso invulgar à sua conta. Para evitar o bloqueio, confirme os seus dados HOJE: bit.ly/seg-conta</div>
+  <div class="msg"><span class="de">B · Email da operadora</span>A sua fatura de outubro já está disponível na área de cliente. Consulte-a na app oficial. Nunca pedimos dados por SMS ou email.</div>
+  <div class="msg"><span class="de">C · WhatsApp de número novo</span>Olá mãe, este é o meu número novo, o outro avariou. Preciso de pagar uma conta urgente, podes transferir 480 €? Depois explico.</div>
+  <p class="simulado">Exemplos simulados, criados para fins pedagógicos — não são mensagens reais de nenhuma entidade.</p>
+
+  <div class="faq">
+    <details>
+      <summary>Mensagem A — legítima ou burla?</summary>
+      <div><p><strong>Burla.</strong> Sinais: urgência («HOJE», «bloqueio»), pede dados e tem um link encurtado que esconde o destino.</p></div>
+    </details>
+    <details>
+      <summary>Mensagem B — legítima ou burla?</summary>
+      <div><p><strong>Legítima.</strong> Não tem link, não pede dados nem tem urgência, e remete para a app oficial.</p></div>
+    </details>
+    <details>
+      <summary>Mensagem C — legítima ou burla?</summary>
+      <div><p><strong>Burla.</strong> Sinais: contacto inesperado (número novo), urgência e pedido de dinheiro. Ligue para o número antigo antes de fazer qualquer coisa.</p></div>
+    </details>
+    <details>
+      <summary>Desafio: reescreva a mensagem C para parecer legítima. Que sinais teve de retirar?</summary>
+      <div><p>Teria de retirar os três sinais: o <strong>contacto inesperado</strong> (o número novo), a <strong>urgência</strong> e o <strong>pedido de dinheiro</strong>. Sem eles, a mensagem deixa de servir ao burlão — é por isso que estes sinais aparecem quase sempre.</p></div>
+    </details>
+  </div>
+
+  <h3>Mais perguntas</h3>
+  <div class="faq">
+    <details>
+      <summary>Lembra-se da SMS dos CTT no início do curso? Que sinais de alerta tem?</summary>
+      <div>
+        <div class="msg"><span class="de">SMS</span>CTT: A sua encomenda está retida por falta de pagamento de portes (1,99 €). Regularize em 24 h para evitar a devolução: ctt-entregas-pt.top/pagar</div>
+        <p>Pelo menos três: <strong>urgência</strong> («em 24 h», «evitar a devolução»), <strong>pede dinheiro</strong> (1,99 € de portes) e <strong>link estranho</strong> (<code>ctt-entregas-pt.top</code> imita o endereço verdadeiro). É um caso de <strong>smishing</strong>.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Qual é a diferença entre um vírus e um worm?</summary>
+      <div><p>O <strong>vírus</strong> infeta ficheiros e espalha-se para outros ficheiros e dispositivos. O <strong>worm</strong> propaga-se sozinho pela rede, sem precisar de ação do utilizador.</p></div>
+    </details>
+    <details>
+      <summary>Sou um utilizador comum. Tenho de me preocupar com ataques DDoS?</summary>
+      <div><p>Raramente é o alvo, mas os seus dispositivos podem ser usados no ataque se estiverem infetados ou desatualizados — incluindo o router e câmaras IP com a palavra-passe de fábrica. Atualize-os e mude essa palavra-passe.</p></div>
+    </details>
+    <details>
+      <summary>Na dúvida sobre uma mensagem, o que devo fazer?</summary>
+      <div><p><strong>Pare. Pense. Verifique.</strong> Não clique nem responda. Contacte a entidade por um canal que já conhece: a app oficial, o número do cartão bancário ou o site escrito por si.</p></div>
+    </details>
+  </div>
+
+  <h2 id="avaliacao">Avaliação de conhecimentos</h2>
+  <p>6 perguntas · critério de êxito: <strong>4 ou mais certas</strong>. Escolha uma opção em cada pergunta e carregue em «Corrigir».</p>
+  <form class="quiz" data-modulo="2" data-limiar="4">
+    <fieldset class="q" data-correct="b" data-ref="§2.2">
+      <legend>1. Qual destes é um sinal de alerta de uma mensagem de burla?</legend>
+      <label><input type="radio" name="m2q1" value="a"> <span>A) A mensagem remete para a app oficial, sem links</span></label>
+      <label><input type="radio" name="m2q1" value="b"> <span>B) Pede um código que acabou de receber por SMS</span></label>
+      <label><input type="radio" name="m2q1" value="c"> <span>C) Vem de um contacto que já conhece e não pede nada</span></label>
+      <label><input type="radio" name="m2q1" value="d"> <span>D) Informa que a fatura está disponível na área de cliente</span></label>
+      <p class="explicacao" hidden>Nenhuma entidade legítima pede códigos de confirmação. Quem pede o código está a tentar entrar na sua conta.</p>
+    </fieldset>
+
+    <fieldset class="q" data-correct="a" data-ref="§2.3">
+      <legend>2. Qual das seguintes opções NÃO protege contra malware e ransomware?</legend>
+      <label><input type="radio" name="m2q2" value="a"> <span>A) Ignorar as cópias de segurança</span></label>
+      <label><input type="radio" name="m2q2" value="b"> <span>B) Usar um antivírus atualizado</span></label>
+      <label><input type="radio" name="m2q2" value="c"> <span>C) Instalar as atualizações de segurança</span></label>
+      <label><input type="radio" name="m2q2" value="d"> <span>D) Não clicar em links suspeitos</span></label>
+      <p class="explicacao" hidden>Sem cópias de segurança, um ataque de ransomware pode significar perder os ficheiros para sempre.</p>
+    </fieldset>
+
+    <fieldset class="q" data-correct="b" data-ref="§2.2">
+      <legend>3. Recebe esta SMS: «Finanças: tem um reembolso de 214,30 € pendente. Confirme o IBAN até hoje em at-reembolso.top». É legítima?</legend>
+      <label><input type="radio" name="m2q3" value="a"> <span>A) Sim, as Finanças avisam por SMS</span></label>
+      <label><input type="radio" name="m2q3" value="b"> <span>B) Não: tem urgência, pede dados bancários e um endereço estranho</span></label>
+      <label><input type="radio" name="m2q3" value="c"> <span>C) Só é burla se tiver erros ortográficos</span></label>
+      <label><input type="radio" name="m2q3" value="d"> <span>D) Sim, porque indica o valor exato com cêntimos e um prazo, como fazem as mensagens oficiais</span></label>
+      <p class="explicacao" hidden>Tem pelo menos 3 sinais de alerta: urgência («até hoje»), pedido de dados e endereço que não é o oficial. E um reembolso inesperado é «bom demais para ser verdade». <span class="simulado">Exemplo simulado.</span></p>
+    </fieldset>
+
+    <fieldset class="q" data-correct="d" data-ref="§2.2">
+      <legend>4. Uma mensagem está escrita em português perfeito, sem um único erro. O que isso significa?</legend>
+      <label><input type="radio" name="m2q4" value="a"> <span>A) Que é de certeza legítima</span></label>
+      <label><input type="radio" name="m2q4" value="b"> <span>B) Que foi enviada por uma entidade portuguesa oficial, porque os burlões estrangeiros cometem sempre erros</span></label>
+      <label><input type="radio" name="m2q4" value="c"> <span>C) Que pode clicar no link em segurança</span></label>
+      <label><input type="radio" name="m2q4" value="d"> <span>D) Nada: muitas burlas são escritas com inteligência artificial; procure os 5 sinais</span></label>
+      <p class="explicacao" hidden>Os erros ortográficos já não são um bom sinal. Um texto bem escrito não prova que a mensagem é legítima.</p>
+    </fieldset>
+
+    <fieldset class="q" data-correct="c" data-ref="§2.3">
+      <legend>5. O que faz o ransomware?</legend>
+      <label><input type="radio" name="m2q5" value="a"> <span>A) Propaga-se sozinho pela rede sem fazer mais nada</span></label>
+      <label><input type="radio" name="m2q5" value="b"> <span>B) Mostra publicidade no browser</span></label>
+      <label><input type="radio" name="m2q5" value="c"> <span>C) Cifra os ficheiros e exige um resgate — e pagar não garante a recuperação</span></label>
+      <label><input type="radio" name="m2q5" value="d"> <span>D) Sobrecarrega um site ou serviço com tráfego de milhares de dispositivos até o deixar indisponível</span></label>
+      <p class="explicacao" hidden>O ransomware cifra os ficheiros da vítima e exige um resgate. A melhor defesa são as cópias de segurança 3-2-1. A opção D descreve um ataque DDoS.</p>
+    </fieldset>
+
+    <fieldset class="q" data-correct="a" data-ref="§2.2">
+      <legend>6. Recebe no WhatsApp: «Olá mãe, este é o meu número novo. Preciso de pagar uma conta urgente.» O que deve fazer primeiro?</legend>
+      <label><input type="radio" name="m2q6" value="a"> <span>A) Ligar para o número antigo do seu familiar</span></label>
+      <label><input type="radio" name="m2q6" value="b"> <span>B) Transferir primeiro um valor pequeno para confirmar que é mesmo o seu familiar e só depois o resto</span></label>
+      <label><input type="radio" name="m2q6" value="c"> <span>C) Pedir uma fotografia por mensagem</span></label>
+      <label><input type="radio" name="m2q6" value="d"> <span>D) Responder a perguntar o valor exato</span></label>
+      <p class="explicacao" hidden>Contacto inesperado + urgência + pedido de dinheiro = burla «Olá pai, olá mãe». Confirme por um canal que já conhece: ligue para o número antigo antes de fazer qualquer coisa.</p>
+    </fieldset>
+
+    <div class="acoes">
+      <button class="btn" type="submit">Corrigir</button>
+      <button class="btn sec" type="reset">Tentar de novo</button>
+    </div>
+    <div class="resultado" aria-live="polite"></div>
+    <div class="percurso recuperacao caixa aviso" hidden>
+      <h3>Para rever</h3>
+      <ul>
+        <li><a href="#s2-1">2.1 Engenharia social</a> — phishing, smishing, vishing e as outras burlas</li>
+        <li><a href="#s2-2">2.2 Os 5 sinais de alerta</a> — e a regra de ouro: Pare. Pense. Verifique.</li>
+        <li><a href="#s2-3">2.3 Malware</a> — os tipos e como se proteger</li>
+      </ul>
+      <p>Refaça a atividade «Legítima ou burla?» e depois carregue em «Tentar de novo».</p>
+    </div>
+    <div class="percurso enriquecimento caixa resumo" hidden>
+      <h3>Muito bem! Próximos passos</h3>
+      <ul>
+        <li>Siga para o <a href="modulo-3.html">Módulo 3 — Proteger as suas contas</a>.</li>
+        <li>Acompanhe os alertas do CNCS sobre burlas em curso em Portugal em <a href="https://www.cncs.gov.pt">cncs.gov.pt</a>.</li>
+        <li>Quer aprofundar? O curso gratuito «Cidadão Ciberseguro», do CNCS, está na plataforma <a href="https://www.nau.edu.pt">NAU (nau.edu.pt)</a>.</li>
+      </ul>
+    </div>
+  </form>
+
+  <nav class="navmod" aria-label="Navegação entre módulos">
+    <a href="modulo-1.html">← Módulo 1 · Conceitos básicos</a>
+    <a href="modulo-3.html">Módulo 3 · Proteger as contas →</a>
+  </nav>
+</main>
+
+<footer>Baseado no <em>Manual de Cibersegurança Básica</em>, edição de outubro de 2026 · Ricardo Rouco · <a href="https://ricardodsr.github.io">ricardodsr.github.io</a></footer>
+<script src="quiz.js"></script>
+</body>
+</html>

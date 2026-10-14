@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Módulo 1 · Conceitos básicos</title>
+<meta name="description" content="Módulo 1 do curso de Cibersegurança Básica: definição, termos essenciais e história.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Source+Sans+3:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#conteudo">Saltar para o conteúdo</a>
+<header class="topo">
+  <div class="wrap">
+    <a class="marca" href="index.html">Cibersegurança Básica</a>
+    <nav aria-label="Módulos do curso">
+      <a href="index.html">Início</a>
+      <a href="modulo-1.html" aria-label="Módulo 1" aria-current="page">M1</a>
+      <a href="modulo-2.html" aria-label="Módulo 2">M2</a>
+      <a href="modulo-3.html" aria-label="Módulo 3">M3</a>
+      <a href="modulo-4.html" aria-label="Módulo 4">M4</a>
+      <a href="modulo-5.html" aria-label="Módulo 5">M5</a>
+      <a href="anexos.html">Anexos</a>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo" class="wrap">
+  <span class="etiqueta">Módulo 1 de 5</span>
+  <h1>Conceitos básicos de cibersegurança</h1>
+  <p class="lead">O que é a cibersegurança, as três camadas básicas de proteção e como as ameaças evoluíram.</p>
+
+  <nav class="toc" aria-label="Neste módulo">
+    <strong>Neste módulo</strong>
+    <ol>
+      <li><a href="#s1-1">Definição de cibersegurança</a></li>
+      <li><a href="#s1-2">Principais termos e conceitos</a></li>
+      <li><a href="#s1-3">Breve história da cibersegurança</a></li>
+      <li><a href="#perguntas">Perguntas e respostas</a></li>
+      <li><a href="#avaliacao">Avaliação de conhecimentos</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="s1-1">1.1 Definição de cibersegurança</h2>
+  <p>A <strong>cibersegurança</strong> é o conjunto de práticas, tecnologias e hábitos que protegem pessoas, dispositivos, contas, redes e dados contra ataques e burlas digitais.</p>
+  <p>Esses ataques procuram, em geral:</p>
+  <ul>
+    <li>aceder a informação sensível, alterá-la ou destruí-la;</li>
+    <li>extorquir dinheiro às vítimas;</li>
+    <li>interromper o funcionamento normal de serviços e organizações.</li>
+  </ul>
+
+  <h3>Imagine a segurança da sua casa</h3>
+  <table class="tabela">
+    <thead><tr><th>Em casa</th><th>No digital</th></tr></thead>
+    <tbody>
+      <tr><td data-label="Em casa">Fechadura e trinco</td><td data-label="No digital">Palavra-passe + verificação em dois passos</td></tr>
+      <tr><td data-label="Em casa">Alarme</td><td data-label="No digital">Antivírus e alertas de acesso às contas</td></tr>
+      <tr><td data-label="Em casa">Cópia dos documentos importantes</td><td data-label="No digital">Cópias de segurança (regra 3-2-1)</td></tr>
+      <tr><td data-label="Em casa">Não abrir a porta a estranhos</td><td data-label="No digital">Não clicar em links nem atender pedidos suspeitos</td></tr>
+    </tbody>
+  </table>
+  <p class="ref">Manual, p. 4</p>
+
+  <h2 id="s1-2">1.2 Principais termos e conceitos</h2>
+  <div class="grelha">
+    <div class="cartao">
+      <h3>Firewall</h3>
+      <p>Sistema que monitoriza e controla o tráfego de rede que entra e sai de um dispositivo, com base em regras predefinidas. É uma barreira entre uma rede de confiança (a sua casa) e redes externas, como a Internet.</p>
+      <p>Pode ser de software (a Firewall do Windows vem ligada por predefinição) ou de hardware (o router de casa tem uma).</p>
+    </div>
+    <div class="cartao">
+      <h3>Antivírus</h3>
+      <p>Deteta, previne e remove malware — vírus, worms, trojans e outros programas maliciosos. Analisa ficheiros e comportamentos suspeitos em tempo real e em análises programadas.</p>
+      <p>Tem de estar sempre atualizado. No Windows, o <strong>Microsoft Defender</strong> já vem incluído e é suficiente para a maioria das pessoas.</p>
+    </div>
+    <div class="cartao">
+      <h3>Verificação em dois passos (2FA)</h3>
+      <p>Também chamada autenticação de dois fatores. Confirma a identidade com duas componentes diferentes:</p>
+      <ul>
+        <li><strong>algo que sabe</strong> — a palavra-passe;</li>
+        <li><strong>algo que tem</strong> — o telemóvel, uma app autenticadora ou uma chave física;</li>
+        <li>ou <strong>algo que é</strong> — impressão digital, rosto.</li>
+      </ul>
+      <p>Mesmo que alguém descubra a sua palavra-passe, não entra sem o segundo passo.</p>
+    </div>
+    <div class="cartao">
+      <h3>Chave de acesso (passkey)</h3>
+      <p>A evolução mais recente: substitui a palavra-passe por um desbloqueio com impressão digital, rosto ou PIN do próprio dispositivo.</p>
+      <p>Não pode ser «adivinhada» nem entregue a um site falso, o que a torna muito resistente ao phishing. A Google, a Microsoft, a Apple e muitos outros serviços já a suportam.</p>
+    </div>
+  </div>
+
+  <div class="caixa">
+    <h3>Exemplos do dia a dia</h3>
+    <ul>
+      <li>Quando entra no homebanking e o banco pede a confirmação na app, está a usar a <strong>verificação em dois passos</strong>.</li>
+      <li>Quando o router de casa bloqueia ligações não autorizadas, está a funcionar como <strong>firewall</strong>.</li>
+      <li>Quando o Windows avisa que bloqueou um ficheiro descarregado, é o <strong>antivírus</strong> a trabalhar.</li>
+    </ul>
+  </div>
+  <p class="ref">Manual, p. 4–5</p>
+
+  <h2 id="s1-3">1.3 Breve história da cibersegurança</h2>
+  <p>A história da cibersegurança é marcada por uma evolução constante das ameaças e das medidas para as combater.</p>
+  <table class="tabela">
+    <thead><tr><th>Ano</th><th>Marco</th></tr></thead>
+    <tbody>
+      <tr><td data-label="Ano">1983</td><td data-label="Marco">O filme <em>WarGames</em> populariza a ideia de hacking.</td></tr>
+      <tr><td data-label="Ano">1986</td><td data-label="Marco">Surge o vírus <strong>Brain</strong>, um dos primeiros vírus para PC, espalhado por disquetes.</td></tr>
+      <tr><td data-label="Ano">1988</td><td data-label="Marco">O worm <strong>Morris</strong> propaga-se pela Internet e afeta uma parte significativa dos computadores ligados à época.</td></tr>
+      <tr><td data-label="Ano">2000</td><td data-label="Marco">O vírus <strong>ILOVEYOU</strong> espalha-se por email e causa prejuízos estimados em milhares de milhões de dólares.</td></tr>
+      <tr><td data-label="Ano">2017</td><td data-label="Marco">O ransomware <strong>WannaCry</strong> afeta sistemas em todo o mundo, incluindo hospitais; no mesmo ano surge o NotPetya.</td></tr>
+      <tr><td data-label="Ano">Hoje</td><td data-label="Marco">Predominam a engenharia social em larga escala (SMS, chamadas e mensagens falsas), o ransomware e o roubo de palavras-passe por infostealers, muitas vezes com mensagens geradas por inteligência artificial.</td></tr>
+    </tbody>
+  </table>
+  <p>As defesas acompanharam esta evolução: nos anos 80 e 90 o antivírus era a principal linha de defesa; depois vieram as firewalls, os sistemas de deteção de intrusões e a verificação em dois passos. Hoje usam-se também a análise comportamental, a inteligência artificial e as chaves de acesso sem palavra-passe.</p>
+  <p class="ref">Manual, p. 5</p>
+
+  <div class="caixa resumo">
+    <h3>Em resumo</h3>
+    <ul>
+      <li>A cibersegurança protege pessoas, dispositivos, contas e dados — e depende tanto de hábitos como de tecnologia.</li>
+      <li>Firewall, antivírus e verificação em dois passos são as três camadas básicas de proteção.</li>
+      <li>As chaves de acesso (passkeys) são a opção mais resistente ao phishing.</li>
+    </ul>
+  </div>
+
+  <h2 id="perguntas">Perguntas e respostas</h2>
+  <p>Tente responder antes de abrir cada resposta.</p>
+  <div class="faq">
+    <details>
+      <summary>A cibersegurança é só uma questão de tecnologia?</summary>
+      <div><p>Não. Depende tanto de <strong>hábitos</strong> como de tecnologia. A maior parte dos ataques depende de nos enganar, e por isso os nossos hábitos são uma parte essencial da proteção.</p></div>
+    </details>
+    <details>
+      <summary>Tenho Windows. Preciso de comprar um antivírus?</summary>
+      <div><p>Para a maioria das pessoas, não. O <strong>Microsoft Defender</strong> já vem incluído no Windows e é suficiente — desde que esteja ativo e atualizado.</p></div>
+    </details>
+    <details>
+      <summary>Entro no homebanking e o banco pede-me para confirmar na app. Que proteção é esta?</summary>
+      <div><p>É a <strong>verificação em dois passos</strong>: além da palavra-passe (algo que sabe), confirma com o telemóvel (algo que tem).</p></div>
+    </details>
+    <details>
+      <summary>Uma segunda palavra-passe conta como segundo passo?</summary>
+      <div><p>Não. O segundo fator tem de ser de <strong>outro tipo</strong>: algo que tem (telemóvel, app autenticadora, chave física) ou algo que é (impressão digital, rosto). Outra coisa que sabe não conta.</p></div>
+    </details>
+    <details>
+      <summary>Porque se diz que as chaves de acesso (passkeys) resistem ao phishing?</summary>
+      <div><p>Porque não podem ser «adivinhadas» nem entregues a um site falso: o desbloqueio é feito com a impressão digital, o rosto ou o PIN do próprio dispositivo.</p></div>
+    </details>
+  </div>
+
+  <h2 id="avaliacao">Avaliação de conhecimentos</h2>
+  <p>6 perguntas · critério de êxito: <strong>4 ou mais certas</strong>. Escolha uma opção em cada pergunta e carregue em «Corrigir».</p>
+  <form class="quiz" data-modulo="1" data-limiar="4">
+    <fieldset class="q" data-correct="a" data-ref="§1.3">
+      <legend>1. Qual foi um dos primeiros vírus de computador para PC, criado em 1986?</legend>
+      <label><input type="radio" name="m1q1" value="a"> <span>A) Brain</span></label>
+      <label><input type="radio" name="m1q1" value="b"> <span>B) Morris</span></label>
+      <label><input type="radio" name="m1q1" value="c"> <span>C) WannaCry</span></label>
+      <label><input type="radio" name="m1q1" value="d"> <span>D) ILOVEYOU</span></label>
+      <p class="explicacao" hidden>O <strong>Brain</strong> (1986) espalhava-se por disquetes. O Morris (1988) era um worm, o ILOVEYOU é de 2000 e o WannaCry de 2017.</p>
+    </fieldset>
+
+    <fieldset class="q" data-correct="c" data-ref="§1.2">
+      <legend>2. Na verificação em dois passos, qual destes é um segundo fator válido?</legend>
+      <label><input type="radio" name="m1q2" value="a"> <span>A) O nome do seu animal de estimação</span></label>
+      <label><input type="radio" name="m1q2" value="b"> <span>B) Uma segunda palavra-passe</span></label>
+      <label><input type="radio" name="m1q2" value="c"> <span>C) Um código gerado por uma app autenticadora no seu telemóvel</span></label>
+      <label><input type="radio" name="m1q2" value="d"> <span>D) A sua data de nascimento</span></label>
+      <p class="explicacao" hidden>O segundo fator tem de ser de outro tipo: algo que tem (telemóvel, app) ou que é (biometria). Outra coisa que sabe não conta.</p>
+    </fieldset>
+
+    <fieldset class="q" data-correct="b" data-ref="§1.2">
+      <legend>3. O que faz uma firewall?</legend>
+      <label><input type="radio" name="m1q3" value="a"> <span>A) Analisa em tempo real os ficheiros descarregados e remove os vírus que já infetaram o computador</span></label>
+      <label><input type="radio" name="m1q3" value="b"> <span>B) Monitoriza e controla o tráfego de rede que entra e sai, com base em regras predefinidas</span></label>
+      <label><input type="radio" name="m1q3" value="c"> <span>C) Guarda cópias de segurança dos seus ficheiros</span></label>
+      <label><input type="radio" name="m1q3" value="d"> <span>D) Cria palavras-passe longas para cada conta</span></label>
+      <p class="explicacao" hidden>A firewall é uma barreira entre uma rede de confiança e redes externas, como a Internet. Remover malware é tarefa do antivírus.</p>
+    </fieldset>
+
+    <fieldset class="q" data-correct="d" data-ref="§1.2">
+      <legend>4. Porque é que as chaves de acesso (passkeys) são muito resistentes ao phishing?</legend>
+      <label><input type="radio" name="m1q4" value="a"> <span>A) Porque o serviço as muda automaticamente todos os meses, sem o utilizador ter de fazer nada</span></label>
+      <label><input type="radio" name="m1q4" value="b"> <span>B) Porque são enviadas por SMS</span></label>
+      <label><input type="radio" name="m1q4" value="c"> <span>C) Porque só funcionam em computadores com Windows</span></label>
+      <label><input type="radio" name="m1q4" value="d"> <span>D) Porque não podem ser adivinhadas nem entregues a um site falso</span></label>
+      <p class="explicacao" hidden>A chave de acesso substitui a palavra-passe por um desbloqueio com impressão digital, rosto ou PIN do próprio dispositivo — não há nada para adivinhar nem para escrever num site falso.</p>
+    </fieldset>
+
+    <fieldset class="q" data-correct="a" data-ref="§1.1">
+      <legend>5. Na comparação com a segurança de uma casa, o que corresponde a «guardar uma cópia dos documentos importantes»?</legend>
+      <label><input type="radio" name="m1q5" value="a"> <span>A) Fazer cópias de segurança (regra 3-2-1)</span></label>
+      <label><input type="radio" name="m1q5" value="b"> <span>B) Ter um antivírus que avisa quando alguém tenta entrar nas suas contas</span></label>
+      <label><input type="radio" name="m1q5" value="c"> <span>C) Usar uma palavra-passe</span></label>
+      <label><input type="radio" name="m1q5" value="d"> <span>D) Não clicar em links suspeitos</span></label>
+      <p class="explicacao" hidden>Fechadura e trinco = palavra-passe e dois passos; alarme = antivírus e alertas; cópia dos documentos = cópias de segurança; não abrir a porta a estranhos = não clicar em links suspeitos.</p>
+    </fieldset>
+
+    <fieldset class="q" data-correct="c" data-ref="§1.3">
+      <legend>6. Que tipo de ameaças predomina hoje?</legend>
+      <label><input type="radio" name="m1q6" value="a"> <span>A) Vírus espalhados por disquetes</span></label>
+      <label><input type="radio" name="m1q6" value="b"> <span>B) Sobretudo ataques a grandes empresas e governos, porque os particulares raramente são alvo de burlas digitais</span></label>
+      <label><input type="radio" name="m1q6" value="c"> <span>C) Engenharia social em larga escala, ransomware e roubo de palavras-passe por infostealers</span></label>
+      <label><input type="radio" name="m1q6" value="d"> <span>D) Worms como o Morris, que já não existem</span></label>
+      <p class="explicacao" hidden>Hoje predominam a engenharia social em larga escala (SMS, chamadas e mensagens falsas), o ransomware e os infostealers — muitas vezes com mensagens geradas por inteligência artificial.</p>
+    </fieldset>
+
+    <div class="acoes">
+      <button class="btn" type="submit">Corrigir</button>
+      <button class="btn sec" type="reset">Tentar de novo</button>
+    </div>
+    <div class="resultado" aria-live="polite"></div>
+    <div class="percurso recuperacao caixa aviso" hidden>
+      <h3>Para rever</h3>
+      <ul>
+        <li><a href="#s1-1">1.1 Definição de cibersegurança</a> — a analogia da casa</li>
+        <li><a href="#s1-2">1.2 Principais termos</a> — firewall, antivírus, dois passos e chaves de acesso</li>
+        <li><a href="#s1-3">1.3 Breve história</a> — os marcos de 1983 até hoje</li>
+      </ul>
+      <p>Depois de rever, carregue em «Tentar de novo».</p>
+    </div>
+    <div class="percurso enriquecimento caixa resumo" hidden>
+      <h3>Muito bem! Próximos passos</h3>
+      <ul>
+        <li>Siga para o <a href="modulo-2.html">Módulo 2 — Ameaças comuns na Internet</a>.</li>
+        <li>Quer aprofundar? O curso gratuito «Cidadão Ciberseguro», do CNCS, está na plataforma <a href="https://www.nau.edu.pt">NAU (nau.edu.pt)</a>.</li>
+      </ul>
+    </div>
+  </form>
+
+  <nav class="navmod" aria-label="Navegação entre módulos">
+    <a href="index.html">← Início</a>
+    <a href="modulo-2.html">Módulo 2 · Ameaças comuns →</a>
+  </nav>
+</main>
+
+<footer>Baseado no <em>Manual de Cibersegurança Básica</em>, edição de outubro de 2026 · Ricardo Rouco · <a href="https://ricardodsr.github.io">ricardodsr.github.io</a></footer>
+<script src="quiz.js"></script>
+</body>
+</html>

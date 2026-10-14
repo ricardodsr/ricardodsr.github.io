@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Módulo 3 · Proteger as contas</title>
+<meta name="description" content="Módulo 3 do curso de Cibersegurança Básica: palavras-passe, frases-passe, gestores, verificação em dois passos e pagamentos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Source+Sans+3:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#conteudo">Saltar para o conteúdo</a>
+<header class="topo">
+  <div class="wrap">
+    <a class="marca" href="index.html">Cibersegurança Básica</a>
+    <nav aria-label="Módulos do curso">
+      <a href="index.html">Início</a>
+      <a href="modulo-1.html" aria-label="Módulo 1">M1</a>
+      <a href="modulo-2.html" aria-label="Módulo 2">M2</a>
+      <a href="modulo-3.html" aria-label="Módulo 3" aria-current="page">M3</a>
+      <a href="modulo-4.html" aria-label="Módulo 4">M4</a>
+      <a href="modulo-5.html" aria-label="Módulo 5">M5</a>
+      <a href="anexos.html">Anexos</a>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo" class="wrap">
+  <span class="etiqueta">Módulo 3 de 5</span>
+  <h1>Proteger as suas contas e informações pessoais</h1>
+  <p class="lead">As contas online — email, banco, redes sociais, Finanças — guardam a nossa identidade digital. A conta de <strong>email</strong> é a mais importante de todas: quem a controla consegue repor as palavras-passe de quase todas as outras.</p>
+
+  <nav class="toc" aria-label="Neste módulo">
+    <strong>Neste módulo</strong>
+    <ol>
+      <li><a href="#s3-1">Palavras-passe: o que mudou</a></li>
+      <li><a href="#s3-2">Como criar uma frase-passe segura</a></li>
+      <li><a href="#s3-3">Gestores de palavras-passe</a></li>
+      <li><a href="#s3-4">Verificação em dois passos</a></li>
+      <li><a href="#s3-5">Dados bancários e pagamentos</a></li>
+      <li><a href="#perguntas">Perguntas e respostas</a></li>
+      <li><a href="#avaliacao">Avaliação de conhecimentos</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="s3-1">3.1 Palavras-passe: o que mudou</h2>
+  <p>Muitos conselhos que aprendemos sobre palavras-passe estão ultrapassados. A norma de referência mundial, o <strong>NIST SP 800-63B-4</strong> (versão final publicada em julho de 2025), deixou de recomendar regras de composição obrigatórias e mudanças periódicas.</p>
+  <table class="tabela">
+    <thead><tr><th>Conselho antigo</th><th>Recomendação atual</th></tr></thead>
+    <tbody>
+      <tr><td data-label="Conselho antigo">✗ Misturar obrigatoriamente maiúsculas, números e símbolos (<code>P@ssw0rd!</code>)</td><td data-label="Recomendação atual">✓ Comprimento acima de tudo: <strong>15 ou mais caracteres</strong> quando a palavra-passe é o único fator</td></tr>
+      <tr><td data-label="Conselho antigo">✗ Mudar a palavra-passe de 90 em 90 dias</td><td data-label="Recomendação atual">✓ Mudar só se houver suspeita ou confirmação de fuga</td></tr>
+      <tr><td data-label="Conselho antigo">✗ Mínimo de 8 a 12 caracteres complexos</td><td data-label="Recomendação atual">✓ Frases-passe longas e fáceis de lembrar</td></tr>
+      <tr><td data-label="Conselho antigo">✗ Decorar todas de cabeça (e acabar por repeti-las)</td><td data-label="Recomendação atual">✓ Uma palavra-passe única por conta, guardada num gestor de palavras-passe</td></tr>
+    </tbody>
+  </table>
+  <div class="caixa">
+    <h3>Porquê?</h3>
+    <p>Porque as regras de complexidade levam a padrões previsíveis (<code>Lisboa2024!</code>, <code>Benfica#1904</code>) que os atacantes testam primeiro, e as mudanças forçadas levam a pequenas variações da mesma palavra-passe. O <strong>comprimento</strong> é o que mais dificulta um ataque.</p>
+  </div>
+  <p class="ref">Manual, p. 10</p>
+
+  <h2 id="s3-2">3.2 Como criar uma frase-passe segura</h2>
+  <div class="grelha">
+    <div class="cartao"><p class="num">1</p><h3>Escolha 4 palavras</h3><p>sem relação entre si (não uma frase com sentido nem uma letra de música).</p></div>
+    <div class="cartao"><p class="num">2</p><h3>Junte-as</h3><p>com um separador à sua escolha — hífen, ponto, espaço.</p></div>
+    <div class="cartao"><p class="num">3</p><h3>Confirme</h3><p>com a checklist abaixo.</p></div>
+  </div>
+  <div class="caixa">
+    <p><strong>Exemplo (público — não o use!)</strong></p>
+    <p><span class="pw">girafa-tostas-nuvem-pedal</span> · 25 caracteres</p>
+  </div>
+
+  <h3 id="atividade">Atividade: crie a sua frase-passe</h3>
+  <p>Pegue em papel e caneta (não escreva a frase-passe aqui no ecrã) e crie a sua com a técnica das 4 palavras. Depois passe-a por esta checklist — todas as caixas têm de ficar marcadas.</p>
+  <ul class="checklist" aria-label="Checklist da frase-passe">
+    <li><label><input type="checkbox"> <span>Tem 15 ou mais caracteres</span></label></li>
+    <li><label><input type="checkbox"> <span>Não tem nomes, datas, clubes nem a sua cidade</span></label></li>
+    <li><label><input type="checkbox"> <span>Não é uma frase célebre nem letra de música</span></label></li>
+    <li><label><input type="checkbox"> <span>Nunca a usou noutra conta</span></label></li>
+    <li><label><input type="checkbox"> <span>Lembra-se dela amanhã</span></label></li>
+  </ul>
+  <p class="ref">Manual, p. 10–11</p>
+
+  <h2 id="s3-3">3.3 Gestores de palavras-passe</h2>
+  <p>Um <strong>gestor de palavras-passe</strong> cria e guarda palavras-passe longas e únicas para cada conta, e preenche-as automaticamente <strong>apenas no site verdadeiro</strong> — o que também ajuda a detetar sites falsos. Só precisa de decorar uma frase-passe forte: a do gestor.</p>
+  <ul>
+    <li><strong>Gratuitos e integrados:</strong> Gestor de Palavras-passe da Google (Chrome/Android), Porta-chaves do iCloud e app Palavras-passe (Apple), Microsoft Edge.</li>
+    <li><strong>Independentes:</strong> Bitwarden (tem versão gratuita), 1Password, entre outros.</li>
+    <li>Proteja o gestor com uma frase-passe forte e com verificação em dois passos.</li>
+  </ul>
+  <p class="ref">Manual, p. 11</p>
+
+  <h2 id="s3-4">3.4 Verificação em dois passos</h2>
+  <p>É a medida com <strong>maior impacto</strong> que pode tomar hoje. Mesmo que roubem a sua palavra-passe, sem o segundo passo não conseguem entrar — é como um trinco extra na porta.</p>
+  <table class="tabela">
+    <thead><tr><th>Nível</th><th>Método</th><th>Notas</th></tr></thead>
+    <tbody>
+      <tr><td data-label="Nível"><strong>Bom</strong></td><td data-label="Método">Código por SMS</td><td data-label="Notas">Melhor do que nada, mas o código pode ser intercetado ou pedido por telefone por um burlão.</td></tr>
+      <tr><td data-label="Nível"><strong>Melhor</strong></td><td data-label="Método">App autenticadora (Google Authenticator, Microsoft Authenticator, Authy)</td><td data-label="Notas">Gera códigos temporários no próprio telemóvel, sem depender da rede.</td></tr>
+      <tr><td data-label="Nível"><strong>Ótimo</strong></td><td data-label="Método">Chave de acesso (passkey) ou chave de segurança física</td><td data-label="Notas">Desbloqueio com impressão digital ou rosto; resistente ao phishing.</td></tr>
+    </tbody>
+  </table>
+  <div class="caixa">
+    <h3>Como ativar</h3>
+    <p>Abra as definições de segurança da conta (por exemplo, «Gerir a sua Conta Google › Segurança» ou «Conta Microsoft › Segurança») e procure «Verificação em dois passos» ou «Chaves de acesso». Siga as instruções e guarde os códigos de recuperação num local seguro.</p>
+    <h3>Por onde começar</h3>
+    <ol>
+      <li><strong>Email</strong> — recupera todas as outras contas.</li>
+      <li><strong>Banco</strong> — normalmente já usa a app para confirmar operações.</li>
+      <li><strong>Redes sociais e WhatsApp</strong> — no WhatsApp, ative a «Verificação em dois passos» (PIN) nas definições da conta.</li>
+    </ol>
+  </div>
+  <div class="caixa alerta">
+    <h3>Nunca dê o código a ninguém</h3>
+    <p>Nenhum funcionário do banco, da operadora ou de «suporte técnico» lhe vai pedir um código de confirmação, o PIN ou a palavra-passe. <strong>Quem pede o código está a tentar entrar na sua conta.</strong></p>
+  </div>
+  <p class="ref">Manual, p. 11</p>
+
+  <h2 id="s3-5">3.5 Dados bancários e pagamentos</h2>
+  <ul>
+    <li>Nunca partilhe o PIN, códigos de confirmação ou dados completos do cartão por mensagem, email ou telefone.</li>
+    <li>Ative as notificações de movimentos na app do banco — deteta mais cedo qualquer operação estranha.</li>
+    <li>Em compras online, prefira métodos que não expõem o cartão (MB WAY, cartões virtuais, referências Multibanco) e confirme a reputação da loja.</li>
+    <li>Desconfie de pedidos para «pagar através do MB WAY para receber dinheiro» — para receber nunca é preciso pagar nem dar códigos.</li>
+    <li>Consulte regularmente os movimentos e contacte logo o banco se vir algo que não reconhece.</li>
+  </ul>
+  <p class="ref">Manual, p. 12</p>
+
+  <p class="lema">Longa. Única. Com 2.º passo.</p>
+  <div class="caixa resumo">
+    <h3>Em resumo</h3>
+    <ul>
+      <li>Longa, única e com segundo passo: 15+ caracteres, uma por conta, guardada num gestor.</li>
+      <li>Mude a palavra-passe só quando houver suspeita de fuga.</li>
+      <li>Ative a verificação em dois passos, começando pelo email. Nunca dê o código a ninguém.</li>
+    </ul>
+  </div>
+
+  <h2 id="perguntas">Perguntas e respostas</h2>
+  <p>Tente responder antes de abrir cada resposta.</p>
+  <div class="faq">
+    <details>
+      <summary>Verdadeiro ou falso: «Lisboa2024!» é uma palavra-passe segura.</summary>
+      <div><p><strong>Falso.</strong> É curta e usa cidade e ano, padrões que os atacantes testam primeiro. Os símbolos e os números não compensam.</p></div>
+    </details>
+    <details>
+      <summary>Qual é a mais segura: <code>P@ssw0rd2026!</code>, <code>Benfica1904</code>, <code>chuva-trombone-alface-mapa</code> ou <code>Lisboa2024!</code>?</summary>
+      <div><p><strong><code>chuva-trombone-alface-mapa</code></strong>. É longa (26 caracteres) e não tem nomes, clubes nem datas; os símbolos das outras não compensam a falta de comprimento.</p></div>
+    </details>
+    <details>
+      <summary>Porque é que já não se recomenda mudar a palavra-passe de 90 em 90 dias?</summary>
+      <div><p>Porque as mudanças forçadas levam a pequenas variações da mesma palavra-passe, que são fáceis de adivinhar. Mude-a só quando houver suspeita ou confirmação de fuga.</p></div>
+    </details>
+    <details>
+      <summary>Verdadeiro ou falso: com a verificação em dois passos, roubar a palavra-passe não chega.</summary>
+      <div><p><strong>Verdadeiro.</strong> Sem o segundo passo, o atacante não entra.</p></div>
+    </details>
+    <details>
+      <summary>Porque devo começar a ativar os dois passos pelo email?</summary>
+      <div><p>Porque quem controla o seu email consegue repor as palavras-passe de quase todas as outras contas. É a conta mais importante.</p></div>
+    </details>
+    <details>
+      <summary>Se usar um gestor de palavras-passe, quantas tenho de decorar?</summary>
+      <div><p>Apenas uma: a frase-passe forte do próprio gestor — que deve estar também protegido com verificação em dois passos.</p></div>
+    </details>
+  </div>
+
+  <h2 id="avaliacao">Avaliação de conhecimentos</h2>
+  <p>6 perguntas · critério de êxito: <strong>4 ou mais certas</strong>. Escolha uma opção em cada pergunta e carregue em «Corrigir».</p>
+  <form class="quiz" data-modulo="3" data-limiar="4">
+    <fieldset class="q" data-correct="c" data-ref="§3.1">
+      <legend>1. Qual destas é a palavra-passe mais segura?</legend>
+      <label><input type="radio" name="m3q1" value="a"> <span>A) <code>P@ssw0rd2026!</code></span></label>
+      <label><input type="radio" name="m3q1" value="b"> <span>B) <code>Benfica1904</code></span></label>
+      <label><input type="radio" name="m3q1" value="c"> <span>C) <code>lapis-cometa-farol-sopa</code></span></label>
+      <label><input type="radio" name="m3q1" value="d"> <span>D) <code>Lisboa2024!</code></span></label>
+      <p class="explicacao" hidden>É a mais longa (23 caracteres) e não tem palavras previsíveis, clubes ou datas. Os símbolos não compensam a falta de comprimento.</p>
+    </fieldset>
+
+    <fieldset class="q" data-correct="c" data-ref="§3.1">
+      <legend>2. De quanto em quanto tempo deve mudar uma palavra-passe forte e única?</legend>
+      <label><input type="radio" name="m3q2" value="a"> <span>A) Todos os meses</span></label>
+      <label><input type="radio" name="m3q2" value="b"> <span>B) De 90 em 90 dias</span></label>
+      <label><input type="radio" name="m3q2" value="c"> <span>C) Só quando houver suspeita ou confirmação de fuga</span></label>
+      <label><input type="radio" name="m3q2" value="d"> <span>D) Nunca, em circunstância nenhuma</span></label>
+      <p class="explicacao" hidden>As mudanças periódicas forçadas levam a palavras-passe mais fracas. Mude-a quando houver motivo — por exemplo, uma fuga de dados.</p>
+    </fieldset>
+
+    <fieldset class="q" data-correct="d" data-ref="§3.4">
+      <legend>3. Vai ativar a verificação em dois passos. Por que conta deve começar?</legend>
+      <label><input type="radio" name="m3q3" value="a"> <span>A) Pela rede social que usa mais vezes, porque é a que tem mais fotografias e informação pessoal</span></label>
+      <label><input type="radio" name="m3q3" value="b"> <span>B) Pela conta de uma loja online</span></label>
+      <label><input type="radio" name="m3q3" value="c"> <span>C) Tanto faz, a ordem não importa</span></label>
+      <label><input type="radio" name="m3q3" value="d"> <span>D) Pelo email, porque permite recuperar todas as outras contas</span></label>
+      <p class="explicacao" hidden>A ordem recomendada é: email, banco, redes sociais e WhatsApp. Quem controla o email consegue repor as palavras-passe de quase todas as outras contas.</p>
+    </fieldset>
+
+    <fieldset class="q" data-correct="b" data-ref="§3.4">
+      <legend>4. Qual destes métodos de verificação em dois passos é o mais resistente ao phishing?</legend>
+      <label><input type="radio" name="m3q4" value="a"> <span>A) Código por SMS, porque chega ao seu telemóvel e por isso só o dono da conta o pode ver</span></label>
+      <label><input type="radio" name="m3q4" value="b"> <span>B) Chave de acesso (passkey) ou chave de segurança física</span></label>
+      <label><input type="radio" name="m3q4" value="c"> <span>C) Uma segunda palavra-passe</span></label>
+      <label><input type="radio" name="m3q4" value="d"> <span>D) Uma pergunta sobre o nome da sua mãe</span></label>
+      <p class="explicacao" hidden>SMS é «bom», a app autenticadora é «melhor» e a chave de acesso ou chave física é «ótimo»: desbloqueio com impressão digital ou rosto, resistente ao phishing.</p>
+    </fieldset>
+
+    <fieldset class="q" data-correct="a" data-ref="§3.3">
+      <legend>5. Além de guardar as palavras-passe, que outra vantagem tem um gestor de palavras-passe?</legend>
+      <label><input type="radio" name="m3q5" value="a"> <span>A) Só as preenche no site verdadeiro, o que ajuda a detetar sites falsos</span></label>
+      <label><input type="radio" name="m3q5" value="b"> <span>B) Dispensa a verificação em dois passos, porque as palavras-passe que cria já são longas e únicas</span></label>
+      <label><input type="radio" name="m3q5" value="c"> <span>C) Permite usar a mesma palavra-passe em todas as contas</span></label>
+      <label><input type="radio" name="m3q5" value="d"> <span>D) Substitui o antivírus</span></label>
+      <p class="explicacao" hidden>O gestor cria palavras-passe longas e únicas e preenche-as automaticamente apenas no site verdadeiro. O próprio gestor deve ser protegido com uma frase-passe forte e dois passos.</p>
+    </fieldset>
+
+    <fieldset class="q" data-correct="d" data-ref="§3.5">
+      <legend>6. Vendeu um objeto online. O «comprador» pede-lhe que faça uma operação no MB WAY para «receber» o pagamento. O que se passa?</legend>
+      <label><input type="radio" name="m3q6" value="a"> <span>A) É normal; o MB WAY funciona assim</span></label>
+      <label><input type="radio" name="m3q6" value="b"> <span>B) É seguro desde que o valor seja pequeno</span></label>
+      <label><input type="radio" name="m3q6" value="c"> <span>C) Só é problema se lhe pedirem o PIN do cartão; uma operação no MB WAY para receber é normal</span></label>
+      <label><input type="radio" name="m3q6" value="d"> <span>D) É burla: para receber dinheiro nunca é preciso pagar nem dar códigos</span></label>
+      <p class="explicacao" hidden>Desconfie de pedidos para «pagar através do MB WAY para receber dinheiro» — para receber nunca é preciso pagar nem dar códigos.</p>
+    </fieldset>
+
+    <div class="acoes">
+      <button class="btn" type="submit">Corrigir</button>
+      <button class="btn sec" type="reset">Tentar de novo</button>
+    </div>
+    <div class="resultado" aria-live="polite"></div>
+    <div class="percurso recuperacao caixa aviso" hidden>
+      <h3>Para rever</h3>
+      <ul>
+        <li><a href="#s3-1">3.1 Palavras-passe: o que mudou</a> — conselho antigo vs. recomendação atual</li>
+        <li><a href="#s3-2">3.2 Frase-passe segura</a> — a técnica das 4 palavras e a checklist</li>
+        <li><a href="#s3-4">3.4 Verificação em dois passos</a> — níveis e por onde começar</li>
+        <li><a href="#s3-5">3.5 Dados bancários e pagamentos</a></li>
+      </ul>
+      <p>Depois de rever, carregue em «Tentar de novo».</p>
+    </div>
+    <div class="percurso enriquecimento caixa resumo" hidden>
+      <h3>Muito bem! Próximos passos</h3>
+      <ul>
+        <li>Verifique as suas palavras-passe guardadas na Google em <a href="https://passwords.google.com">passwords.google.com</a> — mostra as comprometidas, repetidas ou fracas.</li>
+        <li>Ative hoje a verificação em dois passos no seu email.</li>
+        <li>Siga para o <a href="modulo-4.html">Módulo 4 — Boas práticas e proteção de dispositivos</a>.</li>
+      </ul>
+    </div>
+  </form>
+
+  <nav class="navmod" aria-label="Navegação entre módulos">
+    <a href="modulo-2.html">← Módulo 2 · Ameaças comuns</a>
+    <a href="modulo-4.html">Módulo 4 · Dispositivos →</a>
+  </nav>
+</main>
+
+<footer>Baseado no <em>Manual de Cibersegurança Básica</em>, edição de outubro de 2026 · Ricardo Rouco · <a href="https://ricardodsr.github.io">ricardodsr.github.io</a></footer>
+<script src="quiz.js"></script>
+</body>
+</html>
