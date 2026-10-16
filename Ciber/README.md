@@ -1,6 +1,6 @@
 # Curso — Cibersegurança Básica
 
-Curso de autoestudo em HTML/CSS, com 5 módulos, baseado no *Manual de Cibersegurança Básica* (edição de outubro de 2026).
+Curso de autoestudo em HTML/CSS, com 5 módulos baseados no *Manual de Cibersegurança Básica* (edição de outubro de 2026) e 2 módulos de aprofundamento para a UFCD 9188.
 
 ## Abrir
 
@@ -19,6 +19,7 @@ Não carregue os ficheiros HTML soltos no Classroom ou no Drive sem confirmar qu
 | --- | --- |
 | `index.html` | Capa, objetivos, diagnóstico V/F e lista de módulos com o progresso |
 | `modulo-1.html` … `modulo-5.html` | Capítulos 1–5 do manual. Cada um tem conteúdo, perguntas e respostas e uma avaliação de 6 perguntas |
+| `modulo-6.html`, `modulo-7.html` | Aprofundamento para a UFCD 9188 *Fundamentos de cibersegurança* (25 h): atacantes, mercado negro, APT e ameaças industriais (6); phishing nas empresas, malware, distribuição e posto de trabalho (7). Correspondem aos capítulos 6 e 7 do *Manual de Cibersegurança Básica — edição com a UFCD 9188*; as fontes estão em cada secção |
 | `anexos.html` | Glossário, checklist pessoal, contactos e fontes |
 | `styles.css` | Estilos partilhados, com modo escuro automático |
 | `quiz.js` | Correção das avaliações e progresso (JavaScript sem dependências) |

@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Módulo 6 · Quem ataca e porquê</title>
+<meta name="description" content="Módulo 6 (aprofundamento, UFCD 9188): perfis e motivações dos atacantes, mercado negro da Internet, botnets, ameaças avançadas persistentes e armas cibernéticas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Source+Sans+3:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#conteudo">Saltar para o conteúdo</a>
+<header class="topo">
+  <div class="wrap">
+    <a class="marca" href="index.html">Cibersegurança Básica</a>
+    <nav aria-label="Módulos do curso">
+      <a href="index.html">Início</a>
+      <a href="modulo-1.html" aria-label="Módulo 1">M1</a>
+      <a href="modulo-2.html" aria-label="Módulo 2">M2</a>
+      <a href="modulo-3.html" aria-label="Módulo 3">M3</a>
+      <a href="modulo-4.html" aria-label="Módulo 4">M4</a>
+      <a href="modulo-5.html" aria-label="Módulo 5">M5</a>
+      <a href="modulo-6.html" aria-label="Módulo 6" aria-current="page">M6</a>
+      <a href="modulo-7.html" aria-label="Módulo 7">M7</a>
+      <a href="anexos.html">Anexos</a>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo" class="wrap">
+  <span class="etiqueta">Aprofundamento · UFCD 9188 · Módulo 6</span>
+  <h1>Quem ataca e porquê: o ecossistema do cibercrime</h1>
+  <p class="lead">Atrás de cada ataque há pessoas com objetivos. Saber quem são e como se organizam ajuda-o a perceber porque é que a sua empresa — e a sua palavra-passe — interessam a alguém.</p>
+
+  <nav class="toc" aria-label="Neste módulo">
+    <strong>Neste módulo</strong>
+    <ol>
+      <li><a href="#s6-1">Perfis e motivações dos atacantes</a></li>
+      <li><a href="#s6-2">O mercado negro da Internet</a></li>
+      <li><a href="#s6-3">Botnets: exércitos de dispositivos infetados</a></li>
+      <li><a href="#s6-4">Ciberespionagem e ameaças avançadas persistentes</a></li>
+      <li><a href="#s6-5">Armas cibernéticas e ameaças industriais</a></li>
+      <li><a href="#perguntas">Perguntas e respostas</a></li>
+      <li><a href="#avaliacao">Avaliação de conhecimentos</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="s6-1">6.1 Perfis e motivações dos atacantes</h2>
+  <p>Uns atacantes querem dinheiro, outros segredos, outros atenção. A motivação explica o alvo e o tempo que o atacante está disposto a investir.</p>
+  <table class="tabela">
+    <thead><tr><th>Perfil</th><th>Motivação típica</th><th>Capacidade</th></tr></thead>
+    <tbody>
+      <tr><td data-label="Perfil"><strong>Cibercriminosos</strong></td><td data-label="Motivação típica">Financeira: resgates, venda de dados, fraude.</td><td data-label="Capacidade">Muito variável; os grupos organizados têm especialistas e divisão de tarefas.</td></tr>
+      <tr><td data-label="Perfil"><strong>Atores estatais</strong></td><td data-label="Motivação típica">Geopolítica: espionagem e sabotagem.</td><td data-label="Capacidade">Das mais elevadas: equipas dedicadas e muitos recursos.</td></tr>
+      <tr><td data-label="Perfil"><strong>Hacktivistas</strong></td><td data-label="Motivação típica">Ideológica: protestar contra uma empresa, um governo ou uma causa.</td><td data-label="Capacidade">Geralmente menor; o dano costuma ser à reputação.</td></tr>
+      <tr><td data-label="Perfil"><strong>Ameaça interna</strong></td><td data-label="Motivação típica">Descontentamento: vingança, ressentimento, ganho pessoal.</td><td data-label="Capacidade">Variável — mas já está dentro, com acessos legítimos.</td></tr>
+      <tr><td data-label="Perfil"><strong>Amadores («script kiddies»)</strong></td><td data-label="Motivação típica">Satisfação pessoal, curiosidade.</td><td data-label="Capacidade">Baixa; usam ferramentas prontas.</td></tr>
+    </tbody>
+  </table>
+  <div class="caixa aviso">
+    <h3>A ameaça interna nem sempre é maliciosa</h3>
+    <p>Para a CISA, a agência de cibersegurança dos EUA, um <em>insider</em> é qualquer pessoa que tem ou teve acesso autorizado aos recursos de uma organização. Pode causar dano de propósito — ou sem querer: por <strong>negligência</strong> (ignora as regras), por <strong>acidente</strong> (envia um ficheiro ao destinatário errado, clica num link de phishing) ou em <strong>conluio</strong> com criminosos que o recrutaram.</p>
+    <p><strong>No seu posto de trabalho:</strong> não partilhe os seus acessos e avise a TI se a conta de um colega que já saiu continuar ativa.</p>
+  </div>
+  <p class="ref">Fonte: CCCS (Canadá) · <a href="https://www.cyber.gc.ca/en/guidance/introduction-cyber-threat-environment">cyber.gc.ca</a></p>
+  <p class="ref">Fonte: CISA, insiders · <a href="https://www.cisa.gov/topics/physical-security/insider-threat-mitigation/defining-insider-threats">cisa.gov</a></p>
+
+  <h2 id="s6-2">6.2 O mercado negro da Internet</h2>
+  <p>O cibercrime organizou-se como uma indústria: segundo a Europol, o mercado de malware e de phishing funciona como as indústrias legítimas. Cada peça compra-se ou aluga-se — é o <strong>cibercrime como serviço</strong>.</p>
+  <div class="grelha">
+    <div class="cartao"><p class="num">1</p><h3>Ransomware como serviço</h3><p>Os <strong>operadores</strong> criam o ransomware; os <strong>afiliados</strong> entram nas redes e lançam o ataque. Dividem o lucro.</p></div>
+    <div class="cartao"><p class="num">2</p><h3>Malware como serviço</h3><p>Ferramentas maliciosas alugadas a quem pagar — por exemplo, programas para roubar dados.</p></div>
+    <div class="cartao"><p class="num">3</p><h3>Credenciais roubadas</h3><p>Palavras-passe recolhidas por infostealers são vendidas a outros criminosos. Para a Europol, o comércio de dados roubados está a tornar-se a principal ameaça deste mercado.</p></div>
+    <div class="cartao"><p class="num">4</p><h3>Corretores de acesso inicial</h3><p>Entram em redes e vendem esse acesso a outros, muitas vezes a grupos de ransomware.</p></div>
+  </div>
+  <p><strong>Onde vivem?</strong> Sobretudo em fóruns e mercados da dark web, acedidos na maioria dos casos pela rede Tor, e cada vez mais em aplicações de mensagens com encriptação ponto a ponto. Os mercados duram pouco: são encerrados pela polícia ou os administradores fogem com o dinheiro.</p>
+  <p><strong>Porque baixa a barreira de entrada?</strong> Com serviços prontos, quem tem poucos conhecimentos técnicos consegue lançar ataques sérios — a parte difícil é feita por outros.</p>
+  <div class="caixa">
+    <h3>O que isto significa para si</h3>
+    <ul>
+      <li><strong>A sua palavra-passe é mercadoria</strong> — pode ser vendida e usada meses depois.</li>
+      <li><strong>Ser pequeno não protege.</strong> Segundo a Europol, os operadores de ransomware escolhem alvos também pelo <em>esforço</em> necessário para entrar.</li>
+    </ul>
+  </div>
+  <p class="ref">Fonte: Europol, IOCTA 2024 · <a href="https://www.europol.europa.eu/cms/sites/default/files/documents/Internet%20Organised%20Crime%20Threat%20Assessment%20IOCTA%202024.pdf">europol.europa.eu</a></p>
+  <p class="ref">Fonte: Microsoft, 2022 · <a href="https://www.microsoft.com/en-us/security/blog/2022/05/09/ransomware-as-a-service-understanding-the-cybercrime-gig-economy-and-how-to-protect-yourself/">microsoft.com</a></p>
+
+  <h2 id="s6-3">6.3 Botnets: exércitos de dispositivos infetados</h2>
+  <p>Uma <strong>botnet</strong> é um grupo de dispositivos comprometidos — computadores, routers, câmaras — coordenados à distância por um atacante. Serve para ataques de negação de serviço (<a href="modulo-2.html#s2-4">DDoS, Módulo 2</a>), spam, fraude publicitária, propagação de malware e roubo de dados. O dono do dispositivo normalmente não nota nada.</p>
+  <div class="caixa">
+    <h3>Caso de estudo: Mirai (2016)</h3>
+    <ul>
+      <li><strong>Como entrava:</strong> em routers domésticos, câmaras de rede e gravadores de vídeo, testando uma lista de 62 combinações de utilizador e palavra-passe <strong>de fábrica</strong>.</li>
+      <li><strong>O que fez:</strong> em setembro de 2016, atacou o site do jornalista Brian Krebs com mais de 620 Gbps e o fornecedor OVH com pelo menos 1,1 Tbps — um recorde na altura.</li>
+      <li><strong>Porque se multiplicou:</strong> o código foi publicado na Internet e surgiram variantes.</li>
+    </ul>
+  </div>
+  <div class="caixa aviso">
+    <h3>No seu posto de trabalho</h3>
+    <ul>
+      <li>Não ligue equipamentos pessoais à rede da empresa sem autorização da TI.</li>
+      <li>Câmara, impressora ou ecrã com a palavra-passe de fábrica? Avise a TI.</li>
+    </ul>
+  </div>
+  <p class="ref">Fonte: CISA, alerta TA16-288A · <a href="https://www.cisa.gov/news-events/alerts/2016/10/14/heightened-ddos-threat-posed-mirai-and-other-botnets">cisa.gov</a></p>
+  <p class="ref">Fonte: CCCS (Canadá) · <a href="https://www.cyber.gc.ca/en/guidance/introduction-cyber-threat-environment">cyber.gc.ca</a></p>
+
+  <h2 id="s6-4">6.4 Ciberespionagem e ameaças avançadas persistentes (APT)</h2>
+  <p>Uma <strong>APT</strong> (<em>Advanced Persistent Threat</em>) é, segundo o NIST, um adversário com conhecimentos sofisticados e recursos significativos, que entra numa organização para roubar informação de forma continuada ou prejudicar a sua missão. É <strong>persistente</strong>: fica muito tempo e adapta-se às defesas. Ao contrário do criminoso que quer um pagamento rápido, quer passar despercebida — por isso está ligada à <strong>ciberespionagem</strong>.</p>
+  <p>A <strong>MITRE ATT&amp;CK</strong> é uma base de conhecimento pública sobre o que os atacantes fazem. A matriz Enterprise (consultada em outubro de 2026) tem 15 «táticas» (nomes em inglês no site; tradução nossa); a tabela agrupa-as em cinco fases — uma simplificação nossa.</p>
+  <table class="tabela">
+    <thead><tr><th>Fase</th><th>Táticas MITRE ATT&amp;CK</th><th>Exemplo</th></tr></thead>
+    <tbody>
+      <tr><td data-label="Fase"><strong>1. Preparar</strong></td><td data-label="Táticas MITRE ATT&amp;CK">Reconhecimento; Desenvolvimento de recursos</td><td data-label="Exemplo">Recolher informação sobre a empresa e as pessoas.</td></tr>
+      <tr><td data-label="Fase"><strong>2. Entrar</strong></td><td data-label="Táticas MITRE ATT&amp;CK">Acesso inicial; Execução</td><td data-label="Exemplo">Credencial roubada, anexo malicioso, falha num serviço exposto.</td></tr>
+      <tr><td data-label="Fase"><strong>3. Instalar-se</strong></td><td data-label="Táticas MITRE ATT&amp;CK">Persistência; Escalada de privilégios; Ocultação; Neutralização de defesas; Acesso a credenciais</td><td data-label="Exemplo">Garantir que volta a entrar, tornar-se administrador, desligar alarmes.</td></tr>
+      <tr><td data-label="Fase"><strong>4. Explorar</strong></td><td data-label="Táticas MITRE ATT&amp;CK">Descoberta; Movimento lateral; Recolha; Comando e controlo</td><td data-label="Exemplo">Mapear a rede e saltar de computador em computador.</td></tr>
+      <tr><td data-label="Fase"><strong>5. Agir</strong></td><td data-label="Táticas MITRE ATT&amp;CK">Exfiltração; Impacto</td><td data-label="Exemplo">Levar os dados ou sabotar sistemas.</td></tr>
+    </tbody>
+  </table>
+  <p><strong>Porque visam empresas comuns?</strong> Pela <strong>cadeia de fornecimento</strong>: para chegar a um alvo grande, o atacante compromete primeiro um fornecedor em quem esse alvo confia. Os prestadores de serviços informáticos são atrativos porque têm acessos elevados às redes dos clientes.</p>
+  <div class="caixa">
+    <h3>No seu posto de trabalho</h3>
+    <ul>
+      <li>Não publique detalhes internos (sistemas, clientes, organogramas) — alimentam a fase de reconhecimento.</li>
+      <li>Pedido invulgar de um fornecedor conhecido? Verifique por um canal que já conhece.</li>
+    </ul>
+  </div>
+  <p class="ref">Fonte: NIST, glossário «APT» · <a href="https://csrc.nist.gov/glossary/term/advanced_persistent_threat">csrc.nist.gov</a></p>
+  <p class="ref">Fonte: MITRE ATT&amp;CK · <a href="https://attack.mitre.org/tactics/enterprise/">attack.mitre.org</a></p>
+  <p class="ref">Fonte: CCCS (Canadá) · <a href="https://www.cyber.gc.ca/en/guidance/introduction-cyber-threat-environment">cyber.gc.ca</a></p>
+
+  <h2 id="s6-5">6.5 Armas cibernéticas e ameaças industriais</h2>
+  <p>Alguns ataques chegam ao mundo físico. Visam a <strong>tecnologia operacional</strong> (OT): sistemas programáveis que interagem com o ambiente físico, como os sistemas de controlo industrial (ICS), a gestão técnica de edifícios ou o controlo de acessos. Quando o malware é feito para sabotar, e não para roubar, fala-se em <strong>armas cibernéticas</strong>.</p>
+  <table class="tabela">
+    <thead><tr><th>Caso</th><th>O que aconteceu</th><th>Lição</th></tr></thead>
+    <tbody>
+      <tr><td data-label="Caso"><strong>Stuxnet</strong> (2010)</td><td data-label="O que aconteceu">Worm que atacou os autómatos Siemens que controlavam centrifugadoras em Natanz, no Irão. Terá entrado por uma pen USB. Nenhum Estado o reivindicou.</td><td data-label="Lição">Não ligue pens desconhecidas.</td></tr>
+      <tr><td data-label="Caso"><strong>Rede elétrica da Ucrânia</strong> (dezembro de 2015)</td><td data-label="O que aconteceu">Atacantes que terão obtido credenciais legítimas abriram disjuntores à distância: o corte afetou cerca de 225 000 clientes. O Governo dos EUA atribuiu-o a atores estatais russos.</td><td data-label="Lição">Com credenciais verdadeiras, o atacante parece um colega.</td></tr>
+      <tr><td data-label="Caso"><strong>NotPetya</strong> (junho de 2017)</td><td data-label="O que aconteceu">Entrou por um software de contabilidade fiscal ucraniano comprometido (M.E.Doc) e espalhou-se com credenciais roubadas e falhas de sistemas Windows não atualizados. Parecia ransomware, mas comportava-se como malware destrutivo: pagar não garantia recuperar nada. O Governo dos EUA atribuiu-o às forças armadas russas.</td><td data-label="Lição">Um software de um fornecedor pode trazer o ataque. Atualizações contam.</td></tr>
+      <tr><td data-label="Caso"><strong>Colonial Pipeline</strong> (maio de 2021)</td><td data-label="O que aconteceu">Entrada por uma conta de VPN sem autenticação multifator; o ransomware DarkSide atingiu a rede informática. A empresa parou o oleoduto durante dias e houve filas nos postos de combustível nos EUA.</td><td data-label="Lição">Uma palavra-passe sem segundo fator pode parar uma operação física.</td></tr>
+    </tbody>
+  </table>
+  <div class="caixa aviso">
+    <h3>Repare no caso Colonial Pipeline</h3>
+    <p>Segundo a CISA, não havia indicação de que a OT tivesse sido diretamente afetada — o ataque foi à rede de TI. Mesmo assim, a operação física parou. Na sua empresa, o acesso ao edifício ou uma linha de produção podem depender da rede onde trabalha todos os dias.</p>
+  </div>
+  <p class="ref">Fonte: NIST, glossário «OT» · <a href="https://csrc.nist.gov/glossary/term/operational_technology">csrc.nist.gov</a></p>
+  <p class="ref">Fonte: CCDCOE, Stuxnet · <a href="https://cyberlaw.ccdcoe.org/wiki/Stuxnet_(2010)">cyberlaw.ccdcoe.org</a></p>
+  <p class="ref">Fonte: CISA, Ucrânia 2015 · <a href="https://www.cisa.gov/news-events/ics-alerts/ir-alert-h-16-056-01">cisa.gov</a></p>
+  <p class="ref">Fonte: CISA, NotPetya · <a href="https://www.cisa.gov/news-events/alerts/2017/07/01/petya-ransomware">cisa.gov</a></p>
+  <p class="ref">Fonte: CISA, DarkSide · <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa21-131a">cisa.gov</a></p>
+  <p class="ref">Fonte: CISA, Colonial · <a href="https://www.cisa.gov/news-events/news/attack-colonial-pipeline-what-weve-learned-what-weve-done-over-past-two-years">cisa.gov</a></p>
+  <p class="ref">Fonte: CCDCOE, Colonial ·<a href="https://cyberlaw.ccdcoe.org/wiki/Colonial_Pipeline_ransomware_attack_(2021)">cyberlaw.ccdcoe.org</a></p>
+
+  <div class="caixa">
+    <h3>Atividade em sala: quem é e o que quer?</h3>
+    <p>Em pares, classifique cada caso por <strong>perfil</strong> e <strong>motivação</strong> (§6.1) e justifique numa frase.</p>
+    <ol>
+      <li>Um grupo anuncia que vai deitar abaixo o site de uma empresa em protesto contra uma decisão ambiental.</li>
+      <li>Um funcionário que não foi promovido copia a base de clientes na véspera de sair.</li>
+      <li>Os ficheiros da contabilidade aparecem cifrados, com um pedido de pagamento em criptomoeda.</li>
+      <li>Durante meses, alguém copia às escondidas desenhos técnicos de um fornecedor da indústria de defesa.</li>
+      <li>Um jovem usa uma ferramenta pronta para derrubar o servidor de jogos da escola «só para ver se funciona».</li>
+    </ol>
+    <p class="simulado">Casos simulados, criados para esta atividade — não descrevem incidentes reais.</p>
+    <div class="faq">
+      <details>
+        <summary>Ver proposta de solução</summary>
+        <div><p>1. Hacktivistas, ideológica · 2. Ameaça interna, ressentimento · 3. Cibercriminosos, financeira · 4. Ator estatal (APT), espionagem · 5. Amador, satisfação pessoal.</p></div>
+      </details>
+    </div>
+  </div>
+
+  <div class="caixa resumo">
+    <h3>Em resumo</h3>
+    <ul>
+      <li>Dinheiro, geopolítica, ideologia, descontentamento ou satisfação: cada perfil ataca de forma diferente.</li>
+      <li>O cibercrime vende-se como serviço — por isso atacar ficou mais fácil e ninguém é pequeno demais.</li>
+      <li>Palavras-passe de fábrica alimentam botnets como o Mirai.</li>
+      <li>As APT entram, ficam escondidas e usam fornecedores como porta de entrada.</li>
+      <li>Um ataque informático pode parar uma operação física.</li>
+    </ul>
+  </div>
+
+  <h2 id="perguntas">Perguntas e respostas</h2>
+  <p>Tente responder antes de abrir cada resposta.</p>
+  <div class="faq">
+    <details>
+      <summary>Porque haveria alguém de atacar uma empresa pequena?</summary>
+      <div><p>Porque muitos alvos são escolhidos pela facilidade de entrada, não pela fama — e uma empresa pequena pode ser fornecedora de uma grande.</p></div>
+    </details>
+    <details>
+      <summary>O que é um corretor de acesso inicial?</summary>
+      <div><p>Um criminoso que entra em redes e vende esse acesso a outros, muitas vezes a grupos de ransomware.</p></div>
+    </details>
+    <details>
+      <summary>Como sei se o meu router faz parte de uma botnet?</summary>
+      <div><p>Muitas vezes não se nota. Previna: mude a palavra-passe de fábrica e instale as atualizações.</p></div>
+    </details>
+    <details>
+      <summary>Qual é a diferença entre ransomware comum e uma APT?</summary>
+      <div><p>O ransomware quer um pagamento rápido e faz-se notar. A APT quer ficar escondida muito tempo, normalmente para espiar.</p></div>
+    </details>
+    <details>
+      <summary>Não trabalho numa fábrica. O §6.5 interessa-me?</summary>
+      <div><p>Sim. O NotPetya entrou por um software de contabilidade e afetou organizações de vários países e setores; na Colonial Pipeline, um ataque à rede informática parou a operação física.</p></div>
+    </details>
+  </div>
+
+  <h2 id="avaliacao">Avaliação de conhecimentos</h2>
+  <p>6 perguntas · critério de êxito: <strong>4 ou mais certas</strong>. Escolha uma opção em cada pergunta e carregue em «Corrigir».</p>
+  <form class="quiz" data-modulo="6" data-limiar="4">
+    <fieldset class="q" data-correct="b" data-ref="§6.1">
+      <legend>1. Um colega saiu zangado por não ter sido promovido. Dias depois, alguém usa a conta dele, ainda ativa, para apagar pastas partilhadas. Que perfil e motivação são mais prováveis?</legend>
+      <label><input type="radio" name="m6q1" value="a"> <span>A) Hacktivista, com motivação ideológica</span></label>
+      <label><input type="radio" name="m6q1" value="b"> <span>B) Ameaça interna, por ressentimento</span></label>
+      <label><input type="radio" name="m6q1" value="c"> <span>C) Ator estatal, a fazer espionagem</span></label>
+      <label><input type="radio" name="m6q1" value="d"> <span>D) Cibercriminoso, à procura de resgate</span></label>
+      <p class="explicacao" hidden>Ameaça interna: alguém com acesso autorizado que age por descontentamento. As contas de quem sai devem ser desativadas logo.</p>
+    </fieldset>
+
+    <fieldset class="q" data-correct="d" data-ref="§6.2">
+      <legend>2. Um colega diz: «Somos pequenos; ninguém se dá ao trabalho de nos atacar.» Que ideia deste módulo contraria esta opinião?</legend>
+      <label><input type="radio" name="m6q2" value="a"> <span>A) Os ataques só visam empresas cotadas em bolsa</span></label>
+      <label><input type="radio" name="m6q2" value="b"> <span>B) Os atacantes precisam de ser especialistas</span></label>
+      <label><input type="radio" name="m6q2" value="c"> <span>C) As botnets só atacam sites de governos</span></label>
+      <label><input type="radio" name="m6q2" value="d"> <span>D) Muitos alvos são escolhidos por serem fáceis</span></label>
+      <p class="explicacao" hidden>Os operadores de ransomware pesam o esforço necessário para entrar. E com o cibercrime como serviço, não é preciso ser especialista.</p>
+    </fieldset>
+
+    <fieldset class="q" data-correct="a" data-ref="§6.3">
+      <legend>3. Na sala de reuniões há uma câmara IP ligada à rede, ainda com a palavra-passe de fábrica. Qual é o risco principal descrito neste módulo?</legend>
+      <label><input type="radio" name="m6q3" value="a"> <span>A) Ser recrutada para uma botnet usada em ataques DDoS</span></label>
+      <label><input type="radio" name="m6q3" value="b"> <span>B) Gastar mais eletricidade do que um computador normal</span></label>
+      <label><input type="radio" name="m6q3" value="c"> <span>C) Deixar de gravar quando a rede fica mais lenta</span></label>
+      <label><input type="radio" name="m6q3" value="d"> <span>D) Ser desligada automaticamente pelo antivírus da empresa</span></label>
+      <p class="explicacao" hidden>Foi assim que o Mirai cresceu: entrava em câmaras e routers com palavras-passe de fábrica. Avise a TI.</p>
+    </fieldset>
+
+    <fieldset class="q" data-correct="c" data-ref="§6.4">
+      <legend>4. Trabalha numa pequena empresa que presta manutenção informática a um grande hospital. Porque pode a sua empresa interessar a um grupo APT?</legend>
+      <label><input type="radio" name="m6q4" value="a"> <span>A) Porque os grupos APT só atacam empresas pequenas</span></label>
+      <label><input type="radio" name="m6q4" value="b"> <span>B) Porque as empresas pequenas têm sempre dados mais valiosos</span></label>
+      <label><input type="radio" name="m6q4" value="c"> <span>C) Porque pode servir de porta de entrada para o cliente</span></label>
+      <label><input type="radio" name="m6q4" value="d"> <span>D) Porque os hospitais não têm qualquer proteção informática</span></label>
+      <p class="explicacao" hidden>Cadeia de fornecimento: o atacante usa os acessos e a confiança de um fornecedor para chegar ao alvo.</p>
+    </fieldset>
+
+    <fieldset class="q" data-correct="b" data-ref="§6.2">
+      <legend>5. Em casa, instalou um programa «pirata» no portátil onde o browser guarda a palavra-passe do email do trabalho. Que risco do mercado negro está em causa?</legend>
+      <label><input type="radio" name="m6q5" value="a"> <span>A) O programa pode deixar o portátil mais lento</span></label>
+      <label><input type="radio" name="m6q5" value="b"> <span>B) Um infostealer pode roubá-la para ser vendida</span></label>
+      <label><input type="radio" name="m6q5" value="c"> <span>C) A empresa pode ser multada pela licença em falta</span></label>
+      <label><input type="radio" name="m6q5" value="d"> <span>D) O email do trabalho pode ficar cheio de spam</span></label>
+      <p class="explicacao" hidden>Credenciais roubadas por infostealers são vendidas e podem dar entrada na rede da empresa. Não guarde credenciais do trabalho em equipamentos pessoais.</p>
+    </fieldset>
+
+    <fieldset class="q" data-correct="d" data-ref="§6.5">
+      <legend>6. A empresa dá-lhe acesso remoto (VPN) só com utilizador e palavra-passe. Lembrando o caso Colonial Pipeline, que medida é mais útil sugerir à TI?</legend>
+      <label><input type="radio" name="m6q6" value="a"> <span>A) Mudar o nome da rede Wi-Fi do escritório</span></label>
+      <label><input type="radio" name="m6q6" value="b"> <span>B) Usar a VPN apenas durante o horário normal</span></label>
+      <label><input type="radio" name="m6q6" value="c"> <span>C) Escrever a palavra-passe num papel guardado</span></label>
+      <label><input type="radio" name="m6q6" value="d"> <span>D) Ativar a verificação em dois passos na VPN</span></label>
+      <p class="explicacao" hidden>Na Colonial Pipeline, a entrada foi uma conta de VPN sem autenticação multifator. Com um segundo fator, a palavra-passe roubada não bastava.</p>
+    </fieldset>
+
+    <div class="acoes">
+      <button class="btn" type="submit">Corrigir</button>
+      <button class="btn sec" type="reset">Tentar de novo</button>
+    </div>
+    <div class="resultado" aria-live="polite"></div>
+    <div class="percurso recuperacao caixa aviso" hidden>
+      <h3>Para rever</h3>
+      <ul>
+        <li><a href="#s6-1">6.1 Perfis e motivações</a> — os cinco perfis e a ameaça interna</li>
+        <li><a href="#s6-2">6.2 O mercado negro</a> — cibercrime como serviço</li>
+        <li><a href="#s6-3">6.3 Botnets</a> — o caso Mirai</li>
+        <li><a href="#s6-4">6.4 APT</a> — as fases e a cadeia de fornecimento</li>
+        <li><a href="#s6-5">6.5 Armas cibernéticas</a> — as lições dos quatro casos</li>
+      </ul>
+      <p>Depois de rever, carregue em «Tentar de novo».</p>
+    </div>
+    <div class="percurso enriquecimento caixa resumo" hidden>
+      <h3>Parabéns! Para ir mais longe</h3>
+      <ul>
+        <li>Explore a matriz <a href="https://attack.mitre.org/tactics/enterprise/">MITRE ATT&amp;CK</a> e abra uma tática para ver exemplos reais.</li>
+        <li>Leia o relatório <a href="https://www.europol.europa.eu/cms/sites/default/files/documents/Internet%20Organised%20Crime%20Threat%20Assessment%20IOCTA%202024.pdf">IOCTA 2024 da Europol</a>.</li>
+        <li>Continue no <a href="modulo-7.html">Módulo 7</a>: malware e proteção do posto de trabalho.</li>
+      </ul>
+    </div>
+  </form>
+
+  <nav class="navmod" aria-label="Navegação entre módulos">
+    <a href="modulo-5.html">← Módulo 5 · Incidentes</a>
+    <a href="modulo-7.html">Módulo 7 · Malware e posto de trabalho →</a>
+  </nav>
+</main>
+
+<footer>Módulo de aprofundamento para a UFCD 9188 · Ricardo Rouco · <a href="https://ricardodsr.github.io">ricardodsr.github.io</a></footer>
+<script src="quiz.js"></script>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Módulo 7 · Malware e posto de trabalho</title>
+<meta name="description" content="Módulo 7 (aprofundamento, UFCD 9188): phishing nas empresas, classes de malware, fraude bancária no telemóvel, técnicas de distribuição e segurança no posto de trabalho.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Source+Sans+3:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#conteudo">Saltar para o conteúdo</a>
+<header class="topo">
+  <div class="wrap">
+    <a class="marca" href="index.html">Cibersegurança Básica</a>
+    <nav aria-label="Módulos do curso">
+      <a href="index.html">Início</a>
+      <a href="modulo-1.html" aria-label="Módulo 1">M1</a>
+      <a href="modulo-2.html" aria-label="Módulo 2">M2</a>
+      <a href="modulo-3.html" aria-label="Módulo 3">M3</a>
+      <a href="modulo-4.html" aria-label="Módulo 4">M4</a>
+      <a href="modulo-5.html" aria-label="Módulo 5">M5</a>
+      <a href="modulo-6.html" aria-label="Módulo 6">M6</a>
+      <a href="modulo-7.html" aria-label="Módulo 7" aria-current="page">M7</a>
+      <a href="anexos.html">Anexos</a>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo" class="wrap">
+  <span class="etiqueta">Aprofundamento · UFCD 9188 · Módulo 7</span>
+  <h1>Malware, distribuição e segurança no posto de trabalho</h1>
+  <p class="lead">No <a href="modulo-2.html">Módulo 2</a> viu os tipos básicos de burla e de malware. Aqui vamos mais fundo: como os ataques chegam a uma empresa, que famílias de malware são mais usadas, como o telemóvel e o homebanking são atacados e o que você pode fazer, no seu posto de trabalho, para não ser a porta de entrada.</p>
+
+  <nav class="toc" aria-label="Neste módulo">
+    <strong>Neste módulo</strong>
+    <ol>
+      <li><a href="#s7-1">Spam e phishing nas empresas</a></li>
+      <li><a href="#s7-2">Classes populares de malware</a></li>
+      <li><a href="#s7-3">Internet banking e telemóvel</a></li>
+      <li><a href="#s7-4">Técnicas modernas de distribuição</a></li>
+      <li><a href="#s7-5">Segurança no posto de trabalho</a></li>
+      <li><a href="#perguntas">Perguntas e respostas</a></li>
+      <li><a href="#avaliacao">Avaliação de conhecimentos</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="s7-1">7.1 Spam e phishing nas empresas</h2>
+  <p>O <strong>spam</strong> é correio não solicitado enviado em massa. O <strong>phishing</strong> é a versão maliciosa: uma mensagem falsa que quer roubar credenciais, dinheiro ou instalar malware. Os 5 sinais de alerta do <a href="modulo-2.html#s2-2">Módulo 2</a> continuam a valer. Numa empresa, porém, os ataques são mais preparados e visam quem tem acesso a pagamentos, dados ou sistemas.</p>
+  <table class="tabela">
+    <thead><tr><th>Variante</th><th>Como funciona</th><th>Defesa principal</th></tr></thead>
+    <tbody>
+      <tr><td data-label="Variante"><strong>Spear phishing</strong></td><td data-label="Como funciona">Mensagem feita à medida de uma pessoa, com nomes, projetos e cargos reais, recolhidos em informação pública sobre a empresa e as pessoas.</td><td data-label="Defesa principal">Desconfie de pedidos fora do normal, mesmo quando a mensagem «sabe tudo» sobre si.</td></tr>
+      <tr><td data-label="Variante"><strong>Fraude do CEO / BEC</strong> (<em>Business Email Compromise</em>)</td><td data-label="Como funciona">Alguém se faz passar por um administrador ou diretor, ou usa uma conta de email invadida, e pede uma transferência urgente e confidencial.</td><td data-label="Defesa principal">Confirmar por outro canal. Urgência + segredo + dinheiro = alarme.</td></tr>
+      <tr><td data-label="Variante"><strong>Fraude de faturas / IBAN</strong></td><td data-label="Como funciona">Um «fornecedor» avisa que mudou de banco e envia um IBAN novo — às vezes a partir da conta verdadeira, invadida.</td><td data-label="Defesa principal">Confirmar por telefone, para o número já registado.</td></tr>
+      <tr><td data-label="Variante"><strong>Phishing por QR code</strong></td><td data-label="Como funciona">O link vem num QR code dentro de uma imagem ou anexo, ou num autocolante sobre um código verdadeiro.</td><td data-label="Defesa principal">Ver o endereço antes de abrir.</td></tr>
+      <tr><td data-label="Variante"><strong>Fadiga de MFA</strong></td><td data-label="Como funciona">O atacante já tem a sua palavra-passe e envia dezenas de pedidos de aprovação até você carregar em «Aprovar».</td><td data-label="Defesa principal">Nunca aprovar um pedido que não pediu. Recusar e avisar o TI.</td></tr>
+      <tr><td data-label="Variante"><strong>Vishing com voz clonada</strong></td><td data-label="Como funciona">Chamada ou mensagem de voz com a voz imitada de uma chefia ou familiar, gerada por inteligência artificial.</td><td data-label="Defesa principal">Desligar e ligar de volta para um número conhecido.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>O que dizem os números</h3>
+  <p>Em 2024, o centro de queixas do FBI (IC3) recebeu <strong>21 442 queixas de BEC</strong>, com perdas declaradas de cerca de <strong>2,77 mil milhões de dólares</strong> — o segundo tipo de crime com mais perdas nesse relatório. Entre outubro de 2013 e dezembro de 2023, somou cerca de <strong>55,5 mil milhões de dólares</strong> em 305 033 incidentes. São queixas apresentadas ao FBI, sobretudo nos EUA, mas o esquema é igual em Portugal.</p>
+
+  <div class="caixa aviso">
+    <h3>Caso real: a videochamada em que todos eram falsos</h3>
+    <p>Em 2024, a empresa de engenharia britânica Arup confirmou que um funcionário em Hong Kong transferiu 200 milhões de dólares de Hong Kong (cerca de 25,6 milhões de dólares americanos) em 15 transferências. Desconfiou de um email que pedia uma transação secreta, mas pôs as dúvidas de lado depois de uma videochamada com o «diretor financeiro» e outros «colegas» — segundo a polícia, todos recriações <em>deepfake</em>.</p>
+    <p><strong>A lição:</strong> ver e ouvir já não chega. O que trava a fraude é confirmar por um canal independente antes de pagar.</p>
+  </div>
+
+  <p>Três notas das autoridades: contra a fadiga de MFA, a CISA recomenda MFA resistente a phishing e, como solução intermédia, a <strong>correspondência de números</strong> (escrever na app os números mostrados no ecrã de início de sessão); o FBI alerta que o áudio gerado por IA imita figuras públicas e pessoas próximas para pedir pagamentos; e o centro de cibersegurança da Irlanda nota que um QR code numa imagem pode escapar aos filtros de email.</p>
+
+  <h3>Atividade: analise as duas mensagens</h3>
+  <p>Leia as mensagens e identifique os sinais de alerta antes de abrir as respostas em <a href="#perguntas">Perguntas e respostas</a>.</p>
+  <div class="msg"><span class="de">A · Email de «Logística Norte, S.A.» (fornecedor)</span>Boa tarde. Informamos que, por motivos de auditoria, mudámos de banco. A partir da fatura FT 2026/0417 devem pagar para o novo IBAN PT50 0000 0000 0000 0000 0000 0. Agradecemos que o pagamento seja feito ainda hoje, para não bloquear as próximas entregas.</div>
+  <div class="msg"><span class="de">B · Teams, de «Administrador — Paulo M.»</span>Estás disponível? Preciso que trates de uma transferência confidencial para um negócio que está a fechar. Não comentes com ninguém até ao anúncio. Não consigo atender chamadas, estou em reunião. Diz-me quando puderes.</div>
+  <p class="simulado">Exemplos simulados, criados para fins pedagógicos — os nomes, a empresa e o IBAN são fictícios.</p>
+  <p class="ref" style="white-space:normal">Fontes: <a href="https://www.ic3.gov/AnnualReport/Reports/2024_IC3Report.pdf">FBI IC3, relatório 2024</a> · <a href="https://www.ic3.gov/PSA/2024/PSA240911">FBI IC3, alerta BEC (2024)</a> · <a href="https://abc17news.com/money/cnn-business-consumer/2024/05/16/british-engineering-giant-arup-revealed-as-25-million-deepfake-scam-victim/">CNN, via ABC 17 News, caso Arup (2024)</a> · <a href="https://www.cisa.gov/sites/default/files/publications/fact-sheet-implement-number-matching-in-mfa-applications-508c.pdf">CISA, fadiga de MFA (2022)</a> · <a href="https://www.ic3.gov/PSA/2024/PSA241203">FBI IC3, IA generativa (2024)</a> · <a href="https://www.ncsc.gov.ie/pdfs/Quick_Guide_QR_Code_Phishing_Scams.pdf">NCSC Irlanda, QR codes (2025)</a></p>
+
+  <h2 id="s7-2">7.2 Classes populares de malware</h2>
+  <p>O <a href="modulo-2.html#s2-3">Módulo 2</a> apresentou os tipos de malware pela forma como funcionam (vírus, worm, trojan). Na prática, os especialistas também os agrupam pelo <strong>objetivo</strong>: roubar dinheiro, roubar dados, espiar ou extorquir.</p>
+  <table class="tabela">
+    <thead><tr><th>Classe</th><th>O que faz</th><th>Como chega</th><th>Sinal</th></tr></thead>
+    <tbody>
+      <tr><td data-label="Classe"><strong>Banker (trojan bancário)</strong></td><td data-label="O que faz">Rouba credenciais bancárias ou altera transferências no momento em que são feitas.</td><td data-label="Como chega">Anexos e links em emails falsos; falsas atualizações.</td><td data-label="Sinal">Página do banco diferente do habitual, ecrã parado durante uma transferência.</td></tr>
+      <tr><td data-label="Classe"><strong>Malware de terminais de pagamento (TPA/POS)</strong></td><td data-label="O que faz">Lê da memória do terminal os dados dos cartões que passam por ele.</td><td data-label="Como chega">Acesso remoto mal protegido ao computador da caixa.</td><td data-label="Sinal">Quem paga não nota nada no momento.</td></tr>
+      <tr><td data-label="Classe"><strong>Malware de ATM («jackpotting»)</strong></td><td data-label="O que faz">Obriga a caixa automática a soltar todas as notas.</td><td data-label="Como chega">Dispositivo externo ligado ao ATM ou malware injetado.</td><td data-label="Sinal">Problema do banco, não do utilizador.</td></tr>
+      <tr><td data-label="Classe"><strong>Malware móvel</strong></td><td data-label="O que faz">Abusa de permissões como a acessibilidade para ler o ecrã, carregar em botões e controlar o telemóvel (<a href="#s7-3">§7.3</a>).</td><td data-label="Como chega">Apps instaladas fora da loja oficial, por link em SMS ou WhatsApp.</td><td data-label="Sinal">App que pede «acessibilidade» sem razão para isso.</td></tr>
+      <tr><td data-label="Classe"><strong>Exploit</strong></td><td data-label="O que faz">Aproveita uma vulnerabilidade (falha) do software para entrar ou ganhar privilégios.</td><td data-label="Como chega">Sites, documentos ou tráfego de rede preparados para a falha.</td><td data-label="Sinal">Muitas vezes nenhum — por isso as atualizações são essenciais.</td></tr>
+      <tr><td data-label="Classe"><strong>Ransomware</strong></td><td data-label="O que faz">Cifra os ficheiros e, cada vez mais, rouba-os antes, para chantagear com a publicação.</td><td data-label="Como chega">Phishing, falhas por corrigir, credenciais roubadas.</td><td data-label="Sinal">Ficheiros com extensão estranha e uma nota de resgate.</td></tr>
+      <tr><td data-label="Classe"><strong>Spyware</strong></td><td data-label="O que faz">Espia mensagens, localização ou o que escreve no teclado.</td><td data-label="Como chega">Apps «gratuitas», acesso físico ao dispositivo.</td><td data-label="Sinal">Muitas vezes nenhum; desconfie de apps que não instalou ou de permissões que não deu.</td></tr>
+      <tr><td data-label="Classe"><strong>Infostealer</strong></td><td data-label="O que faz">Rouba palavras-passe guardadas no browser, cookies de sessão, cartões e carteiras de criptomoedas.</td><td data-label="Como chega">Software pirateado, anúncios falsos, falsos CAPTCHA.</td><td data-label="Sinal">Inícios de sessão que não fez, contas a enviar mensagens sozinhas.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Bankers: do PC à caixa automática</h3>
+  <p>O Emotet começou em 2014 como trojan bancário. Em 2021, a Microsoft documentou o banker Mekotio, dirigido à América Latina e à Península Ibérica. Nos <strong>terminais de pagamento</strong>, a CISA analisou em 2014 o malware «Backoff», que lia da memória os dados dos cartões; os atacantes entravam adivinhando as palavras-passe do acesso remoto à caixa. Nas <strong>caixas automáticas</strong>, a Europol descreve o <em>jackpotting</em> como o ataque lógico mais comum: um dispositivo externo ou malware envia ordens diretamente ao dispensador de notas.</p>
+
+  <h3>Exploits, zero-day e dupla extorsão</h3>
+  <p>Um ataque <strong>zero-day</strong>, segundo o NIST, explora uma vulnerabilidade ainda desconhecida — não há correção quando o ataque começa. Muitos ataques em massa, porém, aproveitam falhas que <strong>já têm correção</strong> por instalar, como no WannaCry (<a href="#s7-4">§7.4</a>). Quanto ao ransomware, a CISA chama <strong>dupla extorsão</strong> a cifrar os ficheiros <em>e</em> roubar os dados, ameaçando publicá-los. As cópias de segurança (offline, recomenda a CISA) recuperam os ficheiros, mas não impedem a fuga de dados.</p>
+
+  <h3>Infostealers: o roubo silencioso</h3>
+  <p>Entre 16 de março e 16 de maio de 2025, a Microsoft identificou <strong>mais de 394 000 computadores Windows</strong> infetados pelo infostealer Lumma, que rouba palavras-passe, cartões, contas bancárias e carteiras de criptomoedas; cerca de 2 300 domínios maliciosos foram bloqueados ou retirados do ar. Um infostealer no PC de casa onde abre o email do trabalho entrega também as suas sessões profissionais.</p>
+  <p class="ref" style="white-space:normal">Fontes: <a href="https://www.eurojust.europa.eu/worlds-most-dangerous-malware-emotet-disrupted-through-global-action">Eurojust/Europol, Emotet (2021)</a> · <a href="https://www.microsoft.com/en-us/security/blog/2021/11/11/html-smuggling-surges-highly-evasive-loader-technique-increasingly-used-in-banking-malware-targeted-attacks/">Microsoft, HTML smuggling (2021)</a> · <a href="https://www.cisa.gov/news-events/alerts/2014/07/31/backoff-point-sale-malware">CISA, Backoff (2014)</a> · <a href="https://www.europol.europa.eu/cms/sites/default/files/documents/Spotlight-Report_Online-fraud-schemes.pdf">Europol, fraude online</a> · <a href="https://csrc.nist.gov/glossary/term/zero_day_attack">NIST, zero-day</a> · <a href="https://www.cisa.gov/stopransomware/ransomware-guide">CISA, guia de ransomware</a> · <a href="https://blogs.microsoft.com/on-the-issues/2025/05/21/microsoft-leads-global-action-against-favored-cybercrime-tool/">Microsoft, Lumma (2025)</a></p>
+
+  <h2 id="s7-3">7.3 Internet banking e telemóvel</h2>
+  <p>Muitos trabalhadores fazem pagamentos no homebanking e confirmam operações no telemóvel. Os atacantes sabem disso.</p>
+
+  <div class="caixa aviso">
+    <h3>Alerta do Banco de Portugal: o IBAN que muda sozinho</h3>
+    <p>Em abril de 2024, o Banco de Portugal alertou para uma fraude em que <strong>malware já instalado no computador</strong> altera o IBAN do beneficiário no momento em que a transferência é feita. Pode acontecer mesmo com beneficiários guardados na lista de frequentes. Sinais de alerta:</p>
+    <ul>
+      <li>o ecrã fica parado, às vezes com a indicação «em atualização»;</li>
+      <li>aparece uma mensagem a pedir para instalar ou atualizar software, seguida de bloqueio temporário do equipamento.</li>
+    </ul>
+    <p><strong>O que fazer:</strong> antes de autorizar, leia o IBAN no ecrã de confirmação ou no SMS do banco. Na dúvida, não prossiga e contacte o banco pelos canais habituais.</p>
+  </div>
+
+  <h3>Apps falsas e permissões de acessibilidade</h3>
+  <p>No Android, as funções de <strong>acessibilidade</strong> permitem que uma app leia o ecrã e carregue em botões, para ajudar pessoas com deficiência. A Google avisa que dar esta permissão pode entregar a uma app maliciosa o <strong>controlo do dispositivo</strong>. Por isso, as versões mais recentes do Android bloqueiam, durante uma chamada, a instalação de apps vindas de um browser ou de mensagens e a ativação da acessibilidade — o que um falso «técnico do banco» costuma pedir.</p>
+  <p><strong>Regra prática:</strong> apps só da loja oficial. Uma app de entregas ou de «segurança bancária» não precisa de acessibilidade.</p>
+
+  <h3>SIM swap: roubar o seu número</h3>
+  <p>No <strong>SIM swap</strong>, o criminoso convence (ou suborna) a operadora a passar o seu número para um cartão SIM dele. A partir daí recebe as suas chamadas e SMS — incluindo os códigos de confirmação do banco e da recuperação de contas. O FBI registou 1 611 queixas de SIM swap em 2021, com perdas superiores a 68 milhões de dólares, e aconselha a preferir apps autenticadoras ou chaves físicas aos códigos por SMS e a estar atento a mudanças inesperadas no serviço do telemóvel.</p>
+  <p><strong>Sinal típico:</strong> o telemóvel fica sem rede sem explicação, num sítio onde normalmente tem. Contacte logo a operadora por outro telefone.</p>
+  <p class="ref" style="white-space:normal">Fontes: <a href="https://www.dnoticias.pt/2024/4/17/402017-banco-de-portugal-alerta-para-fraude-que-altera-iban-do-beneficiario-de-transferencias/">Banco de Portugal, via Lusa/DNoticias (2024)</a> · <a href="https://blog.google/security/whats-new-in-android-security-privacy-2025/">Google, segurança Android (2025)</a> · <a href="https://www.ic3.gov/PSA/2022/PSA220208">FBI IC3, SIM swap (2022)</a></p>
+
+  <h2 id="s7-4">7.4 Técnicas modernas de distribuição</h2>
+  <p>O malware precisa de um <strong>vetor</strong> — um caminho até ao seu computador. Os vetores mudam conforme as defesas melhoram.</p>
+  <table class="tabela">
+    <thead><tr><th>Vetor</th><th>Como funciona</th><th>O que fazer</th></tr></thead>
+    <tbody>
+      <tr><td data-label="Vetor"><strong>Anexos com macros</strong></td><td data-label="Como funciona">Documento do Word ou Excel que pede para ativar o conteúdo (as macros) e assim corre código escondido.</td><td data-label="O que fazer">Nunca ative macros num ficheiro recebido por email.</td></tr>
+      <tr><td data-label="Vetor"><strong>Ficheiros ISO, LNK e HTML</strong></td><td data-label="Como funciona">Imagens de disco, atalhos e páginas HTML anexadas que soltam o malware ao abrir.</td><td data-label="O que fazer">Desconfie destes formatos, sobretudo dentro de ZIP.</td></tr>
+      <tr><td data-label="Vetor"><strong>Malvertising e SEO poisoning</strong></td><td data-label="Como funciona">Anúncios ou sites manipulados para aparecer no topo da pesquisa, a imitar o site oficial.</td><td data-label="O que fazer">Peça o software ao TI.</td></tr>
+      <tr><td data-label="Vetor"><strong>Falsas atualizações e falsos CAPTCHA</strong></td><td data-label="Como funciona">Página que diz que o browser está desatualizado ou pede para colar um comando.</td><td data-label="O que fazer">Atualizações só pelo próprio browser ou pelo TI.</td></tr>
+      <tr><td data-label="Vetor"><strong>Cadeia de fornecimento</strong></td><td data-label="Como funciona">O malware chega dentro de uma atualização «legítima» de um fornecedor comprometido.</td><td data-label="O que fazer">Só software aprovado; reporte o que for estranho.</td></tr>
+      <tr><td data-label="Vetor"><strong>USB</strong></td><td data-label="Como funciona">Pen «perdida» ou oferecida que corre malware quando é ligada.</td><td data-label="O que fazer">Entregue-a ao TI sem a ligar.</td></tr>
+      <tr><td data-label="Vetor"><strong>Botnets</strong></td><td data-label="Como funciona">Rede de computadores infetados que envia spam e instala outro malware por encomenda.</td><td data-label="O que fazer">Atualizações, antivírus e cuidado com anexos.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Macros: o vetor que a Microsoft fechou por omissão</h3>
+  <p>A Microsoft reconhece que as macros VBA são uma forma comum de instalar malware e ransomware. Por isso, o Office para Windows passou a <strong>bloquear por omissão as macros em ficheiros vindos da Internet</strong>, como anexos de email (no Current Channel, desde julho de 2022). Em vez do botão para ativar o conteúdo, aparece um aviso de risco de segurança. Se o vir num anexo inesperado, feche o ficheiro e pergunte ao TI.</p>
+
+  <h3>HTML, anúncios, falsas atualizações e falsos CAPTCHA</h3>
+  <ul>
+    <li><strong>HTML smuggling</strong> (Microsoft, 2021): o email traz uma página HTML, ou um link para ela, que monta o ficheiro malicioso dentro do browser e foge aos filtros de anexos.</li>
+    <li><strong>Malvertising</strong> (FBI, 2022): anúncios comprados nos resultados de pesquisa, com domínios parecidos com os verdadeiros, levam a descarregar malware.</li>
+    <li><strong>Falsas atualizações</strong> (Microsoft): um anúncio finge ser uma atualização do browser; o SocGholish (ou FakeUpdates) chega num ZIP com JavaScript e instala outro malware.</li>
+    <li><strong>ClickFix</strong> (Microsoft, 2025): um falso CAPTCHA ou erro ensina a vítima a colar um comando na janela «Executar» do Windows. O infostealer Lumma foi o resultado final mais frequente.</li>
+  </ul>
+
+  <h3>Cadeia de fornecimento</h3>
+  <p>A ENISA estudou 24 ataques à cadeia de fornecimento entre janeiro de 2020 e o início de julho de 2021: cerca de 62% aproveitaram a <strong>confiança dos clientes no fornecedor</strong>. Um programa conhecido não é garantia de estar limpo — por isso o TI controla o que é instalado.</p>
+
+  <h3>Dois casos que mudaram a forma de defender</h3>
+  <div class="grelha">
+    <div class="cartao"><p class="num">2017</p><h3>WannaCry e EternalBlue</h3><p>Detetado a 12 de maio de 2017, o ransomware WannaCry espalhou-se pela rede com o exploit EternalBlue, que aproveitava uma falha do SMBv1 do Windows. A correção da Microsoft (MS17-010) saíra a 14 de março. A CISA citou relatos de dezenas de milhares de infeções em mais de 150 países.</p><p class="fonte">Lição: não era um zero-day. Quem tinha o Windows suportado e atualizado estava protegido.</p></div>
+    <div class="cartao"><p class="num">2021</p><h3>Emotet</h3><p>Nascido em 2014 como trojan bancário, o Emotet tornou-se uma botnet alugada a outros criminosos para instalarem o seu malware. Chegava em documentos Word com macros, disfarçados de faturas, avisos de envio e informação sobre a COVID-19. Foi desarticulado em janeiro de 2021 por autoridades de 8 países, com coordenação da Europol e da Eurojust.</p><p class="fonte">Lição: um anexo com macros podia ser o primeiro passo de um ataque de ransomware.</p></div>
+  </div>
+  <p>A Microsoft cita o Emotet como exemplo de trojan que passou a servir de ponto de entrada para o ransomware: uma infeção «pequena» hoje pode ser vendida a outro grupo amanhã.</p>
+  <p class="ref" style="white-space:normal">Fontes: <a href="https://learn.microsoft.com/en-us/microsoft-365-apps/security/internet-macros-blocked">Microsoft Learn, macros</a> · <a href="https://www.microsoft.com/en-us/security/blog/2021/11/11/html-smuggling-surges-highly-evasive-loader-technique-increasingly-used-in-banking-malware-targeted-attacks/">Microsoft, HTML smuggling (2021)</a> · <a href="https://www.microsoft.com/en-us/security/blog/2022/05/09/ransomware-as-a-service-understanding-the-cybercrime-gig-economy-and-how-to-protect-yourself/">Microsoft, falsas atualizações e Emotet (2022)</a> · <a href="https://www.microsoft.com/en-us/wdsi/threats/malware-encyclopedia-description?Name=TrojanDownloader%3AJS%2FSocGholish%21MSR&amp;ThreatID=2147832076">Microsoft, SocGholish</a> · <a href="https://www.microsoft.com/en-us/security/blog/2025/08/21/think-before-you-clickfix-analyzing-the-clickfix-social-engineering-technique/">Microsoft, ClickFix (2025)</a> · <a href="https://www.ic3.gov/PSA/2022/PSA221221">FBI IC3, anúncios falsos (2022)</a> · <a href="https://www.enisa.europa.eu/sites/default/files/publications/ENISA%20Threat%20Landscape%20for%20Supply%20Chain%20Attacks.pdf">ENISA, cadeia de fornecimento (2021)</a> · <a href="https://www.cisa.gov/news-events/alerts/2017/05/12/indicators-associated-wannacry-ransomware">CISA, WannaCry (2017)</a> · <a href="https://www.eurojust.europa.eu/worlds-most-dangerous-malware-emotet-disrupted-through-global-action">Eurojust/Europol, Emotet (2021)</a></p>
+
+  <h2 id="s7-5">7.5 Segurança contra ameaças no posto de trabalho</h2>
+  <p>Quase todos os vetores anteriores precisam de uma ação sua: abrir, ativar, instalar, aprovar, ligar. Esta checklist corta esses caminhos e aprofunda os módulos <a href="modulo-3.html">3</a> e <a href="modulo-4.html">4</a>.</p>
+  <table class="tabela">
+    <thead><tr><th>Hábito</th><th>Porquê</th><th>Ver também</th></tr></thead>
+    <tbody>
+      <tr><td data-label="Hábito"><strong>Bloquear o ecrã sempre que se levanta</strong> (<code>Windows + L</code>)</td><td data-label="Porquê">Um minuto basta para alguém usar a sua sessão.</td><td data-label="Ver também">—</td></tr>
+      <tr><td data-label="Hábito"><strong>Trabalhar com uma conta sem privilégios de administrador</strong></td><td data-label="Porquê">Uma conta de administrador pode mudar a configuração do sistema e contornar definições de segurança — e um programa malicioso que corra nela também. Restringir estes privilégios é uma das medidas de mitigação mais eficazes.</td><td data-label="Ver também"><a href="https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/system-hardening-and-administration/system-administration/restricting-administrative-privileges">ACSC (Austrália)</a></td></tr>
+      <tr><td data-label="Hábito"><strong>Aceitar as atualizações e reiniciar quando pedido</strong></td><td data-label="Porquê">Fecham as falhas que os exploits usam — foi o que faltou no WannaCry.</td><td data-label="Ver também"><a href="modulo-4.html#s4-1">Módulo 4.1</a></td></tr>
+      <tr><td data-label="Hábito"><strong>Nunca desativar o antivírus ou o EDR</strong></td><td data-label="Porquê">Mesmo que «torne o PC lento»: é muitas vezes o que deteta o malware.</td><td data-label="Ver também"><a href="modulo-4.html#s4-2">Módulo 4.2</a></td></tr>
+      <tr><td data-label="Hábito"><strong>Manter as macros desligadas</strong></td><td data-label="Porquê">Um documento legítimo raramente precisa delas. Na dúvida, pergunte ao TI.</td><td data-label="Ver também"><a href="#s7-4">§7.4</a></td></tr>
+      <tr><td data-label="Hábito"><strong>Não ligar pens USB desconhecidas</strong></td><td data-label="Porquê">Uma pen «perdida» é um isco clássico. Entregue-a ao TI.</td><td data-label="Ver também">—</td></tr>
+      <tr><td data-label="Hábito"><strong>Separar o pessoal do profissional</strong></td><td data-label="Porquê">Nada de jogos ou software pirateado no PC de trabalho; nada de email da empresa num PC pessoal desprotegido.</td><td data-label="Ver também">—</td></tr>
+      <tr><td data-label="Hábito"><strong>Guardar os ficheiros nas pastas da empresa com cópia</strong></td><td data-label="Porquê">O que está só no ambiente de trabalho perde-se num ataque de ransomware.</td><td data-label="Ver também"><a href="modulo-4.html#s4-6">Módulo 4.6</a></td></tr>
+      <tr><td data-label="Hábito"><strong>Frase-passe única, gestor e dois passos</strong></td><td data-label="Porquê">Limitam o estrago de um infostealer ou de um phishing bem feito.</td><td data-label="Ver também"><a href="modulo-3.html#s3-2">Módulo 3.2</a> · <a href="modulo-3.html#s3-4">3.4</a></td></tr>
+      <tr><td data-label="Hábito"><strong>Reportar ao TI de imediato</strong></td><td data-label="Porquê">Clicou num link, abriu um anexo, aprovou um pedido por engano? Avise logo. Minutos fazem diferença na contenção.</td><td data-label="Ver também"><a href="modulo-5.html#s5-2">Módulo 5.2</a></td></tr>
+    </tbody>
+  </table>
+
+  <div class="caixa">
+    <h3>Atividade em sala: audite o seu posto de trabalho (20 minutos)</h3>
+    <ol>
+      <li>Para cada hábito da checklist, marque «cumpro», «às vezes» ou «não cumpro».</li>
+      <li>No computador: o ecrã bloqueia sozinho? Há atualizações pendentes? O antivírus está ativo?</li>
+      <li>No telemóvel: há apps fora da loja oficial ou com acessibilidade sem razão?</li>
+      <li>Escolha os <strong>2 hábitos</strong> mais fracos e escreva uma ação concreta para cada um, com prazo.</li>
+      <li>Em pares, comparem: o que é difícil de cumprir e como poderia a empresa ajudar?</li>
+    </ol>
+    <p>É uma atividade de observação: não altere configurações sem autorização do TI.</p>
+  </div>
+
+  <div class="caixa resumo">
+    <h3>Em resumo</h3>
+    <ul>
+      <li>Fraude do CEO, IBAN novo, pedidos de MFA, voz clonada: confirme sempre por outro canal.</li>
+      <li>Bankers, ransomware com dupla extorsão e infostealers visam dinheiro e dados.</li>
+      <li>Telemóvel: apps só da loja oficial, nada de acessibilidade sem razão, atenção a perder rede.</li>
+      <li>Os vetores mudam, mas quase todos precisam de uma ação sua. Bloqueie, atualize, não desative a proteção e reporte de imediato.</li>
+    </ul>
+  </div>
+
+  <h2 id="perguntas">Perguntas e respostas</h2>
+  <p>Tente responder antes de abrir cada resposta.</p>
+  <div class="faq">
+    <details>
+      <summary>Mensagem A (fornecedor com IBAN novo) — que sinais de alerta tem?</summary>
+      <div><p><strong>É o padrão da fraude de faturas/IBAN.</strong> Sinais: mudança de dados bancários por email, <strong>urgência</strong> («ainda hoje») e ameaça («bloquear as próximas entregas»). Mesmo que o email venha do endereço verdadeiro, a conta do fornecedor pode ter sido invadida. Confirme por telefone, para o número que já tinha registado — nunca para um número que venha no email.</p></div>
+    </details>
+    <details>
+      <summary>Mensagem B (administrador no Teams) — que sinais de alerta tem?</summary>
+      <div><p><strong>É o padrão da fraude do CEO.</strong> Sinais: pedido de <strong>transferência</strong>, <strong>segredo</strong> («não comentes com ninguém»), e recusa em falar por telefone. Confirme pessoalmente ou por telefone com a pessoa e siga o procedimento de aprovação de pagamentos da empresa.</p></div>
+    </details>
+    <details>
+      <summary>Recebi vários pedidos de aprovação no autenticador sem ter tentado entrar. O que significa?</summary>
+      <div><p>Provavelmente alguém já tem a sua palavra-passe e está a tentar a <strong>fadiga de MFA</strong>. Recuse todos os pedidos, mude a palavra-passe e avise o TI de imediato.</p></div>
+    </details>
+    <details>
+      <summary>Qual é a diferença entre um exploit e um zero-day?</summary>
+      <div><p>Um <strong>exploit</strong> é o código que aproveita uma falha do software. Um <strong>zero-day</strong> explora uma falha ainda desconhecida, para a qual ainda não há correção. O WannaCry usou um exploit para uma falha que já tinha correção há dois meses — quem tinha o Windows suportado e atualizado não foi afetado.</p></div>
+    </details>
+    <details>
+      <summary>Se a empresa tem cópias de segurança, o ransomware deixa de ser um problema?</summary>
+      <div><p>Não. Com a <strong>dupla extorsão</strong>, os atacantes roubam os dados antes de os cifrar e ameaçam publicá-los. As cópias recuperam os ficheiros, mas não evitam a fuga de dados. Além disso, as cópias têm de estar offline, porque o ransomware procura apagá-las.</p></div>
+    </details>
+  </div>
+
+  <h2 id="avaliacao">Avaliação de conhecimentos</h2>
+  <p>6 perguntas · critério de êxito: <strong>4 ou mais certas</strong>. Escolha uma opção em cada pergunta e carregue em «Corrigir».</p>
+  <form class="quiz" data-modulo="7" data-limiar="4">
+    <fieldset class="q" data-correct="c" data-ref="§7.1">
+      <legend>1. Um fornecedor habitual envia um email: mudou de banco e a fatura deste mês deve ser paga para um IBAN novo. O que faz?</legend>
+      <label><input type="radio" name="m7q1" value="a"> <span>A) Atualiza o IBAN, porque o email vem do endereço do costume</span></label>
+      <label><input type="radio" name="m7q1" value="b"> <span>B) Responde ao email a pedir que confirme o novo IBAN por escrito</span></label>
+      <label><input type="radio" name="m7q1" value="c"> <span>C) Confirma por telefone, para o número que já tinha registado</span></label>
+      <label><input type="radio" name="m7q1" value="d"> <span>D) Paga para o IBAN novo, mas guarda o email como prova</span></label>
+      <p class="explicacao" hidden>É o padrão da fraude de faturas/IBAN. A conta de email do fornecedor pode ter sido invadida, por isso responder ao mesmo email não confirma nada. O FBI recomenda verificar mudanças de dados bancários por um canal secundário.</p>
+    </fieldset>
+
+    <fieldset class="q" data-correct="a" data-ref="§7.1">
+      <legend>2. O seu telemóvel recebe dez pedidos seguidos para aprovar um início de sessão na conta do trabalho, sem que tenha tentado entrar. O que faz?</legend>
+      <label><input type="radio" name="m7q2" value="a"> <span>A) Recusa todos os pedidos e avisa logo o TI</span></label>
+      <label><input type="radio" name="m7q2" value="b"> <span>B) Aprova um pedido, para que deixem de chegar</span></label>
+      <label><input type="radio" name="m7q2" value="c"> <span>C) Desinstala a app autenticadora</span></label>
+      <label><input type="radio" name="m7q2" value="d"> <span>D) Ignora, porque sem aprovação ninguém entra</span></label>
+      <p class="explicacao" hidden>É fadiga de MFA: alguém já tem a sua palavra-passe e espera que aprove por cansaço. Recuse, avise o TI e mude a palavra-passe. Ignorar não basta: a palavra-passe continua comprometida.</p>
+    </fieldset>
+
+    <fieldset class="q" data-correct="d" data-ref="§7.4">
+      <legend>3. Precisa de um programa para converter PDF. Pesquisa na Internet e o primeiro resultado é um anúncio patrocinado com um site parecido com o oficial. O que faz?</legend>
+      <label><input type="radio" name="m7q3" value="a"> <span>A) Clica no anúncio, porque aparece em primeiro lugar</span></label>
+      <label><input type="radio" name="m7q3" value="b"> <span>B) Descarrega, desde que o site mostre o cadeado</span></label>
+      <label><input type="radio" name="m7q3" value="c"> <span>C) Instala e faz logo uma análise com o antivírus</span></label>
+      <label><input type="radio" name="m7q3" value="d"> <span>D) Pede o programa ao TI, em vez de o descarregar</span></label>
+      <p class="explicacao" hidden>É o padrão do malvertising: anúncios que imitam sites oficiais e entregam malware. No trabalho, o software deve vir do TI. Fora dele, escreva o endereço oficial na barra do browser. O cadeado não prova que o site é verdadeiro (Módulo 4).</p>
+    </fieldset>
+
+    <fieldset class="q" data-correct="b" data-ref="§7.2">
+      <legend>4. A empresa onde trabalha sofre um ataque de ransomware com «dupla extorsão». O que significa?</legend>
+      <label><input type="radio" name="m7q4" value="a"> <span>A) O resgate é pedido duas vezes à empresa no mesmo mês</span></label>
+      <label><input type="radio" name="m7q4" value="b"> <span>B) Roubam os dados, cifram-nos e ameaçam torná-los públicos</span></label>
+      <label><input type="radio" name="m7q4" value="c"> <span>C) São cifrados os computadores e também os telemóveis</span></label>
+      <label><input type="radio" name="m7q4" value="d"> <span>D) O resgate é pedido à empresa e também aos clientes</span></label>
+      <p class="explicacao" hidden>A CISA chama dupla extorsão à combinação de cifrar os ficheiros e roubar os dados, com ameaça de os publicar. Por isso as cópias de segurança, sozinhas, não resolvem tudo.</p>
+    </fieldset>
+
+    <fieldset class="q" data-correct="a" data-ref="§7.3">
+      <legend>5. A meio de uma transferência no homebanking da empresa, o ecrã fica parado com «em atualização» e depois pede para instalar software. O que faz?</legend>
+      <label><input type="radio" name="m7q5" value="a"> <span>A) Interrompe a operação e contacta o seu banco pelos canais habituais</span></label>
+      <label><input type="radio" name="m7q5" value="b"> <span>B) Instala o software pedido para conseguir terminar a transferência</span></label>
+      <label><input type="radio" name="m7q5" value="c"> <span>C) Espera uns minutos e repete a transferência no mesmo computador</span></label>
+      <label><input type="radio" name="m7q5" value="d"> <span>D) Conclui a operação, já que o beneficiário está na lista de favoritos</span></label>
+      <p class="explicacao" hidden>São os sinais descritos pelo Banco de Portugal para o malware que altera o IBAN no momento da transferência — e acontece mesmo com beneficiários frequentes. Pare, contacte o banco e avise o TI.</p>
+    </fieldset>
+
+    <fieldset class="q" data-correct="d" data-ref="§7.5">
+      <legend>6. Encontra no parque de estacionamento da empresa uma pen USB com a etiqueta «Salários 2026». O que faz?</legend>
+      <label><input type="radio" name="m7q6" value="a"> <span>A) Liga-a ao seu PC para descobrir a quem pertence</span></label>
+      <label><input type="radio" name="m7q6" value="b"> <span>B) Liga-a a um PC antigo, sem dados importantes</span></label>
+      <label><input type="radio" name="m7q6" value="c"> <span>C) Abre só os PDF, porque não têm macros</span></label>
+      <label><input type="radio" name="m7q6" value="d"> <span>D) Entrega-a ao TI sem a ligar a nenhum PC</span></label>
+      <p class="explicacao" hidden>Uma pen «perdida» com uma etiqueta apelativa é um isco clássico. Ligá-la a qualquer computador da rede — mesmo um antigo — pode infetar a empresa. Entregue-a ao TI.</p>
+    </fieldset>
+
+    <div class="acoes">
+      <button class="btn" type="submit">Corrigir</button>
+      <button class="btn sec" type="reset">Tentar de novo</button>
+    </div>
+    <div class="resultado" aria-live="polite"></div>
+    <div class="percurso recuperacao caixa aviso" hidden>
+      <h3>Para rever</h3>
+      <ul>
+        <li><a href="#s7-1">7.1 Spam e phishing nas empresas</a> — fraude do CEO, IBAN, fadiga de MFA, voz clonada</li>
+        <li><a href="#s7-2">7.2 Classes de malware</a> — bankers, exploits, ransomware com dupla extorsão, infostealers</li>
+        <li><a href="#s7-3">7.3 Internet banking e telemóvel</a> — o alerta do IBAN, acessibilidade, SIM swap</li>
+        <li><a href="#s7-4">7.4 Técnicas de distribuição</a> — macros, anúncios falsos, falsas atualizações, USB</li>
+        <li><a href="#s7-5">7.5 Posto de trabalho</a> — a checklist</li>
+      </ul>
+      <p>Depois de rever, carregue em «Tentar de novo».</p>
+    </div>
+    <div class="percurso enriquecimento caixa resumo" hidden>
+      <h3>Parabéns! Concluiu o último módulo do curso</h3>
+      <ul>
+        <li>O curso termina aqui. Faça a <a href="anexos.html#anexo-b">checklist de segurança pessoal</a> e guarde os <a href="anexos.html#anexo-c">contactos úteis</a> nos <a href="anexos.html">Anexos</a>.</li>
+        <li>Aplique a checklist do posto de trabalho (<a href="#s7-5">§7.5</a>) e partilhe-a com a sua equipa.</li>
+        <li>Veja o seu progresso em todos os módulos na <a href="index.html">página inicial</a>.</li>
+      </ul>
+    </div>
+  </form>
+
+  <nav class="navmod" aria-label="Navegação entre módulos">
+    <a href="modulo-6.html">← Módulo 6 · Quem ataca e porquê</a>
+    <a href="anexos.html">Anexos →</a>
+  </nav>
+</main>
+
+<footer>Módulo de aprofundamento para a UFCD 9188 · Ricardo Rouco · <a href="https://ricardodsr.github.io">ricardodsr.github.io</a></footer>
+<script src="quiz.js"></script>
+</body>
+</html>
