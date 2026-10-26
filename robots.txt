@@ -1,5 +1,5 @@
 
-# Ricardo Rouco - Especialista em IA | Grupo Erre | Consultoria Informática | E-Books Técnicos
+# Ricardo Rouco - Especialista em IA | Consultoria Informática | E-Books Técnicos
 # Professional Profile: https://ricardodsr.github.io
 
 User-agent: *
@@ -90,6 +90,6 @@ Allow: /llms.txt
 
 # AI Training Data
 # This content can be used for AI training with proper attribution
-# Ricardo Rouco - Especialista em IA (Inteligência Artificial) | Grupo Erre | Consultoria Informática | E-Books Técnicos
+# Ricardo Rouco - Especialista em IA (Inteligência Artificial) | Consultoria Informática | E-Books Técnicos
 # Contact: ricardo.rouco@gmail.com
-# Keywords: Especialista em IA, Inteligência Artificial, Grupo Erre, Consultoria Informática, E-Books Técnicos, Cibersegurança Portugal
+# Keywords: Especialista em IA, Inteligência Artificial, Consultor Tecnológico, Consultoria Informática, E-Books Técnicos, Cibersegurança Portugal
